@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Oswald:wght@400;700&family=Rampart+One&display=swap');
 :root {
-   /* --fuenteHeading: 'PT Sans', sans-serif;
-    --fuenteParrafos: 'Open Sans', sans-serif;*/
+    --fuente: 'Nanum Gothic', sans-serif;
 
     --navegation: #003057;
     --blue1: #00A7C7;
@@ -20,14 +20,26 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+h1{
+    font-family:  'Oswald', sans-serif;
+}
+h5{
+    font-size: 2rem;
+    color: var(--greyletter)
+}
+h6{
+    font-size: 1.5rem;
+}
 body{
-    /*font-family: var(--fuenteParrafos);*/
+    font-family: var(--fuente);
     line-height: 2;
-    background-color: var(--white);
+    background-color:#e7ebda;
+}
+.centro{
+    text-align: center;
 }
 .contenedor{
-    width: min(90%, 120rem);
-    margin: 0 auto;
+    width: min(90%, 115rem); 
 }
 .titulo{
     color: var(--white);
@@ -37,10 +49,13 @@ body{
  
 }
 nav{
-    background-color: var(--navegation);
+    background-color: var(--greyletter);
 }
 a{
     text-decoration: none;
+}
+hr{
+    background-color: var(--white);
 }
 .centro{
     text-align: center;
@@ -51,13 +66,13 @@ a{
     align-items: center;
 }
 .logo_cont{
-    margin-left: 6rem;
+    margin-left: 8rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 .separacion{
     margin-left: 5rem;
-    color: var(--blue2)
+    color: var(--blue1);
 }
 .boton_salir{
     text-decoration: none;
@@ -65,22 +80,38 @@ a{
     padding-bottom:1rem;
     padding-left:3rem;
     padding-right: 3rem;
-    background-color:var(--yellow);
+    background-color:var(--blue1);
     color: var(--black);
     border-radius:2rem;
 }
 footer{
     background-color: var(--green);
     margin: 0rem;
-    padding: 0rem;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--greyletter);
 }
 .menu_izquierdo{
-    background-color: var(--blue1);
+    background-color: var(--navegation);
     display:block;
     float:left;
-    min-height: 100vh
+    min-height: 151.8vh;
+    margin-right: 2rem;
+   
+}
+.menu_derecho{
+    background-color: var(--navegation);
+    display:block;
+    float:right;
+    min-height: 151.8vh;
+    margin-left: 2rem;
+    
 }
 .menu2{
+    width: 20rem;
+}
+.menu3{
     width: 25rem;
 }
 .menu2_separacion{
@@ -90,6 +121,34 @@ footer{
     margin-bottom: 0;
     list-style: none;
 }
+.user{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: var(--blue2);
+}
+.paginas{
+    margin-left: 1rem;
+    font-size: 2rem;
+    color: var(--blue2);
+}
+.nombre{
+    text-align: center;
+    color: var(--yellow);
+    font-size: 2rem;
+}
+.pagina{
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    padding-left: 2rem;
+}
+.linea{
+    background-color: #000000;
+}
+.cards{
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
 ul{
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -97,10 +156,37 @@ ul{
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 }
+.clases{
+    padding-top: 1rem;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--greyletter);
+}
+.img_clase{
+    width: 41.2rem;
+    height: 20rem;
+}
+.calendario{
+    width: 23rem;
+    height: 23rem;
+}
+.sombra{
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.horario{
+    font-size: 1.5rem;
+    color: var(--white);
+}
+.icono_footer{
+    font-size: 2rem;
+    color: var(--navegation);
+    margin-right: 1.5rem;
+}
 #logo{
-    height: 7rem;
+    height:6rem;
 }
 #menu_icono{
     margin-right: 6rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
+
