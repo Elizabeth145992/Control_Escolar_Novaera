@@ -13,12 +13,18 @@
     --greycalendar: #969FAA; 
     --black: #000000;
 }
-html {
-    box-sizing: border-box;
+body, html{
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+  flex-direction: column;
+    }
+html { 
     font-size: 62.5%; /* 1 rem = 10px */    
 }
 *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 h1{
     font-family:  'Oswald', sans-serif;
@@ -30,16 +36,12 @@ h5{
 h6{
     font-size: 1.5rem;
 }
-body{
+body{  
     font-family: var(--fuente);
-    line-height: 2;
     background-color:#e7ebda;
 }
 .centro{
     text-align: center;
-}
-.contenedor{
-    width: min(90%, 115rem); 
 }
 .titulo{
     color: var(--white);
@@ -96,17 +98,15 @@ footer{
     background-color: var(--navegation);
     display:block;
     float:left;
-    min-height: 151.8vh;
     margin-right: 2rem;
-   
+    height: 100%;
 }
 .menu_derecho{
-    background-color: var(--navegation);
+    background-color:  var(--navegation);
     display:block;
     float:right;
-    min-height: 151.8vh;
-    margin-left: 2rem;
-    
+    margin-left: 2rem;  
+    height: 100%;  
 }
 .menu2{
     width: 20rem;
@@ -188,5 +188,70 @@ ul{
 #menu_icono{
     margin-right: 6rem;
     font-size: 2rem;
+}
+.margen{
+    margin: 0%;
+    padding: 0%;
+}
+/*-----------Media-----------------------------*/
+@media (max-width: 768px) {
+    .menu2{
+        width: 15rem;
+    }
+    .esconder{
+        display: none;
+    }
+    .nombre{
+        margin: 0%;
+        padding: 0%;
+        font-size: 1.5rem;
+    }
+    .centro{
+        text-align: center;
+    }
+    .img_clase{
+        width:16.5rem;
+        height: 20rem;
+    }
+    .separacion{
+        margin-left: 1rem;
+    }
+    
+}
+@media (min-width: 768px){
+    .esconder2{
+        display: none;
+    }
+}
+@media (min-width: 480px){
+    .esconder3{
+        display: none;
+    }
+}
+@media (max-width: 480px){
+    .esconder4{
+        display: none;
+    }
+    .separacion{
+        margin-left: 1rem;
+    }
+    .logo_cont{
+        margin-left: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    #menu_icono{
+        font-size: 2rem;
+    }
+    .boton_salir{
+        text-decoration: none;
+        padding-top:0.5rem;
+        padding-bottom:0.5rem;
+        padding-left:2rem;
+        padding-right: 2rem;
+        background-color:var(--blue1);
+        color: var(--black);
+        border-radius:1rem;
+    }
 }
 

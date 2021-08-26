@@ -1,17 +1,83 @@
 <body>
-    <aside class="menu_izquierdo">
+    <nav>  
+        <div class="menu"> 
+            <div class="logo_cont">
+        <img id="logo" src="../img/instituto-novaera-logo (1).png" alt="Novaera"></div>
+        <h1 class="titulo centro">Instituto Novaera</h1>
+        <div>
+        <ul id="menu_icono">
+            <a href="#"><i class="separacion fas fa-user"></i></a>
+            <a href="#"><i class="separacion fas fa-bell"></i></a>
+            <a href="#"><i class="separacion fas fa-envelope"></i></a>
+            <a href="#" class="separacion boton_salir">Salir</a>
+        </ul>
+    </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid margen">
+        <button class="esconder3 btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#esconder3" aria-expanded="false" aria-controls="esconder3">
+            Menú
+          </button>
+
+          <aside class="menu_izquierdo centro esconder4" >
+            <ul class="menu2 menu2_separacion">
+                <span class="nombre centro"><i class="esconder user fas fa-user"></i>Daniela García</span>
+                <span class="nombre centro">Alumno</span><br>
+                <hr>
+            <li><a href="#"><i class="paginas esconder fas fa-chart-line"></i>
+                <span  class="pagina">Página Principal</span>
+                
+                <hr>
+            </a></li>
+            <br>
+            <p>
+            <button class="esconder2 btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#esconder" aria-expanded="false" aria-controls="esconder">
+              Ver calendario
+            </button>
+          </p>
+            </ul>
+        </aside>
+
+    <aside id="esconder3" class="collapse menu_izquierdo centro" >
         <ul class="menu2 menu2_separacion">
-            <span class="nombre"><i class="user fas fa-user"></i>Daniela García</span>
-            <span class="nombre">Alumno</span><br>
+            <span class="nombre centro"><i class="esconder user fas fa-user"></i>Daniela García</span>
+            <span class="nombre centro">Alumno</span><br>
             <hr>
-        <li><a href="#"><i class="paginas fas fa-chart-line"></i>
+        <li><a href="#"><i class="paginas esconder fas fa-chart-line"></i>
             <span  class="pagina">Página Principal</span>
             
             <hr>
         </a></li>
+        <br>
+        <p>
+        <button class="esconder2 btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#esconder" aria-expanded="false" aria-controls="esconder">
+          Ver calendario
+        </button>
+      </p>
         </ul>
     </aside>
-    <aside class="menu_derecho">
+  
+    
+        <aside class="menu_derecho esconder" id="div2">
+            <ul class="menu3 menu2_separacion">
+                <li class="centro">
+                <span class="horario pagina">Horarios</span> 
+                <i class="paginas fas fa-calendar"></i>
+                <hr>
+                <img class="calendario" src="../img/calendar.jpg" alt="">
+                <br><br><br>
+            </li>
+            <li class="centro">
+                <span class="horario pagina">Calendario</span>
+                <i class="paginas fas fa-calendar-alt"></i>
+                <hr>
+                <img class="calendario" src="../img/calendar.jpg" alt="">
+            </li>
+            </ul>
+        </aside>
+    
+    <aside id="esconder" class="menu_derecho collapse" >
         <ul class="menu3 menu2_separacion">
             <li class="centro">
             <span class="horario pagina">Horarios</span> 
@@ -28,19 +94,10 @@
         </li>
         </ul>
     </aside>
-    <nav>  
-        <div class="menu"> 
-            <div class="logo_cont">
-        <img id="logo" src="../img/instituto-novaera-logo (1).png" alt="Novaera"></div>
-        <h1 class="titulo centro">Instituto Novaera</h1>
-        <ul id="menu_icono">
-            <a href="#"><i class="separacion fas fa-user"></i></a>
-            <a href="#"><i class="separacion fas fa-bell"></i></a>
-            <a href="#"><i class="separacion fas fa-envelope"></i></a>
-            <a href="#" class="separacion boton_salir">Salir</a>
-        </ul>
-        </div>
-    </nav>
+
+
+        
+   
     
            
             
