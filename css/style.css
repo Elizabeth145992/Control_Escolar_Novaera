@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Oswald:wght@400;700&family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Hind+Madurai:wght@300;400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Hind+Madurai:wght@300;400;700&family=Raleway:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 :root {
-    --fuente: 'Nanum Gothic', sans-serif;
+    --fuente: 'Raleway', sans-serif;
+    --titulo: 'Space Grotesk', sans-serif;;
 
     --navegation: #003057;
     --blue1: #00A7C7;
@@ -18,7 +20,9 @@ body, html{
     margin: 0%;
     padding: 0%;
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-family: var(--fuente);
     }
 html { 
     font-size: 62.5%; /* 1 rem = 10px */    
@@ -27,11 +31,14 @@ html {
     box-sizing: border-box;
 }
 h1{
-    font-family:  'Oswald', sans-serif;
+    font-family: var(--titulo);
+    font-weight: 700;
 }
 h5{
     font-size: 2rem;
-    color: var(--greyletter)
+    color: var(--greyletter);
+    font-family: var(--fuente);
+    font-weight: 700;
 }
 h6{
     font-size: 1.5rem;
@@ -59,6 +66,9 @@ a{
 hr{
     background-color: var(--white);
 }
+li{
+    list-style: none;
+}
 .centro{
     text-align: center;
 }
@@ -77,14 +87,37 @@ hr{
     color: var(--blue1);
 }
 .boton_salir{
-    text-decoration: none;
     padding-top:1rem;
     padding-bottom:1rem;
-    padding-left:3rem;
-    padding-right: 3rem;
+    padding-left:2rem;
+    padding-right: 2rem;
     background-color:var(--blue1);
-    color: var(--black);
+    color: var(--white);
     border-radius:2rem;
+    border-color: var(--blue1);
+}
+.boton_salir:hover{
+    background-color:var(--green);
+    border-color: var(--green);
+}
+.btn_new{
+    font-size: 2rem;
+}
+.btn_new:hover{
+    background-color:var(--navegation);
+    border-color: var(--navegation);
+}
+.boton_guardar{
+    font-size: 2rem;
+    border-radius: 1rem;
+}
+.boton_guardar:hover{
+    background-color:var(--green);
+    border-color: var(--green);
+}
+.btn_table{
+    font-size: 2rem;
+    border-radius: 1rem;
 }
 footer{
     background-color: var(--green);
@@ -92,7 +125,7 @@ footer{
     padding: 1rem 0;
     text-align: center;
     font-size: 1rem;
-    color: var(--greyletter);
+    color: var(--black);
 }
 .menu_izquierdo{
     background-color: var(--navegation);
@@ -182,6 +215,63 @@ ul{
     color: var(--navegation);
     margin-right: 1.5rem;
 }
+.icono_submenu{
+    color: var(--green);
+    margin-left: 0.5rem;
+}
+.azul{
+    margin-top: 0%;
+    background-color: var(--green);
+}
+.submenu{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0%;
+    color: var(--blue1);
+}
+.actividad{
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--green);
+}
+.actividad_estilo{
+    font-size: 2rem;
+}
+.pestana{
+    margin-left: 0.5rem;
+}
+.texto_actividad{
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.margen{
+    margin: 0%;
+    padding: 0%;
+}
+.tamano{
+    font-size: 4rem;
+}
+.input_tamano{
+    width: 63%;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+.form_space label{
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .check_color{
+      font-size: 2.5rem;
+      border-color: var(--yellow);
+  }
+  .separar_card{
+      margin-bottom: 4rem;
+  }
+  .alinear{
+      text-align: right;
+  }
 #logo{
     height:6rem;
 }
@@ -189,9 +279,51 @@ ul{
     margin-right: 6rem;
     font-size: 2rem;
 }
-.margen{
-    margin: 0%;
-    padding: 0%;
+#menu{
+    font-size: 2rem;
+}
+/*-------------Login-----------------------*/
+.nav_login{
+    background-color: var(--navegation);
+}
+.body_login{
+    background-color: var(--blue1);
+}
+.icono_login{
+    font-size: 3.5rem;
+    color: var(--green);
+    margin-right: 2.5rem;
+}
+.contenedor_login{
+    background-color: var(--blue2);
+    
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5rem;
+}
+.input_tamano_login{
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+.restablecer{
+    font-size: 2rem;
+}
+.imag_largo{
+    height: 91%;
+}
+#logo_login{
+    height: 8rem;
+}
+#icono.icono_login{
+    color: var(--yellow);
+}
+.esquinas{
+    border-radius: 1rem;
+}
+.margenes{
+    
+    margin-top: 2rem;
 }
 /*-----------Media-----------------------------*/
 @media (max-width: 768px) {
