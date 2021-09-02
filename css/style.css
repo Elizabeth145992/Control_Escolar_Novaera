@@ -282,6 +282,13 @@ ul{
 #menu{
     font-size: 2rem;
 }
+.carac_calendar{
+    background-color: #C5D9FD;
+}
+#calendar {
+    max-width: 1100px;
+    height: 48rem;
+  }
 /*-------------Login-----------------------*/
 .nav_login{
     background-color: var(--navegation);
