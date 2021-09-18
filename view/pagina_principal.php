@@ -4,8 +4,8 @@ include("principal.html");
 ?>
     
         <h5 class="clases">Clases: 3° Grado de Secundaria</h5>
+        <div class="margen_body">
             <hr class="linea">
-
             <!--Cards para ver las clases-->
             <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
@@ -14,7 +14,7 @@ include("principal.html");
       <div class="card-body">
         <h5 class="card-title">Matemáticas 3° Grado</h5>
         <h6>Ing. Ana Ruiz</h6>
-        <a href="#" class="btn btn-primary btn_new">Ver</a>  
+        <a href="#" class="btn btn-primary boton_guardar">Ver</a>  
     </div>
     </div>
   </div>
@@ -25,7 +25,7 @@ include("principal.html");
         <h5 class="card-title">Química 3° Grado</h5>
         <h6>Ing. Ana Ruiz</h6>
         <br>
-        <a href="#" class="btn btn-primary btn_new">Ver</a>  
+        <a href="#" class="btn btn-primary boton_guardar">Ver</a>  
     </div>
     </div>
   </div>
@@ -36,7 +36,7 @@ include("principal.html");
         <h5 class="card-title">Inglés 3° Grado</h5>
         <h6>Ing. Ana Ruiz</h6>
         <br>
-        <a href="#" class="btn btn-primary btn_new">Ver</a>  
+        <a href="#" class="btn btn-primary boton_guardar">Ver</a>  
     </div>
     </div>
   </div>
@@ -47,7 +47,7 @@ include("principal.html");
         <h5 class="card-title">Artes 3° Grado</h5>
         <h6>Ing. Ana Ruiz</h6>
         <br>
-        <a href="#" class="btn btn-primary btn_new">Ver</a>  
+        <a href="#" class="btn btn-primary boton_guardar">Ver</a>  
     </div>
     </div>
   </div>
@@ -58,7 +58,7 @@ include("principal.html");
         <h5 class="card-title">Artes 3° Grado</h5>
         <h6>Ing. Ana Ruiz</h6>
         <br>
-        <a href="#" class="btn btn-primary btn_new">ver</a>  
+        <a href="#" class="btn btn-primary boton_guardar">ver</a>  
     </div>
     </div>
   </div>
@@ -72,12 +72,12 @@ include("principal.html");
   <div class="card-body">
     <h6 class="card-title">3° Grado de Secundaria</h6>
     <br>
-    <a href="#" class="btn btn-primary btn_new">Ver clases</a>
+    <a href="#" class="btn btn-primary boton_guardar">Ver clases</a>
   </div>
 </div>
 </div>
 <br><br>
-
+</div>
 <?php 
 include("footer.html");
 ?>

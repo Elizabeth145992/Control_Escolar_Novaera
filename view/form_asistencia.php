@@ -3,7 +3,7 @@ include("header.php");
 include("principal.html");
 ?>
 
-<div>
+<div class="margen_body">
     <h5 class="clases">Toma de asistencia</h5>
     <hr class="linea">
     <br><br>
@@ -20,7 +20,7 @@ include("principal.html");
       <table class="table table-bordered" id="dataTableAlumnos" width="100%" cellspacing="0">
         <thead id="tabla">
           <tr>
-            <th>RFC</th>
+            <th>Matrícula</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Nombre</th>
@@ -32,6 +32,13 @@ include("principal.html");
           <td>Elizabeth</td>
           <td>
           <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
+          <label for="">Normal</label><br>
+          <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
+          <label for="">Justificada</label><br>
+          <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
+          <label for="">Sin justificación</label><br>
+          <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
+          <label for="">Con retraso</label>
           </td>
         </thead>
                 </table>

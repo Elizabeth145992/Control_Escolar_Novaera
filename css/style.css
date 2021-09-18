@@ -14,6 +14,7 @@
     --greyletter: #5A6978;
     --greycalendar: #969FAA; 
     --black: #000000;
+    --navegacion2: #273746;
 }
 body, html{
     height: 100%;
@@ -58,7 +59,7 @@ body{
  
 }
 nav{
-    background-color: var(--greyletter);
+    background-color: var(--navegacion2);
 }
 a{
     text-decoration: none;
@@ -111,9 +112,17 @@ li{
     font-size: 2rem;
     border-radius: 1rem;
 }
+.boton_cancelar{
+    font-size: 2rem;
+    border-radius: 1rem;
+}
 .boton_guardar:hover{
     background-color:var(--green);
     border-color: var(--green);
+}
+.boton_cancelar:hover{
+    background-color:red;
+    border-color: red;
 }
 .btn_table{
     font-size: 2rem;
@@ -272,6 +281,43 @@ ul{
   .alinear{
       text-align: right;
   }
+  .margen_body{
+      margin-right: 2rem;
+  }
+  .margen_abajo{
+      margin-bottom: 24.5rem;
+  }
+  .margen_form{
+      width: 150%;
+  }
+.hola{
+    align-items: center;
+}
+.img-profile{
+    height: 4rem;
+  width: 4rem;
+}
+.rounded-circle{
+    border-radius: 50% !important;
+}
+.img-profile2{
+    height: 30rem;
+  width: 30rem;
+}
+.badge-counter, .badge-counter{
+    position:absolute;
+    transform:scale(.7);
+    transform-origin:top right;
+    right:1.5rem;
+    margin-top:-.25rem;
+}
+.badge-danger{
+    color:#fff;
+    background-color: red;
+}
+.sin_borde{
+    border: none;
+}
 #logo{
     height:6rem;
 }
@@ -283,31 +329,43 @@ ul{
     font-size: 2rem;
 }
 .carac_calendar{
-    background-color: #C5D9FD;
+    background-color: #EFEB9A;
+    margin: 2rem;
+    margin-left: 25rem;
 }
 #calendar {
     max-width: 1100px;
-    height: 48rem;
+    margin: 0 auto;
   }
+  #salir:hover{
+      color: var(--green);
+      font-size: 3rem;
+  }
+  
 /*-------------Login-----------------------*/
 .nav_login{
     background-color: var(--navegation);
 }
 .body_login{
     background-color: var(--blue1);
+    background-image: url(../img/B3.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .icono_login{
     font-size: 3.5rem;
-    color: var(--green);
+    color: var(--blue1);
     margin-right: 2.5rem;
 }
 .contenedor_login{
-    background-color: var(--blue2);
-    
+    background-color:rgba(60, 87, 134, 0.7);
     align-items: center;
     justify-content: center;
     margin: auto;
     margin-top: 5rem;
+    width: 40%;
 }
 .input_tamano_login{
     border-radius: 0.5rem;
@@ -315,6 +373,13 @@ ul{
 }
 .restablecer{
     font-size: 2rem;
+    color: var(--white);
+}
+.restablecer:hover{
+    color: var(--green);
+}
+.btn_login:hover{
+    font-size: 2.5rem;
 }
 .imag_largo{
     height: 91%;
@@ -323,7 +388,7 @@ ul{
     height: 8rem;
 }
 #icono.icono_login{
-    color: var(--yellow);
+    color: var(--green);
 }
 .esquinas{
     border-radius: 1rem;
@@ -331,6 +396,9 @@ ul{
 .margenes{
     
     margin-top: 2rem;
+}
+.img_login{
+    height: 10rem;
 }
 /*-----------Media-----------------------------*/
 @media (max-width: 768px) {
@@ -355,18 +423,24 @@ ul{
     .separacion{
         margin-left: 1rem;
     }
-    
+    .carac_calendar{
+        margin-left: 20rem;
+    }
 }
 @media (min-width: 768px){
     .esconder2{
         display: none;
     }
-}
-@media (min-width: 480px){
     .esconder3{
         display: none;
     }
+    
 }
+/*@media (min-width: 480px){
+    .esconder3{
+        display: none;
+    }
+}*/
 @media (max-width: 480px){
     .esconder4{
         display: none;
@@ -391,6 +465,9 @@ ul{
         background-color:var(--blue1);
         color: var(--black);
         border-radius:1rem;
+    }
+    .carac_calendar{
+        margin-left: 20rem;
     }
 }
 

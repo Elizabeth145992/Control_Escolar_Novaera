@@ -3,6 +3,7 @@ include("header.php");
 include("principal.html");
 ?>
 <h5 class="clases">Captura de Calificaciones Parciales</h5>
+<div class="margen_body margen_abajo">
 <hr class="linea">
 <br><br>
 <div>
@@ -23,6 +24,7 @@ include("principal.html");
             <th>Capturar</th>
             <th>Editar Calif.</th>
           </tr>
+          <tr>
           <td>1</td>
           <td>Cruz</td>
           <td>Ramírez</td>
@@ -30,19 +32,21 @@ include("principal.html");
           <td>---</td>
           <td>
               <div class="centro">
-          <button class="btn btn-success btn_table"><i class="far fa-keyboard"></i></button>
+          <button id="editar" class="btn btn-primary btn_table boton_guardar"><i class="far fa-keyboard"></i></button>
           </div>
+          </td>
           <td>
               <div class="centro">
           <button class="btn btn-warning btn_table"><i class="far fa-edit"></i></button>
           </div>
           </td>
-          </td>
+          </tr>
         </thead>
                 </table>
               </div>
             </div>
         </div>
+</div>
 </div>
 <?php 
 include("footer.html");

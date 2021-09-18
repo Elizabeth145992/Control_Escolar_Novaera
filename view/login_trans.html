@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/220ce73536.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Ingresar</title>
+</head>
+<body class="body_login">
+    <header>
+        <nav class="nav_login">  
+        <div class="menu"> 
+            <div class="logo_cont">
+        <img id="logo_login" src="../img/instituto-novaera-logo (1).png" alt="Novaera"></div>
+        <h1 class="titulo centro">Instituto Novaera</h1>
+        <div>
+        <ul id="menu_icono">
+         <a href="#"><i class="icono_login fab fa-facebook-square"></i></a>
+         <a href="#"><i class="icono_login fab fab fa-instagram-square"></i></a>
+         <a href="#"><i class="icono_login fab fas fa-globe"></i></a>
+        </ul>
+    </div>
+        </div>
+    </nav>
+    </header>
+    <main>
+        <div class="container contenedor_login borde sombra esquinas">
+            <br>
+            <div class="centro">
+            <img class="img_login" src="../img/instituto-novaera-logo (1).png" alt="">
+        </div>
+        <br><br>
+                    <h2 style="color: #273746;" class="centro">¡Ingrese con su cuenta institucional!</h2>
+                    <br>
+                    <form class="form_space">
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Institucional</label>
+                            <div class="input-group mb-2">
+                              <i class="icono_login fas fa-envelope-open-text" id="icono"></i>
+                            <input type="email" class="form-control input_tamano_login" id="correo" placeholder="elopez@novaera.udu.m" required>
+                          </div>
+                      </div>
+                          <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group mb-2">
+                              <i class="icono_login fas fa-key" id="icono"></i>
+                            <input type="password" class="form-control input_tamano_login" id="contrasena" required>
+                          </div>
+                      </div>
+                          <br><br>
+                          <div class="centro">
+                          <button type="submit" class="btn btn-primary boton_guardar btn_login">Ingresar</button>
+                      </div>
+                          <br><br>
+                          <div class="centro">
+                          <a class="restablecer" href="#">¿Olvidaste tu contraseña?</a>
+                      </div>
+                          <br><br>
+                      </form>
+                
+             
+        </div>
+        <br><br>
+        <br><br>
+    </main>
+</body>
+</html>

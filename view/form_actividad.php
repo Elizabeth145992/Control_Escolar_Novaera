@@ -2,11 +2,18 @@
 include("header.php");
 include("principal.html");
 ?>
-<div>
+
 <h5 class="clases">Registro de actividades</h5>
+
 <hr class="linea">
+
+<div class="container">
+  <div class="row justify-content-md-center">
+  <div class="col-1">
+    </div>
+    <div class="col-8">
+<form action="" class="margen_form">
 <div class="form_space">
-<form>
   <div class="mb-3">
     <label for="actividad_nombre" class="form-label">Nombre de la actividad</label>
     <input type="text" class="form-control input_tamano" id="actividad" name="actividad" required>
@@ -33,9 +40,12 @@ include("principal.html");
   <button type="submit" class="btn btn-primary boton_guardar">Guardar</button>
   </div>
   <br><br>
+  </div>
 </form>
 </div>
 </div>
+</div>
+
 
 <?php 
 include("footer.html");

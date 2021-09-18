@@ -3,6 +3,7 @@ include("header.php");
 include("principal.html");
 ?>
 <h5 class="clases">Calificaciones Generales</h5>
+<div class="margen_body margen_abajo">
 <hr class="linea">
 <br><br>
 <div>
@@ -45,6 +46,7 @@ include("principal.html");
         </div>
         <br><br><br>
         
+</div>
 </div>
 <?php 
 include("footer.html");
