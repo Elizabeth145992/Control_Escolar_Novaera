@@ -9,7 +9,7 @@ include("principal.html");
 
 <div class="container">
   <div class="row justify-content-md-center">
-  <div class="col-1">
+  <div class="col-3">
     </div>
     <div class="col-8">
 <form action="" class="margen_form">
