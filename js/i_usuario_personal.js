@@ -1,5 +1,5 @@
-/* Este archi servirá para la comunicación del cliente al lenguaje del servidor para la inserción
-de un nuevo usuario de tipo Alumno*/
+/* Este archivo servirá para la comunicación del cliente al lenguaje del servidor para la inserción
+de un nuevo usuario de tipo Personal Escolar*/
 
 $(document).ready(function() {
     $.ajax({
@@ -34,22 +34,21 @@ function guardarUsuario(){
     var c9 = $('#numero').val();
     var c10 = $('#postal').val();
     var c12 = $('#rfc').val();
-    var c13 = $('#nivel').val();
-    var c14 = $('#grado').val();
-    var c15 = $('#grupo').val();
-    var c16 = $('#colonia').val();
+    var c13 = $('#puesto').val();
+    var c14 = $('#rol').val();
+    var c15 = $('#colonia').val();
 
-    $.post("../php/i_usuario_alumno.php",{
+    $.post("../php/i_usuario_personal.php",{
         nombre:c1, paterno:c2, materno:c3, correo:c4, tele:c11, genero:c5, estado:c6, municipio:c7,
-        calle:c8, numero:c9, postal:c10, rfc:c12, nivel:c13, grado:c14, grupo:c15, colonia:c16}, 
+        calle:c8, numero:c9, postal:c10, rfc:c12, puesto:c13, rol:c14, colonia:c15}, 
         function(respuesta1){
         if(respuesta1=="Error"){
-            document.getElementById('mensaje').innerHTML="No se pudo guardar el nuevo alumno";
+            document.getElementById('mensaje').innerHTML="No se pudo guardar el nuevo personal escolar";
             $('#modal_falla').modal('show');
         }
         else{
             var password = respuesta1;
-            document.getElementById('mensaje').innerHTML="Se guardo correctamente el alumno";
+            document.getElementById('mensaje').innerHTML="Se guardo correctamente el personal escolar";
             $('#modal_falla').modal('show');
             $("#modal_falla").on('hidden.bs.modal', function () {
             recargarpagina()});;
@@ -58,6 +57,6 @@ function guardarUsuario(){
 }
 
 function recargarpagina() {
-     var pagina ="form_usuario_alumno.php?"; 
+     var pagina ="form_usuario_personal.php?"; 
         location.href=pagina;
 }

@@ -1,11 +1,11 @@
 <?php 
 include("header.php");
-echo '<script src="../js/i_usuario_padre.js"></script>';
+echo '<script src="../js/i_usuario_personal.js"></script>';
 include("principal.html");
 
 ?>
 
-<h5 class="clases">Registro de Padre/Tutor</h5>
+<h5 class="clases">Registro de Personal Escolar</h5>
 <div class="margen_body">
 <hr class="linea">
 
@@ -13,7 +13,7 @@ include("principal.html");
 <form action="javascript:guardarUsuario();" autocomplete="off">
 <div class="form_space">
 <div class="row g-3">
-<div class="col-2"></div>
+<div class="col-1"></div>
 <div class="col">
   <br><br>
   <h5>Datos personales</h5>
@@ -37,10 +37,27 @@ include("principal.html");
     <option selected>Seleccione</option>
     <option value="1">Femenino</option>
     <option value="2">Masculino</option>
-    <option value="2">Otro</option>
+    <option value="3">Otro</option>
 </select>
 </div>
+<div class="col">
+    <br><br>
+    <h5>Datos Escolares</h5>
+    <label for="RFC" class="form-label">RFC</label>
+    <input type="text" class="form-control input_tamano" id="rfc" name="rfc" pattern="[0-9]+" minlength="6">
 
+    <label for="puesto" class="form-label">Puesto/Área de trabajo</label>
+    <input type="text" class="form-control input_tamano" id="puesto" name="puesto" maxlength="100"  pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="Solamente se permiten letras" >
+
+    <label for="rol" class="form-label">Rol en el sistema</label>
+  <select id="rol" class="form-select input_tamano" aria-label="Default select example" required>
+    <option selected>Seleccione</option>
+    <option value="1">Docente</option>
+    <option value="2">Supervisor</option>
+    <option value="4">Control Escolar</option>
+    <option value="5">Administrador del sistema</option>
+</select>
+</div>
 <div class="col">
 <br><br>
   <h5>Dirección</h5>

@@ -33,10 +33,11 @@ function guardarUsuario(){
     var c8 = $('#calle').val();
     var c9 = $('#numero').val();
     var c10 = $('#postal').val();
+    var c12 = $('#colonia').val();
 
     $.post("../php/i_usuario_padre.php",{
         nombre:c1, paterno:c2, materno:c3, correo:c4, tele:c11, genero:c5, estado:c6, municipio:c7,
-        calle:c8, numero:c9, postal:c10}, 
+        calle:c8, numero:c9, postal:c10, colonia:c12}, 
         function(respuesta1){
         if(respuesta1=="Error"){
             document.getElementById('mensaje').innerHTML="No se pudo guardar el nuevo usuario";
@@ -45,7 +46,7 @@ function guardarUsuario(){
         else{
             var password = respuesta1;
             document.getElementById('mensaje').innerHTML="Se guardo correctamente el usuario";
-            $('#modal_falla').modal('show');
+            $('#alumnos').modal('show');
             $("#modal_falla").on('hidden.bs.modal', function () {
             recargarpagina()});;
         }

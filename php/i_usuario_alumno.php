@@ -21,8 +21,9 @@ $rfc = $_POST['rfc'];
 $nivel = $_POST['nivel'];
 $grado = $_POST['grado'];
 $grupo = $_POST['grupo'];
+$colonia = $_POST['colonia'];
 
-$sql1 = "CALL insert_direccion('$estado', '$municipio', '$calle', '$numero', '$postal')";
+$sql1 = "CALL insert_direccion('$estado', '$municipio', '$calle', '$numero', '$postal', '$colonia')";
     $result1 = mysqli_query($con1, $sql1);
 if($result1){
     $sql2 = mysqli_query($con2, "CALL last_direccion()");
@@ -36,8 +37,8 @@ if($result1){
 }
 if($result3){
     $sql4 = mysqli_query($con4, "CALL last_usuario()");
-    $row = mysqli_fetch_assoc($sql4);
-    $idU = $row['idU'];
+    $row2 = mysqli_fetch_assoc($sql4);
+    $idU = $row2['idU'];
 
     $sql5 = "CALL insert_alumno('$rfc', '$idU', '$nivel', '$grado', '$grupo')";
     $result5 = mysqli_query($con5, $sql5);

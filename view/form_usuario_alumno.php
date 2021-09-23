@@ -90,6 +90,9 @@ include("principal.html");
     <option selected>Seleccione</option>
 </select>
 
+<label for="colonia" class="form-label">Colonia</label>
+    <input type="text" class="form-control input_tamano" maxlength="100" id="colonia" name="colonia" required>
+
 <label for="calle" class="form-label">Calle</label>
     <input type="text" class="form-control input_tamano" maxlength="100" id="calle" name="calle" required>
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* @brief Documento usado para la inserción de nuevos usuarios padre/tutor
+* @brief Documento usado para la inserción de nuevos usuarios para personal escolar
 */
 
 require 'conexion.php';
@@ -17,7 +17,11 @@ $calle = $_POST['calle'];
 $numero = $_POST['numero'];
 $postal = $_POST['postal'];
 $tele = $_POST['tele'];
+$rfc = $_POST['rfc'];
+$puesto = $_POST['puesto'];
+$rol = $_POST['rol'];
 $colonia = $_POST['colonia'];
+
 
 $sql1 = "CALL insert_direccion('$estado', '$municipio', '$calle', '$numero', '$postal', '$colonia')";
     $result1 = mysqli_query($con1, $sql1);
@@ -27,14 +31,20 @@ if($result1){
     $idD = $row['idD'];
 
     $sql3 = "CALL insert_usuario('$nombre', '$paterno', '$materno', '$correo', '$tele', 
-    'C:\xampp\htdocs\Control_Escolar_Novaera\img\b1.jpg', '$contrasena', '$idD', 3, '$genero', 1)";
+    'C:\xampp\htdocs\Control_Escolar_Novaera\img\b1.jpg', '$contrasena', '$idD', '$rol', '$genero', 1)";
     $result3 = mysqli_query($con3, $sql3);
 
-    if($result3){
-        echo "Correcto";
-    }else{
-        echo "Error";
-    }
+}
+if($result3){
+    $sql4 = mysqli_query($con4, "CALL last_usuario()");
+    $row2 = mysqli_fetch_assoc($sql4);
+    $idU = $row2['idU'];
+
+    $sql5 = "CALL insert_personal('$rfc', '$puesto', '$idU')";
+    $result5 = mysqli_query($con5, $sql5);
+}
+if($result5){
+    echo "Correcto";
 }
 else{
     echo "Error";
@@ -43,4 +53,6 @@ else{
 mysqli_close($con1);
 mysqli_close($con2);
 mysqli_close($con3);
+mysqli_close($con4);
+mysqli_close($con5);
 ?>

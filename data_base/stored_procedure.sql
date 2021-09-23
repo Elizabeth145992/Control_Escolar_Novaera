@@ -17,19 +17,40 @@ DELIMITER ;
 --SP para la inserción de una nueva dirección
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_direccion`( `d_Estado` VARCHAR(60),
-`d_Municipio` VARCHAR(60), `d_Calle` VARCHAR(100), `d_Numero` VARCHAR(10),`d_CP` VARCHAR(5))
+`d_Municipio` VARCHAR(60), `d_Calle` VARCHAR(100), `d_Numero` VARCHAR(10),
+`d_CP` VARCHAR(5), `d_Colonia` VARCHAR(100))
 BEGIN
-INSERT INTO direccion (Estado, Municipio, Calle, Numero, CP)
-VALUES(d_Estado, d_Municipio, d_Calle, d_Numero, d_CP);
+INSERT INTO direccion (Estado, Municipio, Calle, Numero, CP, Colonia)
+VALUES(d_Estado, d_Municipio, d_Calle, d_Numero, d_CP, d_Colonia);
 END$$
 DELIMITER ;
 
 --SP para la inserción de nuevo alumno
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_alumno`( `a_RFC` VARCHAR(10),
-`a_Nivel` INT, `a_Grado` INT, `a_Grupo` INT)
+`a_Usuario` INT, `a_Nivel` INT, `a_Grado` INT, `a_Grupo` INT)
 BEGIN
-INSERT INTO alumno (RFC,Id_Nivel, Id_Grado, Id_Grupo)
+INSERT INTO alumno (RFC, Id_Usuario, Id_Nivel, Id_Grado, Id_Grupo)
 VALUES(a_RFC, a_Usuario, a_Nivel, a_Grado, a_Grupo);
+END$$
+DELIMITER ;
+
+--SP para la inserción de nuevo personal escolar
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_personal`( `p_RFC` VARCHAR(10),
+`p_Puesto` VARCHAR(60), `p_Usuario` INT)
+BEGIN
+INSERT INTO personal_escolar (RFC, Puesto, Id_Usuario)
+VALUES(p_RFC, p_Puesto,  p_Usuario);
+END $$
+DELIMITER ;
+
+--SP para la inserción en la tabla padre_alumno
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_padre_alumno`( `p_Alumno` INT,
+`p_Padre` INT)
+BEGIN
+INSERT INTO padre_alumno (Id_Alumno, Id_Padre)
+VALUES(p_Alumno, p_Padre);
 END$$
 DELIMITER ;
