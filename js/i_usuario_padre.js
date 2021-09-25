@@ -45,15 +45,18 @@ function guardarUsuario(){
         }
         else{
             var password = respuesta1;
-            document.getElementById('mensaje').innerHTML="Se guardo correctamente el usuario";
+            document.getElementById('mensaje').innerHTML="Se guardo correctamente el usuario. El password es:"+password;
             $('#alumnos').modal('show');
-            $("#modal_falla").on('hidden.bs.modal', function () {
-            recargarpagina()});;
-        }
+            $("#alumnos").on('hidden.bs.modal', function () {
+                recargarpagina();
+            });
+            }
+            
+           
     });
 }
 
 function recargarpagina() {
-     var pagina ="form_usuario_padre.php?"; 
+     var pagina ="../view/form_usuario_padre.php"; 
         location.href=pagina;
 }

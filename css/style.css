@@ -164,7 +164,7 @@ footer{
     list-style: none;
 }
 .user{
-    margin-left: 1rem;
+    
     margin-right: 1rem;
     color: var(--blue2);
 }
@@ -179,6 +179,7 @@ footer{
     font-size: 2rem;
 }
 .pagina{
+    text-align: center;
     text-decoration: none;
     color: var(--white);
     font-size: 1.5rem;
@@ -317,6 +318,10 @@ ul{
 }
 .sin_borde{
     border: none;
+}
+.fuente_lateral{
+    font-size: 2rem;
+    
 }
 #logo{
     height:6rem;

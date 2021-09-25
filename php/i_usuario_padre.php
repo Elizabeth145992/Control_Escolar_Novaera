@@ -29,14 +29,10 @@ if($result1){
     $sql3 = "CALL insert_usuario('$nombre', '$paterno', '$materno', '$correo', '$tele', 
     'C:\xampp\htdocs\Control_Escolar_Novaera\img\b1.jpg', '$contrasena', '$idD', 3, '$genero', 1)";
     $result3 = mysqli_query($con3, $sql3);
-
-    if($result3){
-        echo "Correcto";
-    }else{
-        echo "Error";
-    }
 }
-else{
+if($result3){
+    echo $password;
+}else{
     echo "Error";
 }
 

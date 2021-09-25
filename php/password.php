@@ -11,10 +11,10 @@
     $password .= substr($str,rand(0,67),1);
  }
  //Mostramos la contraseña generada
- echo 'Password generado: '.$password;
- echo '<br>';
+// echo 'Password generado: '.$password;
+ //echo '<br>';
  //Encriptación de la contraseña
  $contrasena = password_hash($password, PASSWORD_DEFAULT, ['cost'=>10]);
- echo 'hash: '.$contrasena;
+ //echo 'hash: '.$contrasena;
 
 ?>

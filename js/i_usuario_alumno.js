@@ -49,7 +49,7 @@ function guardarUsuario(){
         }
         else{
             var password = respuesta1;
-            document.getElementById('mensaje').innerHTML="Se guardo correctamente el alumno";
+            document.getElementById('mensaje').innerHTML="Se guardo correctamente el alumno. El password es:"+password;
             $('#modal_falla').modal('show');
             $("#modal_falla").on('hidden.bs.modal', function () {
             recargarpagina()});;
@@ -58,6 +58,6 @@ function guardarUsuario(){
 }
 
 function recargarpagina() {
-     var pagina ="form_usuario_alumno.php?"; 
+     var pagina ="../view/form_usuario_alumno.php"; 
         location.href=pagina;
 }

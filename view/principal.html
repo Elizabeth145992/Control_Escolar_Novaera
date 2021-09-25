@@ -1,3 +1,4 @@
+</head>
 <body>
     <nav>  
         <div class="menu"> 
@@ -45,7 +46,7 @@
             </div>
           </div>
               </ul>
-              <a href="#" id="salir" class="menu_icono separacion"><i class="fas fa-sign-out-alt"></i></a>
+              <a href="../php/logout.php" id="salir" class="menu_icono separacion"><i class="fas fa-sign-out-alt"></i></a>
             
         </div>
         </ul>
@@ -61,19 +62,19 @@
 
           <aside class="menu_izquierdo centro esconder4" >
             <ul class="menu2 menu2_separacion">
-                <span class="nombre centro"><i class="esconder user fas fa-user"></i>Daniela García</span>
-                <span class="nombre centro">Alumno</span><br>
+              <div id="usuario"></div>
                 <hr>
             <li><a href="pagina_principal.php"><i class="paginas esconder fas fa-chart-line"></i>
                 <span  class="pagina">Página Principal</span>
-                
                 <hr>
             </a></li>
+            <li><p id="m"></p></li>
             <br>
-            <p>
+            <div id="menulateral" ></div></ul>
+            
+            <p><br><br>
               <a href="calendario.php" class="btn btn-primary boton_guardar">Ver Calendario</a>
           </p>
-            </ul>
         </aside>
 
     <aside id="esconder3" class="collapse menu_izquierdo centro" >
@@ -87,10 +88,11 @@
             <hr>
         </a></li>
         <br>
+        </ul>
+        <!--<div id="menulateral2" class="menu2 menu2_separacion"></div>-->
         <p>
           <a href="calendario.php" class="btn btn-primary boton_guardar">Ver Calendario</a>
       </p>
-        </ul>
     </aside>
     
       
@@ -129,6 +131,7 @@
             <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="alumnos2">
+            <h6 class="centro">Se guardó correctamente el usuario el password es:  <p style="text-align:center" id="mensaje"></p> </h6><br>
             <div class="card shadow mb-4">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Listado de alumnos</h6>
@@ -151,6 +154,9 @@
                           </div>
                         </div>
                     </div>
+                    
+                    <p id="correcto" style="color:red; font-size: medium;" class="centro"></p>
+                    <div id="correcto2"></div>
           </div>
         </div>
       </div>

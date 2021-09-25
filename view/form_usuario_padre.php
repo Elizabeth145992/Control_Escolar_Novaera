@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include("header.php");
 echo '<script src="../js/i_usuario_padre.js"></script>';
 include("principal.html");

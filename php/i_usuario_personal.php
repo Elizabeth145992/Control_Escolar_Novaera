@@ -44,7 +44,7 @@ if($result3){
     $result5 = mysqli_query($con5, $sql5);
 }
 if($result5){
-    echo "Correcto";
+    echo $password;
 }
 else{
     echo "Error";

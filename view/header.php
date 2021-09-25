@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/220ce73536.js" crossorigin="anonymous"></script>
-    <link href='../fullcalendar-5.9.0/lib/main.css' rel='stylesheet' />
+    <title>Instituto Novaera</title>
+    <link href='../fullcalendar-5.9.0/lib/main.css' rel='stylesheet'>
     <script src='../fullcalendar-5.9.0/lib/main.js'></script>
     <script src='../fullcalendar-5.9.0/lib/locales/es.js'></script>
     <script src="../js/main.js"></script>
@@ -15,9 +16,13 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href='//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
     <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-   <!-- <script src="../js/main.js"></script>-->
+  <script>
+  function sesionUsuario(){
+     idUser="<?php echo $_SESSION['userID'] ?>";
+     tipoUser="<?php echo $_SESSION['userTIPO'] ?>";
+     userCorreo="<?php echo $_SESSION['CORREO'] ?>";
+  }
   </script>
-  </script>
-    <title>Instituto Novaera</title>
-  </head>
+<script src="../js/inicio_usuario.js"></script>
+
     
