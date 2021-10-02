@@ -74,3 +74,57 @@ BEGIN
    WHERE usuario.Id_Usuario = u_user;
 END$$
 DELIMITER ;
+
+--SP que sirve para seleccionar todos los profesores
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_usuario_docente`()
+BEGIN
+  SELECT * FROM ((((usuario 
+  INNER JOIN direccion 
+  ON direccion.Id_Direccion = usuario.Id_Direccion)
+  INNER JOIN rol 
+  ON rol.Id_Rol = usuario.Id_Rol)
+  INNER JOIN genero 
+  ON genero.Id_Genero = usuario.Id_Genero)
+  INNER JOIN estatus 
+  ON estatus.Id_Estatus = usuario.Id_Estatus)
+  INNER JOIN personal_escolar
+  ON personal_escolar.Id_Usuario = usuario.Id_Usuario
+  WHERE usuario.Id_Rol = 1;
+END$$
+DELIMITER ;
+
+--SP que sirve para seleccionar todos los peridos registrados del sistema
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_periodo`()
+BEGIN
+  SELECT * FROM periodo;
+  END$$
+  DELIMITER ;
+
+  --SP que sirve para seleccionar todos los alumnos dependiendo su nivel
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_alumno_nivel`(`a_nivel` INT)
+BEGIN
+  SELECT * FROM ((((((((usuario 
+  INNER JOIN direccion 
+  ON direccion.Id_Direccion = usuario.Id_Direccion)
+  INNER JOIN rol 
+  ON rol.Id_Rol = usuario.Id_Rol)
+  INNER JOIN genero 
+  ON genero.Id_Genero = usuario.Id_Genero)
+  INNER JOIN estatus 
+  ON estatus.Id_Estatus = usuario.Id_Estatus)
+  INNER JOIN alumno
+  ON alumno.Id_Usuario = usuario.Id_Usuario)
+  INNER JOIN nivel
+  ON nivel.Id_Nivel = alumno.Id_Nivel)
+  INNER JOIN grado
+  ON grado.Id_Grado = alumno.Id_grupo)
+  INNER JOIN grupo
+  ON grupo.Id_Grupo = alumno.Id_Grupo)
+  INNER JOIN padre_alumno
+  ON padre_alumno.Id_Alumno = alumno.Id_Alumno 
+  WHERE usuario.Id_Rol = 6 AND alumno.Id_Nivel = a_nivel AND usuario.Id_Estatus=1 ;
+END$$
+DELIMITER ;

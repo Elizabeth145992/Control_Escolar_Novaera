@@ -2,8 +2,8 @@
 <body>
     <nav>  
         <div class="menu"> 
-            <div class="logo_cont"><a href="pagina_principal.php">
-        <img id="logo" src="../img/instituto-novaera-logo (1).png" alt="Novaera"></div></a>
+            <div id="logo" class="logo_cont">
+        <img id="logo" src="../img/instituto-novaera-logo (1).png" alt="Novaera"></div>
         <h1 class="titulo centro">Instituto Novaera</h1>
         <div>
         <ul id="menu_icono">
@@ -11,7 +11,7 @@
             <a href="#" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><img class="img-profile rounded-circle" src="../img/k.jpg"></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" id="menu">
                 <li><a href="u_perfil.php" class="dropdown-item" type="button">Perfil <i class="icono_submenu fas fa-eye"></i></a></li>
-                <li><button id="contrasena" class="dropdown-item" type="button">Cambio de contraseña <i class="icono_submenu fas fa-edit"></i></button></li>
+                <li><a id="contrasena" class="dropdown-item" type="button">Cambio de contraseña <i class="icono_submenu fas fa-edit"></i></a></li>
               </ul>
             
             <a style="position: relative;" href="#" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-bell fa-fw"></i><span class="badge-danger badge-counter">3+</span></a>
@@ -63,13 +63,6 @@
           <aside class="menu_izquierdo centro esconder4" >
             <ul class="menu2 menu2_separacion">
               <div id="usuario"></div>
-                <hr>
-            <li><a href="pagina_principal.php"><i class="paginas esconder fas fa-chart-line"></i>
-                <span  class="pagina">Página Principal</span>
-                <hr>
-            </a></li>
-            <li><p id="m"></p></li>
-            <br>
             <div id="menulateral" ></div></ul>
             
             <p><br><br>
@@ -161,7 +154,19 @@
         </div>
       </div>
     </div>   
-
+    <!--Modal para avisos en el sistema-->
+    <div class="modal" id="modal_falla" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+            <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="text-align:center" id="modal-falla2">
+          </div>
+        </div>
+      </div>
+    </div>
           
     <script>
        $(document).ready(function(){

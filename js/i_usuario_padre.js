@@ -1,6 +1,7 @@
 /* Este archi servirá para la comunicación del cliente al lenguaje del servidor para la inserción
 de un nuevo usuario de tipo padre/tutor*/
 
+inicializacion();
 $(document).ready(function() {
     $.ajax({
 type: "POST",
@@ -40,15 +41,15 @@ function guardarUsuario(){
         calle:c8, numero:c9, postal:c10, colonia:c12}, 
         function(respuesta1){
         if(respuesta1=="Error"){
-            document.getElementById('mensaje').innerHTML="No se pudo guardar el nuevo usuario";
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar el nuevo usuario";
             $('#modal_falla').modal('show');
         }
         else{
             var password = respuesta1;
-            document.getElementById('mensaje').innerHTML="Se guardo correctamente el usuario. El password es:"+password;
+            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el usuario. El password es:"+password;
             $('#alumnos').modal('show');
             $("#alumnos").on('hidden.bs.modal', function () {
-                recargarpagina();
+                recargarpagina2();
             });
             }
             
@@ -56,7 +57,7 @@ function guardarUsuario(){
     });
 }
 
-function recargarpagina() {
+function recargarpagina2() {
      var pagina ="../view/form_usuario_padre.php"; 
         location.href=pagina;
 }

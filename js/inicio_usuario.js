@@ -3,7 +3,7 @@
 var userCorreo;
 var idUser;
 var tipoUser;
-inicializacion();
+
 sesionUsuario();
 function inicializacion(){
     $.post("../php/session.php",{},function(data){
@@ -12,7 +12,6 @@ function inicializacion(){
         }
         else{
             sesionUsuario();
-           
             menu();
         }
     });  
@@ -29,21 +28,23 @@ function menu() {
           +'<span class="pagina">Biblioteca Virtual</span></a></li><hr>');
     }
     else if(tipoUser==5){
-        $('#menulateral').append('<div class="dropdown">'
+        $('#menulateral').append('<div class="dropdown"><hr>'
+        +'<li><a href="pagina_principal_admin.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Registro de <br> Usuarios</span></a><hr>'
         +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton1">'
-        +'<li><a class="dropdown-item active" href="#">Padre/Tutor</a></li>'
-        +'<li><a class="dropdown-item" href="#">Alumnos</a></li>'
-        +'<li><a class="dropdown-item" href="#">Personal Escolar</a></li>'
+        +'<li><a class="dropdown-item" href="../view/form_usuario_padre.php">Padre/Tutor</a></li>'
+        +'<li><a class="dropdown-item" href="../view/form_usuario_alumno.php">Alumnos</a></li>'
+        +'<li><a class="dropdown-item" href="../view/form_usuario_personal.php">Personal Escolar</a></li>'
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'
         +'</div>'
-        +'<li><a href="#">'
+        +'<li><a id="Gperiodo1" href="#">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Nuevo periodo</span></a></li><hr>'
-        +'<li><a href="#">'
+        +'<li><a href="../view/form_clase.php">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Nueva Clase</span></a></li><hr>'
         +'<li><a href="#">'
@@ -52,11 +53,9 @@ function menu() {
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
-        +'<span class="pagina">Peridod</span></a><hr>'
+        +'<span class="pagina">Periodo</span></a><hr>'
         +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton2">'
-        +'<li><a class="dropdown-item active" href="#">Padre/Tutor</a></li>'
-        +'<li><a class="dropdown-item" href="#">Ago-Diciembre 2021</a></li>'
-        +'<li><a class="dropdown-item" href="#">Ene-Juni 2021</a></li>'
+        +'<div id="periodoL"></div>'
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'
         +'</div>');
@@ -67,6 +66,15 @@ function menu() {
         $('#usuario').append('<span class="nombre centro"><i class="esconder user fas fa-user"></i>'
         +datosUsuario["data"][0].Nombre+' '+datosUsuario["data"][0].Apellido_Paterno+'</span><br>'
         +'<span class="nombre centro">'+datosUsuario["data"][0].Rol+'</span><br>');
+    });
+
+    $.get("../php/s_seleccionar_datos.php?tipo=2", function(datos){  
+        if(datos!="Error"){
+            var datosPe = JSON.parse(datos);
+                for(var i=0;i<datosPe["data"].length;i++){
+                    $('#periodoL').append('<li><a id="'+datosPe["data"][i].Id_Periodo+'" class="dropdown-item" href="#">'+datosPe["data"][i].Nombre+'</a></li>');
+                }
+        }      
     });
     
 }

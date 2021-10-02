@@ -54,3 +54,26 @@ INSERT INTO padre_alumno (Id_Alumno, Id_Padre)
 VALUES(p_Alumno, p_Padre);
 END$$
 DELIMITER ;
+
+--SP para la inserción de una nueva clase
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_clase`( `c_Nombre` VARCHAR(100),
+`c_Descrip` LONGTEXT, `c_Codigo` VARCHAR(7), `c_HoraI` VARCHAR(45), `c_HoraF` VARCHAR(45),
+`c_Nivel` INT, `c_Grado` INT, `c_Personal` INT, `c_Estatus` INT, `c_Periodo` INT, `c_Grupo` INT)
+BEGIN
+INSERT INTO clase (Nombre_Clase, Descripción, Codigo_Clase, Hora_inicio, Hora_final, 
+Id_Nivel, Id_Grado, Id_Personal_Escolar, Id_Estatus, Id_Periodo, Id_Grupo)
+VALUES(c_Nombre, c_Descrip, c_Codigo, c_HoraI, c_HoraF,
+c_Nivel, c_Grado, c_Personal, c_Estatus, c_Periodo, c_Grupo);
+END$$
+DELIMITER ;
+
+--SP para la inserción de un nuevo periodo
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_periodo`( `p_Nombre` VARCHAR(100),
+`p_Inicio` DATE, `p_Termino` DATE)
+BEGIN
+INSERT INTO periodo (Nombre, Fecha_Inicio, Fecha_Termino)
+VALUES(p_Nombre, p_Inicio, p_Termino);
+END$$
+DELIMITER ;

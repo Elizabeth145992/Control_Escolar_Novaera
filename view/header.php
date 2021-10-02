@@ -16,6 +16,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href='//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
     <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    
   <script>
   function sesionUsuario(){
      idUser="<?php echo $_SESSION['userID'] ?>";

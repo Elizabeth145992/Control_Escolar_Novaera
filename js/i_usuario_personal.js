@@ -1,6 +1,7 @@
 /* Este archivo servirá para la comunicación del cliente al lenguaje del servidor para la inserción
 de un nuevo usuario de tipo Personal Escolar*/
 
+inicializacion();
 $(document).ready(function() {
     $.ajax({
 type: "POST",
@@ -43,12 +44,12 @@ function guardarUsuario(){
         calle:c8, numero:c9, postal:c10, rfc:c12, puesto:c13, rol:c14, colonia:c15}, 
         function(respuesta1){
         if(respuesta1=="Error"){
-            document.getElementById('mensaje').innerHTML="No se pudo guardar el nuevo personal escolar";
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar el nuevo personal escolar";
             $('#modal_falla').modal('show');
         }
         else{
             var password = respuesta1;
-            document.getElementById('mensaje').innerHTML="Se guardo correctamente el alumno. El password es:"+password;
+            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el alumno. El password es:"+password;
             $('#modal_falla').modal('show');
             $("#modal_falla").on('hidden.bs.modal', function () {
             recargarpagina()});
