@@ -77,3 +77,37 @@ INSERT INTO periodo (Nombre, Fecha_Inicio, Fecha_Termino)
 VALUES(p_Nombre, p_Inicio, p_Termino);
 END$$
 DELIMITER ;
+
+--SP para la edición de usuarios
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_usuario`(`u_Nombre` VARCHAR(60),
+`u_Paterno` varchar(60), `u_Materno` VARCHAR(60), `u_Correo` VARCHAR(100),
+`u_Tele` VARCHAR(45), `u_Genero` INT, `u_Usuario` INT)
+BEGIN
+update usuario set Nombre = u_Nombre, Apellido_Paterno = u_Paterno, Apellido_Materno = u_Materno,
+Correo = u_Correo, Telefono = u_Tele, Id_Genero = u_Genero
+ where Id_Usuario = u_Usuario;
+END$$
+DELIMITER ;
+
+--SP para la edición de alumno
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_alumno`(`a_RFC` VARCHAR(10),
+`a_Nivel` INT, `a_Grado` INT,  `a_Grupo` INT,  `a_Usuario` INT)
+BEGIN
+update alumno set RFC = a_RFC, Id_Nivel = a_Nivel, Id_Grado = a_Grado, Id_Grupo = a_Grupo
+ where Id_Usuario = a_Usuario;
+END$$
+DELIMITER ;
+
+--SP para la edición de dirección
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_direccion`(`d_Estado` VARCHAR(60),
+`d_Municipio` VARCHAR(60), `d_Calle` VARCHAR(100),  `d_Numero` VARCHAR(10), `d_CP` VARCHAR(5),  
+`d_Colonia` VARCHAR(100),`d_Direccion` INT)
+BEGIN
+update direccion set Estado = d_Estado, Municipio = d_Municipio, Calle = d_Calle, 
+Numero = d_Numero, CP = d_CP, Colonia = d_Colonia
+ where Id_Direccion = d_Direccion;
+END$$
+DELIMITER ;

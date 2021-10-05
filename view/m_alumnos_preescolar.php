@@ -38,6 +38,31 @@ include("principal.html");
             </div>
         </div>
 </div>
+
+
+ <!--Modal para modificar alumnos
+ <div class="modal" id="alumno1" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+                  <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="alumno2">
+                    <p><h3>Edición de alumno</h3></p><br>
+                    <div class="form-group"><label for="nombre"><b>Nombre</b></label><br><br>
+                        <input type="text" name="nombre" class="form-control input_tamano_login" id="nombre" required></div><br>
+                        <div class="form-group"><label for="apellidop"><b>Apellido Paterno</b></label><br><br>
+                            <input type="text" name="apellidop" class="form-control input_tamano_login" id="apellidop" required></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger boton_cancelar" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary boton_guardar">Guardar contraseña</button>
+                </div>
+              </div>
+            </div>
+          </div>-->
+
 <?php 
 include("footer.html");
 ?>
