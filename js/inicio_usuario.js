@@ -3,6 +3,7 @@
 var userCorreo;
 var idUser;
 var tipoUser;
+var peri;
 
 sesionUsuario();
 function inicializacion(){
@@ -59,8 +60,23 @@ function menu() {
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'
         +'</div>');
+    }else if(tipoUser==1){
+        $('#menulateral').append('<div class="dropdown"><hr>'
+        +'<li><a href="pagina_principal_docente.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
+        +'<li><a href="#">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
+        +'<div class="dropdown">'
+        +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Periodo</span></a><hr>'
+        +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton2">'
+        +'<div id="periodoL"></div>'
+        +'<li><hr class="dropdown-divider"></li>'
+        +'</ul>'
+        +'</div>');
     }
-
     $.post("../php/s_usuario.php",{user:idUser},function(datos){
         datosUsuario = JSON.parse(datos);
         $('#usuario').append('<span class="nombre centro"><i class="esconder user fas fa-user"></i>'
@@ -72,9 +88,13 @@ function menu() {
         if(datos!="Error"){
             var datosPe = JSON.parse(datos);
                 for(var i=0;i<datosPe["data"].length;i++){
-                    $('#periodoL').append('<li><a id="'+datosPe["data"][i].Id_Periodo+'" class="dropdown-item" href="#">'+datosPe["data"][i].Nombre+'</a></li>');
+                    $('#periodoL').append('<li><a onclick="periodo('+datosPe["data"][i].Id_Periodo+')" id="'+datosPe["data"][i].Id_Periodo+'" class="dropdown-item" href="#">'+datosPe["data"][i].Nombre+'</a></li>');
                 }
         }      
     });
     
+}
+function periodo(perio){
+    peri = perio;
+    m_clase(peri);
 }

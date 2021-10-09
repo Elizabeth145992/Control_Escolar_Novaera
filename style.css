@@ -1,0 +1,91 @@
+body, html{
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    text-align: center;
+    background-color: aquamarine;
+    }
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+nav{
+    background-color: blueviolet;
+}
+form{
+	width:800px;
+    height: 100%;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#ccc;
+    
+}
+form label{
+	width:72px;
+	font-weight:bold;
+	display:inline-block;
+}
+form input{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+form input[type="submit"]{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+} 
+form input[type="submit"]:hover{
+	cursor:pointer;
+    background-color: blue;
+border-color: blue;
+}
+footer{
+    background-color: rgb(211, 167, 167);
+    position: relative;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    
+}
+header{
+    background-image: url('img/matematicas.jpg');
+}
+header h1{
+    color: aqua;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2%;
+}
+.img_carac{
+    margin-bottom: 5%;
+    margin-top: 1%;
+}
+.a_decoracion{
+    color: white;
+    font-family: 'Ephesis', cursive;
+    font-size: 30px;
+}
+.a_decoracion:hover{
+    color: #000;
+}

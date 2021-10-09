@@ -18,6 +18,9 @@ else if($tipo == 3){
 }else if($tipo == 5){
 	$usuario = $_GET['usuario'];
 	$sql = "CALL Select_alumno_nivel2($usuario);";
+}else if($tipo == 6){
+	$clase = $_GET['clase'];
+	$sql = "CALL select_alumnoA($clase);";
 }
 
 

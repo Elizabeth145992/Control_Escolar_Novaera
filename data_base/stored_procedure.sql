@@ -78,6 +78,26 @@ VALUES(p_Nombre, p_Inicio, p_Termino);
 END$$
 DELIMITER ;
 
+--SP para la inserción de una nueva actividad
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_actividad`( `a_Nombre` VARCHAR(60),
+`a_Contenido` LONGTEXT, `a_Fecha` DATE,  `a_Docente` INT,  `a_Clase` INT,  `a_Recurso` INT)
+BEGIN
+INSERT INTO actividad (Nombre_Actividad, Contenido, Fecha_Entrega, Id_Personal_Escolar, 
+Id_Clase, Id_Recurso)
+VALUES(a_Nombre, a_Contenido, a_Fecha, a_Docente, a_Clase, a_Recurso);
+END$$
+DELIMITER ;
+
+--SP para inserción de un nuevo recurso
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_recurso`( `r_Recurso` LONGTEXT)
+BEGIN
+INSERT INTO recurso (Link_Recurso)
+VALUES(r_Recurso);
+END$$
+DELIMITER ;
+
 --SP para la edición de usuarios
 DELIMITER$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `update_usuario`(`u_Nombre` VARCHAR(60),
@@ -111,3 +131,17 @@ Numero = d_Numero, CP = d_CP, Colonia = d_Colonia
  where Id_Direccion = d_Direccion;
 END$$
 DELIMITER ;
+
+
+--SP para la inserción de una nueva asistencia
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_asistencia`( `a_Fecha` DATE,
+`a_Alumno` INT, `a_Personal` INT, `a_Ac` INT, `a_Tipo` INT)
+BEGIN
+INSERT INTO asistencia (Fecha, Id_Alumno, Id_Personal_Escolar, Id_Alumno_Clase,
+Id_Tipo_Asistencia)
+VALUES(a_Fecha, a_Alumno, a_Personal, a_Ac, a_Tipo);
+END$$
+DELIMITER ;
+
+

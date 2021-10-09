@@ -1,9 +1,10 @@
-<?php
-session_start(); 
+<?php 
+session_start();
 include("header.php");
+echo '<script src="../js/m_clase_tipo.js"></script>';
 include("principal.html");
 ?>
- <h5 class="clases">Clase: Matemáticas</h5>
+ <div id="clase"></div>
   <hr class="linea">
   <div class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col separar_card">
@@ -11,7 +12,7 @@ include("principal.html");
   <h5 class="card-header">Listado de Asistencia</h5>
   <div class="card-body">
     <br>
-    <a href="#" class="btn btn-primary boton_guardar">Tomar asistencia</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="registrarAs();">Tomar asistencia</a>
     <br><br>
     <a href="#" class="btn btn-primary boton_guardar">Generar reporte</a>
   </div>
@@ -22,9 +23,9 @@ include("principal.html");
   <h5 class="card-header">Actividades</h5>
   <div class="card-body">
     <br>
-    <a href="#" class="btn btn-primary boton_guardar">Ver actividades</a>
+    <a href="#" class="btn btn-primary boton_guardar"  onclick="verAc();">Ver actividades</a>
     <br><br>
-    <a href="#" class="btn btn-primary boton_guardar">Nueva actividad</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="registrarAc();">Nueva actividad</a>
   </div>
 </div>
       </div>
@@ -62,6 +63,7 @@ include("principal.html");
 </div>
       </div>
   </div>
+  <br><br>
 <?php 
 include("footer.html");
 ?>

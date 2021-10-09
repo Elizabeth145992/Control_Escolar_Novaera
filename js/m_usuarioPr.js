@@ -1,4 +1,3 @@
-/**/
 var usrA;
 var usrD;
 
@@ -15,31 +14,33 @@ $("#estado").html(data);
 $(document).ready(function() {
     inicializacion();
     sesionUsuario();
-        var table4 = $('#dataTableAlumnosS').DataTable({
-            'destroy' : true,
-            'ajax': {
-                'method':'GET',
-                'url':'../php/s_alumnos_usuarios.php?tipo=3'
-            },
-            'columns': [
-               { data: 'Apellido_Paterno' },
-               { data: 'Apellido_Materno' },
-               { data: 'Nombre' },
-               { data: 'Correo' },
-               { data: 'Telefono' },
-               { data: 'Municipio'},
-               {data: 'Calle'},
-               {data: 'Numero'},
-               {data: 'Colonia'},
-               { data: 'Grado' },
-               { data: 'Grupo' },
-               { defaultContent: '<button type="button" class="editar3 btn btn-warning"><i class="fas fa-pencil-alt"></i></button>' }
-            ],
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-            }});
+    var table4 = $('#dataTableAlumnosE').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_alumnos_usuarios.php?tipo=2'
+        },
+        'columns': [
+           { data: 'Apellido_Paterno' },
+           { data: 'Apellido_Materno' },
+           { data: 'Nombre' },
+           { data: 'Correo' },
+           { data: 'Telefono' },
+           { data: 'Municipio'},
+           {data: 'Calle'},
+           {data: 'Numero'},
+           {data: 'Colonia'},
+           { data: 'Grado' },
+           { data: 'Grupo' },
+           { defaultContent: '<button type="button" class="editar3 btn btn-warning"><i class="fas fa-pencil-alt"></i></button>' }
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
 
-          
+        
+     });
+    
      obtener_data_editar3("", table4);
     });
 
@@ -48,10 +49,10 @@ $(document).ready(function() {
             var data = table.row($(this).parents("tr")).data();
             usrU = data.Id_Usuario;
             usrD = data.Id_Direccion;
-
             $.get("../php/s_alumnos_usuarios.php?tipo=5"+"&usuario="+usrU, function(result){
                 if(result != "Error"){
-                    $('#alumno1').modal('show');
+                    $('#alumno3').modal('show');
+                    
                     datosUsuario = JSON.parse(result);
                     document.getElementById('nombre').value = datosUsuario["data"][0].Nombre;
                     document.getElementById('paterno').value = datosUsuario["data"][0].Apellido_Paterno;
@@ -122,4 +123,5 @@ $(document).ready(function() {
 
     }
     
-   
+
+

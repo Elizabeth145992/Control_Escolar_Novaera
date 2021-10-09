@@ -1,10 +1,13 @@
 <?php 
 session_start();
 include("header.php");
+echo '<script src="../js/i_actividad.js"></script>';
 include("principal.html");
 ?>
 
 <h5 class="clases">Registro de actividades</h5>
+<div class="margen_body margen_abajo">
+<div id="p"></div>
 
 <hr class="linea">
 
@@ -13,24 +16,19 @@ include("principal.html");
   <div class="col-3">
     </div>
     <div class="col-8">
-<form action="" class="margen_form">
+<form action="javascript:guardarAc();" class="margen_form" enctype="multipart/form-data">
 <div class="form_space">
-  <div class="mb-3">
+<div class="mb-3">
     <label for="actividad_nombre" class="form-label">Nombre de la actividad</label>
-    <input type="text" class="form-control input_tamano" id="actividad" name="actividad" required>
+    <input type="text" class="form-control input_tamano" id="activi" name="actividad" required>
   </div>
   <div class="mb-3">
     <label for="contenido_descripcion" class="form-label">Descripción de la actividad</label>
     <textarea class="form-control input_tamano" name="contenido" id="contenido" cols="30" rows="10" required></textarea>
   </div>
-  <div class="mb-3">
-  <label for="nomre_recurso" class="form-label">Recurso a usar</label>
-  <select class="form-select input_tamano" aria-label="Default select example" required>
-    <option selected>Open this select menu</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-</select>
+ <div class="mb-3">
+    <label for="actividad_nombre" class="form-label">Actividad</label>
+    <input type="file" class="form-control input_tamano" id="archi" name="archi" required>
   </div>
   <div class="mb-3">
     <label for="fecha_entrega" class="form-label">Fecha de entrega</label>
@@ -38,16 +36,14 @@ include("principal.html");
   </div>
   <br><br>
   <div class="centro">
-  <button type="submit" class="btn btn-primary boton_guardar">Guardar</button>
+  <input type="submit" class="btn btn-primary boton_guardar" value="Guardar">
   </div>
-  <br><br>
   </div>
 </form>
 </div>
 </div>
 </div>
-
-
+</div>
 <?php 
 include("footer.html");
 ?>

@@ -1,10 +1,10 @@
 <?php 
 session_start();
 include("header.php");
-echo '<script src="../js/m_usuarios.js"></script>';
+echo '<script src="../js/i_clase.js"></script>';
 include("principal.html");
 ?>
-        <h5 class="clases">Clases: 3° Grado de Secundaria</h5>
+        <h5 class="clases">Bienvenido!!!</h5>
         <div id="prueba"></div>
         <div class="margen_body">
             <hr class="linea">

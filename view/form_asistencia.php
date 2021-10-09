@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include("header.php");
+echo '<script src="../js/i_asistencia.js"></script>';
 include("principal.html");
 ?>
 
@@ -8,9 +9,7 @@ include("principal.html");
     <h5 class="clases">Toma de asistencia</h5>
     <hr class="linea">
     <br><br>
-    <form action="">
-        <label for="">Fecha:</label>
-        <input type="text">
+      <div id="p"></div>
         <br><br><br>
         <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -18,38 +17,19 @@ include("principal.html");
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTableAlumnos" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dataTableAlumnosA" width="100%" cellspacing="0">
         <thead id="tabla">
-          <tr>
-            <th>Matrícula</th>
+          <tr class="table-active">
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Nombre</th>
             <th>Asistencia</th>
           </tr>
-          <td>1</td>
-          <td>Cruz</td>
-          <td>Ramírez</td>
-          <td>Elizabeth</td>
-          <td>
-          <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
-          <label for="">Normal</label><br>
-          <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
-          <label for="">Justificada</label><br>
-          <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
-          <label for="">Sin justificación</label><br>
-          <input class="form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">
-          <label for="">Con retraso</label>
-          </td>
         </thead>
                 </table>
               </div>
             </div>
         </div>
-        <div class="centro">
-        <button class="btn btn-primary boton_guardar">Guardar</button>
-        </div>
-    </form>
     <div class="alinear">
         <button class="btn btn-dark boton_guardar">Editar Asistencia</button>
         </div>

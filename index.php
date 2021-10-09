@@ -6,7 +6,9 @@ if(isset($_SESSION['userID'])) {
     header('location: view/pagina_principal_admin.php');
   }else if($_SESSION['userTIPO']==6){
   header('location: view/pagina_principal.php');
-  }
+  }else if($_SESSION['userTIPO']==1){
+    header('location: view/pagina_principal_docente.php');
+    }
     }else{
         header('location: view/login_trans.html');
     }
