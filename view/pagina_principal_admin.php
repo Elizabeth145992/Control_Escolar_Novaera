@@ -51,8 +51,8 @@ include("principal.html");
 <div id="card_padres" class="card borde sombra centro"  style="width: 36rem;">
   <h5 class="card-header">Personal Escolar</h5>
   <div class="card-body">
-    <h6 class="card-title">Visualización y edición de empleados</h6><br>
-    <a href="#" class="btn btn-primary boton_guardar">Vizualizar</a><br><br>
+    <h6 class="card-title">Visualización y edición del Personal Escolar</h6><br>
+    <a href="m_personal_escolar.php" class="btn btn-primary boton_guardar">Vizualizar</a><br><br>
   </div>
 </div>
 </div>

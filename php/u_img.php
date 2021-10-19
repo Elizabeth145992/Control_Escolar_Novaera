@@ -1,15 +1,27 @@
-<?php 
+<?php
+/**
+* @brief Documento usado para la inserción de una nueva actividad y recurso
+*/
+
 require 'conexion.php';
 
-if(isset($_POST["submit"])){
-    $revisar = getimagesize($_FILES["image"]["tmp_name"]);
-    if($revisar !== false){
-        $image = $_FILES['image']['tmp_name'];
-        $imgContenido = addslashes(file_get_contents($image));
+$uploads_dir='../foto_perfil'; 
+$nombre = $_POST['tNombre'];
+$tmp_name = $_FILES["tFile"]["tmp_name"];
+$user = $_POST['user'];
 
-        $sql1 = "UPDATE usuario SET Foto= '$imgContenido' where Id_Usuario=67";
-        $result1 = mysqli_query($con1, $sql1);
-        }
-    }
+move_uploaded_file($tmp_name, "$uploads_dir/$nombre");
+$direccion = "$uploads_dir"."/"."$nombre";
+
+$sql1 = "CALL update_usuario_foto('$direccion', $user);";
+$result1 = mysqli_query($con1, $sql1);
+
+if($result1){
+    echo "Correcto";
+}else{
+    echo "Error";
+}
+
+mysqli_close($con1);
 
 ?>

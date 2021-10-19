@@ -1,57 +1,15 @@
 </head>
 <body>
     <nav>  
-        <div class="menu"> 
-            <div id="logo" class="logo_cont">
-        <img id="logo" src="../img/instituto-novaera-logo (1).png" alt="Novaera"></div>
-        <h1 class="titulo centro">Instituto Novaera</h1>
-        <div>
-        <ul id="menu_icono">
-            <div class="dropdown">
-            <a href="#" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><img class="img-profile rounded-circle" src="../img/k.jpg"></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" id="menu">
-                <li><a href="u_perfil.php" class="dropdown-item" type="button">Perfil <i class="icono_submenu fas fa-eye"></i></a></li>
-                <li><a id="contrasena" class="dropdown-item" type="button">Cambio de contraseña <i class="icono_submenu fas fa-edit"></i></a></li>
-              </ul>
+          <div id="foto_arriba"></div>
+       
+              
+           
             
-            <a style="position: relative;" href="#" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-bell fa-fw"></i><span class="badge-danger badge-counter">3+</span></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3" id="menu">
-                <p class="submenu glyphicon glyphicon-bell">Notificaciones</p>
-                <hr class="azul">
-              </ul>
+           
 
-            <a style="position: relative;" href="#" id="dropdownMenu4" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-envelope"></i><span class="badge-danger badge-counter">1+</span></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4" id="menu">
-                <p class="submenu">Mensajes</p>
-                <hr class="azul">
+           
                 <!-- DataTales Example -->
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-  </div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTableTiempo" width="100%" cellspacing="0">
-        <thead id="tabla">
-        </thead>
-        <tbody>
-          <tr>
-            <td class="sin_borde">Emily Cruz</td>
-            <td class="sin_borde">¿Cuál página...</td>
-            <td class="sin_borde"><button type="button" class="btn btn-primary boton_guardar">Leer</button></td>
-          </tr>
-          <tr>
-          </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-              </ul>
-              <a href="../php/logout.php" id="salir" class="menu_icono separacion"><i class="fas fa-sign-out-alt"></i></a>
-            
-        </div>
-        </ul>
-    </div>
-        </div>
     </nav>
 
     <div class="margen"><!--Comienzo del contenedor principal-->
@@ -93,7 +51,7 @@
     <!--<div id='calendar'></div>-->
     
         <!--Modal para cambio de contraseña-->
-        <div class="modal" id="contraseña1" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal" id="contrasena1" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -103,13 +61,13 @@
                 <div class="modal-body" id="contraseña2">
                     <p><h3>Cambio de contraseña</h3></p><br>
                     <div class="form-group"><label for="contraseña"><b>Nueva contraseña</b></label><br><br>
-                        <input type="password" name="time" class="form-control input_tamano_login" id="contraseña" min="8" required></div><br>
+                        <input type="password" name="time" class="form-control input_tamano_login" id="con1" min="8" required></div><br>
                         <div class="form-group"><label for="contraseña"><b>Confirmar contraseña</b></label><br><br>
-                            <input type="password" name="time" class="form-control input_tamano_login" id="contraseña" min="8" required></div>
+                            <input type="password" name="time" class="form-control input_tamano_login" id="con2" min="8" required></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger boton_cancelar" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary boton_guardar">Guardar contraseña</button>
+                  <button type="button" class="btn btn-primary boton_guardar" onclick="u_contrasena();">Guardar contraseña</button>
                 </div>
               </div>
             </div>
@@ -169,15 +127,38 @@
         </div>
       </div>
     </div>
-          
-    <script>
-       $(document).ready(function(){
-            $("#contrasena").click(
-              function(){
-                $('#contraseña1').modal('show');
-              });
-       });
-    </script>
+
+     <!--Modal para calificaciones finales-->
+  <div class="modal" id="tabla_califF" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" width="100%">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+          <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="tabla_califF2">
+          <h6 class="centro">Mis calificaciones</h6><br>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Listado de calificaciones Finales</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTablecalifF" width="100%" cellspacing="0">
+                  <thead id="tabla">
+                    <tr>
+                      <th>Nombre de la materia</th>
+                      <th>Calificación</th>
+                    </tr>
+                  </thead>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+  </div> 
 
 
 

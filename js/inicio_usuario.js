@@ -21,12 +21,15 @@ function inicializacion(){
 function menu() {
     sesionUsuario();
     if(tipoUser==6){
-        $('#menulateral').append('<li><a href="#">'
-          +'<i class="paginas esconder fas fa-chart-line"></i>'
-          +'<span class="pagina">Calificaciones Generales</span></a></li><hr>'
-          +'<li><a href="#">'
-          +'<i class="paginas esconder fas fa-chart-line"></i>'
-          +'<span class="pagina">Biblioteca Virtual</span></a></li><hr>');
+        $('#menulateral').append('<div class="dropdown"><hr>'
+        +'<li><a href="pagina_principal.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
+        +'<li><a href="#">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
+        +'<li><a href="#" onclick="cf('+idUser+')">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Calif. Finales</span></a></li><hr>');
     }
     else if(tipoUser==5){
         $('#menulateral').append('<div class="dropdown"><hr>'
@@ -76,6 +79,26 @@ function menu() {
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'
         +'</div>');
+    }else if(tipoUser==3){
+        $('#menulateral').append('<div class="dropdown"><hr>'
+        +'<li><a href="pagina_principal_padre.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
+        +'<li><a href="#">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Pagos</span></a></li><hr>');
+    }else if(tipoUser==4){
+        $('#menulateral').append('<div class="dropdown"><hr>'
+        +'<li><a href="pagina_principal_control.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
+        +'<div class="dropdown">'
+        +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Periodo</span></a><hr>'
+        +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton2">'
+        +'<div id="periodoL"></div>'
+        +'<li><hr class="dropdown-divider"></li>'
+        +'</ul>'
+        +'</div>');
     }
     $.post("../php/s_usuario.php",{user:idUser},function(datos){
         datosUsuario = JSON.parse(datos);
@@ -97,4 +120,23 @@ function menu() {
 function periodo(perio){
     peri = perio;
     m_clase(peri);
+}
+function cf(usuario){
+    user = usuario;
+    $('#tabla_califF').modal('show');
+    $('#dataTablecalifF').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_alumnos_usuarios.php?tipo=12&usuario='+user+''
+        },
+
+        'columns': [
+           { data: 'Nombre_Clase' },
+           { data: 'Calificacion' },
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+     });
 }

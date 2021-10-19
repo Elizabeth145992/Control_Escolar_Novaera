@@ -2,6 +2,7 @@
 inicializacion();
 sesionUsuario();
 var idClase;
+var idUsuario;
 
 $(document).ready(function() {
     var cadVariables = location.search.substring(1,location.search.length);
@@ -15,6 +16,7 @@ $(document).ready(function() {
     } 
 
     idClase = parseInt(idC);
+    idUsuario = parseInt(idU);
 
     $.post('../php/s_clase_id.php', {clase:idClase}, function(datos){
         if(datos != "Error"){
@@ -40,6 +42,105 @@ function registrarAs(){
     valores = "idClase";
     enviarVariables3();
 }
+function registrarCP(){
+    pagina ="calificacion_parcial.php?"; 
+    valores = "idClase";
+    enviarVariables4();
+}
+function registrarCF(){
+    pagina ="calificacion_final.php?"; 
+    valores = "idClase";
+    enviarVariables5();
+}
+
+function reporteCF(){
+    pagina ="vista_reporte_calif_F.php?"; 
+    valores = "idClase";
+    enviarVariables6();
+}
+
+function reporteAs(){
+    pagina ="vista_reporte_asistencia.php?"; 
+    valores = "idClase";
+    enviarVariables7();
+}
+//Funciones para alumnos
+function verAs(){
+    if(idUsuario == 0){
+    $('#tabla_asis').modal('show');
+            $('#dataTableAsis').DataTable({
+                'destroy' : true,
+                'ajax': {
+                    'method':'GET',
+                    'url':'../php/s_alumnos_usuarios.php?tipo=10&clase='+idClase+'&usuario='+idUser+''
+                },
+        
+                'columns': [
+                   { data: 'Fecha' },
+                   { data: 'Tipo' },
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                }
+             });
+    }else{
+        $('#tabla_asis').modal('show');
+        $('#dataTableAsis').DataTable({
+            'destroy' : true,
+            'ajax': {
+                'method':'GET',
+                'url':'../php/s_alumnos_usuarios.php?tipo=10&clase='+idClase+'&usuario='+idUsuario+''
+            },
+    
+            'columns': [
+               { data: 'Fecha' },
+               { data: 'Tipo' },
+            ],
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }
+         });
+    }
+
+}
+
+function verCP(){
+    if(idUsuario==0){
+    $('#tabla_calif').modal('show');
+    $('#dataTablecalifP').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_alumnos_usuarios.php?tipo=11&clase='+idClase+'&usuario='+idUser+''
+        },
+
+        'columns': [
+           { data: 'Parcial' },
+           { data: 'Calificacion' },
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+     });
+     }else{
+        $('#tabla_calif').modal('show');
+    $('#dataTablecalifP').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_alumnos_usuarios.php?tipo=11&clase='+idClase+'&usuario='+idUsuario+''
+        },
+
+        'columns': [
+           { data: 'Parcial' },
+           { data: 'Calificacion' },
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+     }); 
+     }
+}
 
 function enviarVariables(){
     var nomVec= valores.split(",");
@@ -58,6 +159,38 @@ function enviarVariables2(){
 } 
 
 function enviarVariables3(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+} 
+
+function enviarVariables4(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+} 
+function enviarVariables5(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+} 
+
+
+function enviarVariables6(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+} 
+
+function enviarVariables7(){
     var nomVec= valores.split(",");
     for (var i=0; i<nomVec.length; i++)
         pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";

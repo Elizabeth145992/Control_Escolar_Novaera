@@ -25,5 +25,6 @@
   }
   </script>
 <script src="../js/inicio_usuario.js"></script>
+<script src="../js/main_principal.js"></script>
 
     

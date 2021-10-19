@@ -14,7 +14,7 @@ include("principal.html");
     <br>
     <a href="#" class="btn btn-primary boton_guardar" onclick="registrarAs();">Tomar asistencia</a>
     <br><br>
-    <a href="#" class="btn btn-primary boton_guardar">Generar reporte</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="reporteAs();">Generar reporte</a>
   </div>
 </div>
       </div>
@@ -45,7 +45,7 @@ include("principal.html");
   <h5 class="card-header">Calificaciones Parciales</h5>
   <div class="card-body">
     <br>
-    <a href="#" class="btn btn-primary boton_guardar">Capturar calificación</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="registrarCP();">Capturar calificación</a>
     <br><br>
     <a href="#" class="btn btn-primary boton_guardar">Generar reporte</a>
   </div>
@@ -56,9 +56,9 @@ include("principal.html");
   <h5 class="card-header">Calificaciones Finales</h5>
   <div class="card-body">
     <br>
-    <a href="#" class="btn btn-primary boton_guardar">Capturar calificación</a>
+    <a href="#" class="btn btn-primary boton_guardar"onclick="registrarCF();">Capturar calificación</a>
     <br><br>
-    <a href="#" class="btn btn-primary boton_guardar">Generar reporte</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="reporteCF();">Generar reporte</a>
   </div>
 </div>
       </div>

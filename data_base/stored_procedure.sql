@@ -144,4 +144,80 @@ VALUES(a_Fecha, a_Alumno, a_Personal, a_Ac, a_Tipo);
 END$$
 DELIMITER ;
 
+--SP para la inserción de una nueva calificación parcial
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_calificacionp`( `c_Calif` FLOAT,
+`c_Fecha` DATE, `c_Alumno` INT, `c_Ac` INT, `c_Parcial` INT)
+BEGIN
+INSERT INTO calificacion_parcial (Calificacion, Fecha_Cap, Id_Alumno, Id_Alumno_Clase,
+Id_Parcial)
+VALUES(c_Calif, c_Fecha, c_Alumno, c_Ac, c_Parcial);
+END$$
+DELIMITER ;
 
+--SP para la edición de calificaciones parciales
+DELIIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_calP`(`u_Ecal` FLOAT,`u_idcal` INT,
+`u_FechaN` DATE)
+BEGIN
+update calificacion_parcial set Calificacion = u_Ecal, Fecha_Cap = u_FechaN
+ where Id_Calificacion_Parcial = u_idcal;
+END$$
+DELIIMITER ;
+
+--SP para la inserción de una nueva calificación final
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_calificacionf`( `f_Calif` FLOAT,
+ `f_Alumno` INT, `f_Ac` INT)
+BEGIN
+INSERT INTO calificacion_final (Calificacion, Id_Alumno, Id_Alumno_Clase)
+VALUES(f_Calif, f_Alumno, f_Ac);
+END$$
+DELIMITER ;
+
+--SP para la edición de calificaciones finales
+DELIIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_calF`(`f_Ecal` FLOAT,`f_idcal` INT)
+BEGIN
+update calificacion_final set Calificacion = f_Ecal
+ where Id_Calificacion_Final = f_idcal;
+END$$
+DELIIMITER ;
+
+--SP para la edición de estatus de usuario
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_usuario_estatus`(`u_estatus` INT, `u_Usuario` INT)
+BEGIN
+update usuario set Id_Estatus = u_estatus
+ where Id_Usuario = u_Usuario;
+END$$
+DELIMITER ;
+
+--SP para la edición de foto
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_usuario_foto`(`u_foto` VARCHAR(255), `u_Usuario` INT)
+BEGIN
+update usuario set Foto = u_foto
+ where Id_Usuario = u_Usuario;
+END$$
+DELIMITER ;
+
+--SP para la edición de personal escolar
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_personal`(`a_RFC` VARCHAR(10),
+`a_Puesto` VARCHAR(60), `a_Usuario` INT)
+BEGIN
+update personal_escolar set RFC = a_RFC, Puesto = a_Puesto
+ where Id_Usuario = a_Usuario;
+END$$
+DELIMITER ;
+
+--SP para la edición de contraseña
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_contrasena`(`a_contrasena` VARCHAR(65),
+`a_Usuario` INT)
+BEGIN
+update usuario set Contrasena = a_contrasena
+ where Id_Usuario = a_Usuario;
+END$$
+DELIMITER ;

@@ -21,7 +21,69 @@ else if($tipo == 3){
 }else if($tipo == 6){
 	$clase = $_GET['clase'];
 	$sql = "CALL select_alumnoA($clase);";
+}else if($tipo == 7){
+	$clase = $_GET['clase'];
+	$parcial = $_GET['parcial'];
+	$sql = "CALL select_alumnocalifp($clase, $parcial);";
+}else if($tipo==8){
+	$clase = $_GET['clase'];
+	$sql = "CALL select_alumnocalifF($clase);";
+}else if($tipo==9){
+	$clase = $_GET['clase'];
+	$sql = "CALL select_asistecia($clase);";
+}else if($tipo==10){
+	$clase = $_GET['clase'];
+	$usuario = $_GET['usuario'];
+
+	$sql1 = mysqli_query($con3, "CALL Select_usuario_alumno('$usuario')");
+    $row1 = mysqli_fetch_assoc($sql1);
+    $idA = $row1['Id_Alumno'];
+
+	$sql2 = mysqli_query($con2, "CALL Select_clase_alumno('$idA')");
+    $row2 = mysqli_fetch_assoc($sql2);
+    $idAC = $row2['Id_Alumno_Clase'];
+
+	$sql = "CALL select_asistecia_a('$clase', '$idAC');";
+}else if($tipo==11){
+	$clase = $_GET['clase'];
+	$usuario = $_GET['usuario'];
+
+	$sql1 = mysqli_query($con3, "CALL Select_usuario_alumno('$usuario')");
+    $row1 = mysqli_fetch_assoc($sql1);
+    $idA = $row1['Id_Alumno'];
+
+	$sql2 = mysqli_query($con2, "CALL Select_clase_alumno('$idA')");
+    $row2 = mysqli_fetch_assoc($sql2);
+    $idAC = $row2['Id_Alumno_Clase'];
+
+	$sql = "CALL select_califP_a('$clase', '$idAC');";
+}else if($tipo==12){
+	$usuario = $_GET['usuario'];
+
+	$sql1 = mysqli_query($con3, "CALL Select_usuario_alumno('$usuario')");
+    $row1 = mysqli_fetch_assoc($sql1);
+    $idA = $row1['Id_Alumno'];
+
+	$sql = "CALL select_califF_a( '$idA');";
+}else if($tipo==13){
+	$tipo2 = $_GET['tipo2'];
+	$sql = "CALL Select_alumno_nivel_estatus($tipo2);";
 }
+else if($tipo==14){
+	$sql = "CALL Select_personal();";
+}else if($tipo == 15){
+	$usuario = $_GET['usuario'];
+	$sql = "CALL Select_personal2($usuario);";
+}else if($tipo==16){
+	$sql = "CALL Select_personales();";
+}else if($tipo==17){
+	$sql = "CALL Select_padres();";
+}else if($tipo == 18){
+	$usuario = $_GET['usuario'];
+	$sql = "CALL Select_padres2($usuario);";
+}
+
+
 
 
 	$result = mysqli_query($con1, $sql);

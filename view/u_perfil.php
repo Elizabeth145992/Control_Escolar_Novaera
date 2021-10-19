@@ -11,11 +11,10 @@ include("principal.html");
         <div class="row">
             <div class="col">
             <div class="centro">
-    <img id="foto_perfil" class="img-profile2 rounded-circle" src="../img/k.jpg"><br><br>
-
-    <form action="../u_img.php">
+                <div id="foto_p"></div>
+    <form action="javascript:ufoto();">
     <input id="image" name="image" type="file" value="Cargar imagen"><br><br>
-    <a type="submit" name="submit" class="btn btn-primary boton_guardar">Guardar foto</a></div>
+    <input type="submit" class="btn btn-primary boton_guardar" value="Guardar"></div>
     </form>
     </div>
 

@@ -69,12 +69,15 @@ function asistencia_data_editar3 (tbody, table){
     var data = table.row($(this).parents("tr")).data();
             claseA = data.Id_Alumno_Clase;
             alumno = data.Id_Alumno;
+            nombrea = data.Nombre;
     $.post("../php/i_asistencia.php",{
       fecha:today, usuario:idUser, alumno:alumno, tipo:1, ac:claseA}, function(result){
         if(result=="Error"){
-          alert("Error");
+          document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+          $('#modal_falla').modal('show');
         }else{
-          alert("Correcto");
+          document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
+          $('#modal_falla').modal('show');
         }
       });
   });
@@ -84,13 +87,16 @@ function asistencia_data_editar3 (tbody, table){
     var data = table.row($(this).parents("tr")).data();
     claseA = data.Id_Alumno_Clase;
     alumno = data.Id_Alumno;
+    nombrea = data.Nombre;
 $.post("../php/i_asistencia.php",{
 fecha:today, usuario:idUser, alumno:alumno, tipo:2, ac:claseA}, function(result){
-if(result=="Error"){
-  alert("Error");
-}else{
-  alert("Correcto");
-}
+  if(result=="Error"){
+    document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+    $('#modal_falla').modal('show');
+  }else{
+    document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
+    $('#modal_falla').modal('show');
+  }
 });
   });
 
@@ -99,12 +105,15 @@ if(result=="Error"){
     var data = table.row($(this).parents("tr")).data();
             claseA = data.Id_Alumno_Clase;
             alumno = data.Id_Alumno;
+            nombrea = data.Nombre;
     $.post("../php/i_asistencia.php",{
       fecha:today, usuario:idUser, alumno:alumno, tipo:3, ac:claseA}, function(result){
         if(result=="Error"){
-          alert("Error");
+          document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+          $('#modal_falla').modal('show');
         }else{
-          alert("Correcto");
+          document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
+          $('#modal_falla').modal('show');
         }
       });
   });
@@ -114,12 +123,15 @@ if(result=="Error"){
     var data = table.row($(this).parents("tr")).data();
             claseA = data.Id_Alumno_Clase;
             alumno = data.Id_Alumno;
+            nombrea = data.Nombre;
     $.post("../php/i_asistencia.php",{
       fecha:today, usuario:idUser, alumno:alumno, tipo:4, ac:claseA}, function(result){
         if(result=="Error"){
-          alert("Error");
+          document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+          $('#modal_falla').modal('show');
         }else{
-          alert("Correcto");
+          document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
+          $('#modal_falla').modal('show');
         }
       });
   });
