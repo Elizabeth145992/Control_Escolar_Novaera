@@ -81,6 +81,19 @@ else if($tipo==14){
 }else if($tipo == 18){
 	$usuario = $_GET['usuario'];
 	$sql = "CALL Select_padres2($usuario);";
+}else if($tipo == 19){
+	$usuario = $_GET['usuario'];
+	$sql1 = mysqli_query($con2, "CALL select_docente('$usuario')");
+    $row1 = mysqli_fetch_assoc($sql1);
+    $idD = $row1['Id_Personal_Escolar'];
+
+    $sql3 = mysqli_query($con3, "CALL last_periodo()");
+    $row3 = mysqli_fetch_assoc($sql3);
+    $periodo = $row3['idP'];
+    $sql = "CALL select_clase('$idD', '$periodo');"; 
+}else if($tipo == 20){
+	$usuario = $_GET['asis'];
+	$sql = "CALL select_asistecia_Alum($usuario);";
 }
 
 

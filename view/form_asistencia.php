@@ -30,10 +30,6 @@ include("principal.html");
               </div>
             </div>
         </div>
-    <div class="alinear">
-        <button class="btn btn-dark boton_guardar">Editar Asistencia</button>
-        </div>
-</div>
 
 <?php 
 include("footer.html");

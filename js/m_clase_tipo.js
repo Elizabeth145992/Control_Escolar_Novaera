@@ -24,6 +24,14 @@ $(document).ready(function() {
         $('#clase').append('<h5 class="clases">Clase: '+datosClase['data'][0].Nombre_Clase+'</h5>');
         }
     });
+console.log(tipoUser);
+    if(tipoUser == 2){
+        $('#ocultar1').hide();
+        $('#ocultar2').hide();
+        $('#ocultar3').hide();
+        $('#ocultar4').hide();
+        $('#ocultar5').hide();
+    }
 });
 
 function registrarAc(){

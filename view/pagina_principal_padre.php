@@ -11,9 +11,8 @@ include("principal.html");
             <br>
             <div id="card_hijo" class="row row-cols-1 row-cols-md-2 g-4 centro">
 </div>
-<br><br>
 </div>
-<br><br>
+
 
 <?php 
 include("footer.html");

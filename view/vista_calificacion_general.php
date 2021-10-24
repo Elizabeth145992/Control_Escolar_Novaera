@@ -45,7 +45,6 @@ include("principal.html");
         <div class="alinear">
         <button class="btn btn-dark boton_guardar">Generar Reporte PDF</button>
         </div>
-        <br><br><br>
         
 </div>
 </div>

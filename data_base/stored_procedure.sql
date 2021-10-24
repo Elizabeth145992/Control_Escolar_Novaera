@@ -221,3 +221,36 @@ update usuario set Contrasena = a_contrasena
  where Id_Usuario = a_Usuario;
 END$$
 DELIMITER ;
+
+--SP para la edición de una clase
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_clase`(`c_Nombrec` VARCHAR(100),
+`c_Descrip` longtext, `c_HoraI` VARCHAR(45), `c_HoraF` VARCHAR(45), `c_Nivel` INT,
+`c_Grado` INT, `c_personal` INT, `c_Estatus` INT, `c_Grupo` INT, `c_clase` INT)
+BEGIN
+update clase set Nombre_Clase = c_Nombrec, Descripción = c_Descrip, Hora_inicio = c_HoraI,
+Hora_final = c_HoraF, Id_Nivel = c_Nivel, Id_Grado = c_Grado, Id_Personal_Escolar = c_personal,
+Id_Estatus = c_Estatus, Id_Grupo = c_Grupo
+ where Id_Clase = c_clase;
+END$$
+DELIMITER ;
+
+--SP para la edición de asistencia
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_asistencia`(`a_asis` INT,
+`a_Usuario` INT)
+BEGIN
+update asistencia set Id_Tipo_Asistencia = a_asis
+ where Id_Asistencia = a_Usuario;
+END$$
+DELIMITER ;
+
+--SP para la inserción a la tabla alumno_clase
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_alumnoclase`( `c_clase` INT,
+ `c_Alumno` INT)
+BEGIN
+INSERT INTO alumno_clase(Id_Alumno, Id_Clase)
+VALUES(c_Alumno, c_clase);
+END$$
+DELIMITER ;

@@ -60,7 +60,7 @@
                       </div>
                           <br><br>
                           <div class="centro">
-                          <a class="restablecer" href="#">¿Olvidaste tu contraseña?</a>
+                          <a id="res" class="restablecer" href="#">¿Olvidaste tu contraseña?</a>
                       </div>
                           <br><br>
                       </form>
@@ -70,5 +70,50 @@
         <br><br>
         <br><br>
     </main>
+
+    <!--Modal para restablecer contraseña-->
+    <div class="modal" id="r1" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+              <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="r2">
+                <p><h3>Restablecimiento de contraseña</h3></p><br>
+                <div class="form-group"><label for="correo"><b>Correo Institucional</b></label><br><br>
+                    <input type="email" name="correo" class="form-control input_tamano_login" id="correo" required></div><br>
+                    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger boton_cancelar" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary boton_guardar" onclick="restablecer();">Restablecer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Modal para avisos en el sistema-->
+    <div class="modal" id="modal_falla" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+              <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="text-align:center" id="modal-falla2">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+          $(document).ready(function(){
+    $("#res").click(
+      function(){
+        $('#r1').modal('show');
+      });
+});
+      </script>
 </body>
 </html>

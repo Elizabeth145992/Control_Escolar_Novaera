@@ -3,6 +3,11 @@
 * @brief Documento usado para la inserción de nuevos usuarios para personal escolar
 */
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
 require 'conexion.php';
 require 'password.php';
 
@@ -31,7 +36,7 @@ if($result1){
     $idD = $row['idD'];
 
     $sql3 = "CALL insert_usuario('$nombre', '$paterno', '$materno', '$correo', '$tele', 
-    'C:\xampp\htdocs\Control_Escolar_Novaera\img\b1.jpg', '$contrasena', '$idD', '$rol', '$genero', 1)";
+    '../img/g_novaera.jpg', '$contrasena', '$idD', '$rol', '$genero', 1)";
     $result3 = mysqli_query($con3, $sql3);
 
 }
@@ -43,12 +48,34 @@ if($result3){
     $sql5 = "CALL insert_personal('$rfc', '$puesto', '$idU')";
     $result5 = mysqli_query($con5, $sql5);
 }
-if($result5){
+//enviar correo
+
+$mail = new PHPMailer();
+$mail->IsSMTP();
+$mail->Mailer = "smtp";
+
+$mail->SMTPDebug  = 1;  
+$mail->SMTPAuth   = TRUE;
+$mail->SMTPSecure = "tls";
+$mail->Port       = 587;
+$mail->Host       = "smtp.gmail.com";
+$mail->Username   = "institutonovaeran@gmail.com";
+$mail->Password   = "uoNDSD6e1h";
+
+$mail->IsHTML(true);
+$mail->AddAddress($correo, $nombre.' '.$paterno.' '.$materno);
+$mail->SetFrom("institutonovaeran@gmail.com", "Instituto Novaera");
+$mail->Subject = "ASIGNACION DE PASSWORD para sistema del Instituto Novaera";
+$content = '<p>Utiliza tu correo institucional y el password que se proporciona a continuación para acceder al sistema. </p><b>'.$password;
+
+$mail->MsgHTML($content); 
+
+if(!$mail->Send()){
     echo $password;
-}
-else{
+}else{
     echo "Error";
 }
+
 
 mysqli_close($con1);
 mysqli_close($con2);

@@ -13,9 +13,8 @@ include("principal.html");
 <!--Card para que los padres vean las clases de sus hijos, para control, para Admin-->
 
 </div>
-<br><br>
 </div>
-<br><br>
+
 
 <?php 
 include("footer.html");

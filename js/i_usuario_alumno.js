@@ -1,6 +1,6 @@
 /* Este archi servirá para la comunicación del cliente al lenguaje del servidor para la inserción
 de un nuevo usuario de tipo Alumno*/
-
+var tipo2 = 1;
 inicializacion();
 $(document).ready(function() {
     $.ajax({
@@ -50,10 +50,35 @@ function guardarUsuario(){
         }
         else{
             var password = respuesta1;
-            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el alumno. El password es:"+password;
+            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el alumno. El password fue enviado al usuario por su correo institucional";
             $('#modal_falla').modal('show');
             $("#modal_falla").on('hidden.bs.modal', function () {
             recargarpagina1()});;
+        }
+    });
+}
+
+function registrararchivo(){
+    var paqueteDeDatos = new FormData();
+    paqueteDeDatos.append('archivo', $('#archivo')[0].files[0]);
+    paqueteDeDatos.append('tipo2', tipo2);
+
+
+
+     $.ajax({
+        url: "../php/registrarArchivo.php",
+        type: 'POST',
+        contentType: false,
+        data: paqueteDeDatos,
+        processData: false,
+        cache: false, 
+        success: function(response){ 
+            document.getElementById('modal-falla2').innerHTML="<p>Información guardada correctamente. Los passwords fueron enviados a los correos proporcionados.</p>";
+            $('#modal_falla').modal('show');
+        },
+        error: function (){
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar la información";
+            $('#modal_falla').modal('show');
         }
     });
 }

@@ -40,3 +40,31 @@ function enviarVariables(){
     pagina = pagina.substring(0, pagina.length-1);
     location.href=pagina;
 } 
+
+function unirG(){
+    $('#unir1').modal('show');
+}
+
+function unirseGrupo(){
+    var c1 = $('#codigo').val();
+
+    $.post("../php/i_alumno_clase.php",{codigo:c1, usuario:idUser}, function(r){
+        if(r=="Error"){
+            $('#unir1').modal('hide');
+            document.getElementById('modal-falla2').innerHTML="No se agregó a la clase";
+            $('#modal_falla').modal('show');
+        }
+        else{
+            $('#unir1').modal('hide');
+          document.getElementById('modal-falla2').innerHTML="SE agregó correctamente a la clase";
+          $('#modal_falla').modal('show');
+          $("#modal_falla").on('hidden.bs.modal', function () {
+          paginacodigo()});;
+            }
+    });
+}
+
+function paginacodigo() {
+    var pagina ="../view/pagina_principal.php"; 
+       location.href=pagina;
+}

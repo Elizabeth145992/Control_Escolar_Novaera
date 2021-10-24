@@ -548,3 +548,64 @@ BEGIN
   WHERE usuario.Id_Rol = 3 AND usuario.Id_Estatus=1 AND usuario.Id_Usuario=a_usuario;
 END$$
 DELIMITER ;
+
+--SP para seleccionar las clases de un determindao periodo
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_claseAll`(`d_periodo` INT)
+BEGIN
+SELECT * FROM ((((((clase
+INNER JOIN nivel
+ON nivel.Id_Nivel = clase.Id_Nivel)
+INNER JOIN grado
+ON grado.Id_Grado = clase.Id_Grado)
+INNER JOIN personal_escolar
+ON personal_escolar.Id_Personal_Escolar = clase.Id_Personal_Escolar)
+INNER JOIN usuario
+ON usuario.Id_Usuario = personal_escolar.Id_Usuario)
+INNER JOIN estatus
+ON estatus.Id_Estatus = clase.Id_Estatus)
+INNER JOIN periodo
+ON periodo.Id_Periodo = clase.Id_Periodo)
+INNER JOIN grupo
+ON grupo.Id_grupo = clase.Id_grupo
+where periodo.Id_Periodo = d_periodo;
+END$$
+DELIMITER ;
+
+--SP para seleccionar las asistencias de un alumno
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_asistecia_Alum`(`a_asis` INT)
+BEGIN
+SELECT * FROM (((asistencia
+INNER JOIN alumno
+ON alumno.Id_Alumno = asistencia.Id_Alumno)
+INNER JOIN usuario
+ON usuario.Id_Usuario = alumno.Id_Usuario)
+INNER JOIN alumno_clase
+ON alumno_clase.Id_Alumno_Clase = asistencia.Id_Alumno_Clase)
+INNER JOIN tipo_asistencia
+ON tipo_asistencia.Id_Tipo_Asistencia = asistencia.Id_Tipo_Asistencia
+where asistencia.Id_Asistencia = a_asis;
+END$$
+DELIIMITER ;
+
+--SP para seleccionar las clases con id determinado
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_claseCodigo`(`c_Codigo` VARCHAR(7))
+BEGIN
+SELECT * FROM (((((clase
+INNER JOIN nivel
+ON nivel.Id_Nivel = clase.Id_Nivel)
+INNER JOIN grado
+ON grado.Id_Grado = clase.Id_Grado)
+INNER JOIN personal_escolar
+ON personal_escolar.Id_Personal_Escolar = clase.Id_Personal_Escolar)
+INNER JOIN estatus
+ON estatus.Id_Estatus = clase.Id_Estatus)
+INNER JOIN periodo
+ON periodo.Id_Periodo = clase.Id_Periodo)
+INNER JOIN grupo
+ON grupo.Id_grupo = clase.Id_grupo
+where clase.Codigo_Clase = c_Codigo;
+END$$
+DELIMITER ;

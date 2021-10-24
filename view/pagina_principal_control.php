@@ -65,10 +65,9 @@ include("principal.html");
   </div>
 </div>
 </div>
-<br><br>
-</div><br>
 </div>
-<br><br>
+</div>
+
 
 <?php 
 include("footer.html");

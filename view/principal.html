@@ -160,7 +160,33 @@
     </div>
   </div> 
 
-
+<!--Modal para crear nuevo periodo-->
+<div class="modal fade" id="periodo1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+        <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="periodo2">
+          <p><h3>Nuevo Periodo Escolar</h3></p><br>
+          <form action="javascript:guardarPeriodo();" autocomplete="off">
+          <div class="form-group">
+            <label for="nombreP"><b>Nombre del periodo</b></label><br><br>
+              <input type="text" name="nombreP" class="form-control input_tamano_login" id="nombreP" maxlength="100" required></div><br>
+              <div class="form-group"><label for="inicio"><b>Fecha de Inicio</b></label><br><br>
+                  <input type="date" name="inicio" class="form-control input_tamano_login" id="inicio" required></div><br>
+                <div class="form-group"><label for="termino"><b>Fecha de Termino</b></label><br><br>
+              <input type="date" name="termino" class="form-control input_tamano_login" id="termino"required></div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger boton_cancelar" data-bs-dismiss="modal">Cancelar</button>
+        <input type="submit" class="btn btn-primary boton_guardar" value="Guardar Periodo">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
    
     

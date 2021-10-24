@@ -58,35 +58,6 @@ function guardarClase(){
     });
 }
 
-$(document).ready(function(){
-            $("#Gperiodo1").click(
-              function(){
-                $('#periodo1').modal('show');
-              });
-       });
-
-       function guardarPeriodo(){
-        var p1 = $('#nombreP').val();
-        var p2 = $('#inicio').val();
-        var p3 = $('#termino').val();
-        $.post("../php/i_periodo.php", {nombreP:p1, inicio:p2, termino:p3},
-            function(respuesta1){
-                $('#periodo1').modal('hide');
-                if(respuesta1=="Error"){
-                    document.getElementById('modal-falla2').innerHTML="No se pudo crear un nuevo periodo";
-                    $('#modal_falla').modal('show');
-                }
-                else{
-                    $('#periodo1').modal('hide');
-                    document.getElementById('modal-falla2').innerHTML="Se creo correctamente el nuevo periodo";
-                    $('#modal_falla').modal('show');
-                    $("#modal_falla").on('hidden.bs.modal', function () {
-                    recargarpaginaPA()
-                });
-                }
-            });
-        }
-
 function recargarpaginaC() {
      var pagina ="../view/form_clase.php"; 
         location.href=pagina;

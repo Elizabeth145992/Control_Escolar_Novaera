@@ -6,7 +6,7 @@ include("principal.html");
 
 ?>
 
-<h5 class="clases">Registro de Padre/Tutor</h5>
+<h5  class="clases">Registro de Padre/Tutor</h5>
 <div class="margen_body">
 <hr class="linea">
 
@@ -111,9 +111,15 @@ include("principal.html");
   <div class="centro">
   <input type="submit" class="btn btn-primary boton_guardar" value="Guardar">
   </div>
-  <br><br>
 
 </form>
+<br><br><br>
+
+<h5 style="margin-left:36.5%;">Registre los alumnos por medio de un archivo .csv</h5>
+<br>
+<input  style="margin-left:20%;" type="file" name="archivo" id="archivo">
+<input onclick="registrararchivo();" type="button" class="btn btn-dark boton_guardar" value="Registrar alumnos">
+
 </div>
 
 <?php 

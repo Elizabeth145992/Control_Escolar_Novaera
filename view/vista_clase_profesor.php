@@ -12,8 +12,9 @@ include("principal.html");
   <h5 class="card-header">Listado de Asistencia</h5>
   <div class="card-body">
     <br>
+    <div id="ocultar5">
     <a href="#" class="btn btn-primary boton_guardar" onclick="registrarAs();">Tomar asistencia</a>
-    <br><br>
+    <br><br></div>
     <a href="#" class="btn btn-primary boton_guardar" onclick="reporteAs();">Generar reporte</a>
   </div>
 </div>
@@ -24,8 +25,9 @@ include("principal.html");
   <div class="card-body">
     <br>
     <a href="#" class="btn btn-primary boton_guardar"  onclick="verAc();">Ver actividades</a>
+    <div id="ocultar4">
     <br><br>
-    <a href="#" class="btn btn-primary boton_guardar" onclick="registrarAc();">Nueva actividad</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="registrarAc();">Nueva actividad</a></div>
   </div>
 </div>
       </div>
@@ -35,8 +37,9 @@ include("principal.html");
   <div class="card-body">
     <br>
     <a href="#" class="btn btn-primary boton_guardar">Ver evaluaciones</a>
+    <div id="ocultar3">
     <br><br>
-    <a href="#" class="btn btn-primary boton_guardar">Nueva evaluación</a>
+    <a href="#" class="btn btn-primary boton_guardar">Nueva evaluación</a></div>
   </div>
 </div>
       </div>
@@ -45,8 +48,9 @@ include("principal.html");
   <h5 class="card-header">Calificaciones Parciales</h5>
   <div class="card-body">
     <br>
+    <div id="ocultar2">
     <a href="#" class="btn btn-primary boton_guardar" onclick="registrarCP();">Capturar calificación</a>
-    <br><br>
+    <br><br></div>
     <a href="#" class="btn btn-primary boton_guardar">Generar reporte</a>
   </div>
 </div>
@@ -56,14 +60,14 @@ include("principal.html");
   <h5 class="card-header">Calificaciones Finales</h5>
   <div class="card-body">
     <br>
+    <div id="ocultar1">
     <a href="#" class="btn btn-primary boton_guardar"onclick="registrarCF();">Capturar calificación</a>
-    <br><br>
+    <br><br></div>
     <a href="#" class="btn btn-primary boton_guardar" onclick="reporteCF();">Generar reporte</a>
   </div>
 </div>
       </div>
   </div>
-  <br><br>
 <?php 
 include("footer.html");
 ?>

@@ -51,7 +51,7 @@ function menu() {
         +'<li><a href="../view/form_clase.php">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Nueva Clase</span></a></li><hr>'
-        +'<li><a href="#">'
+        +'<li><a href="../view/u_clase.php">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Editar Clase</span></a></li><hr>'
         +'<div class="dropdown">'
@@ -99,6 +99,27 @@ function menu() {
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'
         +'</div>');
+    }else if(tipoUser==2){
+        $('#menulateral').append('<div class="dropdown"><hr>'
+        +'<li><a href="pagina_principal_supervisor.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
+        +'<div class="dropdown">'
+        +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Periodo</span></a><hr>'
+        +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton2">'
+        +'<div id="periodoL"></div>'
+        +'<li><hr class="dropdown-divider"></li>'
+        +'</ul>'
+        +'</div>'
+        +'<li><a href="../view/m_alumnos_preescolarS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Alumnos Preescolar</span><hr></a></li><br>'
+        +'<li><a href="../view/m_alumnos_primariaS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Alumnos Primaria</span><hr></a></li><br>'
+        +'<li><a href="../view/m_alumnos_secundariaS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Alumnos Secundaria</span><hr></a></li><br>'
+        +'<li><a href="../view/m_alumnos_preparatoriaS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span  class="pagina">Alumnos Preparatoria</span><hr></a></li><br>');
     }
     $.post("../php/s_usuario.php",{user:idUser},function(datos){
         datosUsuario = JSON.parse(datos);
@@ -140,3 +161,33 @@ function cf(usuario){
         }
      });
 }
+
+$(document).ready(function(){
+    $("#Gperiodo1").click(
+      function(){
+        $('#periodo1').modal('show');
+      });
+});
+
+function guardarPeriodo(){
+    var p1 = $('#nombreP').val();
+    var p2 = $('#inicio').val();
+    var p3 = $('#termino').val();
+    $.post("../php/i_periodo.php", {nombreP:p1, inicio:p2, termino:p3},
+        function(respuesta1){
+            $('#periodo1').modal('hide');
+            if(respuesta1=="Error"){
+                document.getElementById('modal-falla2').innerHTML="No se pudo crear un nuevo periodo";
+                $('#modal_falla').modal('show');
+            }
+            else{
+                $('#periodo1').modal('hide');
+                document.getElementById('modal-falla2').innerHTML="Se creo correctamente el nuevo periodo";
+                $('#modal_falla').modal('show');
+                $("#modal_falla").on('hidden.bs.modal', function () {
+                recargarpaginaPA()
+            });
+            }
+        });
+    }
+

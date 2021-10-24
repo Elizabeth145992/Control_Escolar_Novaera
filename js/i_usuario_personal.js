@@ -49,10 +49,35 @@ function guardarUsuario(){
         }
         else{
             var password = respuesta1;
-            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el alumno. El password es:"+password;
+            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el alumno. El password fue enviado al correo del usuario";
             $('#modal_falla').modal('show');
             $("#modal_falla").on('hidden.bs.modal', function () {
             recargarpagina()});
+        }
+    });
+}
+
+function registrararchivo(){
+    var paqueteDeDatos = new FormData();
+    paqueteDeDatos.append('archivo', $('#archivo')[0].files[0]);
+    paqueteDeDatos.append('tipo2', tipo2);
+
+
+
+     $.ajax({
+        url: "../php/registrarArchivo.php",
+        type: 'POST',
+        contentType: false,
+        data: paqueteDeDatos,
+        processData: false,
+        cache: false, 
+        success: function(response){ 
+            document.getElementById('modal-falla2').innerHTML="<p>Información guardada correctamente. Los passwords fueron enviados a los correos proporcionados.</p>";
+            $('#modal_falla').modal('show');
+        },
+        error: function (){
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar la información";
+            $('#modal_falla').modal('show');
         }
     });
 }

@@ -10,7 +10,7 @@ include("principal.html");
             <!--Cards para ver las clases-->
             <div id="card_al" class="row row-cols-1 row-cols-md-2 g-4">
 </div>
-<br><br>
+
 </div>
 <?php 
 include("footer.html");

@@ -44,7 +44,6 @@ include("principal.html");
 </div>
       </div>
   </div>
-  <br><br>
 
 <!--Modal para asistencia-->
   <div class="modal" id="tabla_asis" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" width="100%">
