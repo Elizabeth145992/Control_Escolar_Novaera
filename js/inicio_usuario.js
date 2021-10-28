@@ -132,7 +132,7 @@ function menu() {
         if(datos!="Error"){
             var datosPe = JSON.parse(datos);
                 for(var i=0;i<datosPe["data"].length;i++){
-                    $('#periodoL').append('<li><a onclick="periodo('+datosPe["data"][i].Id_Periodo+')" id="'+datosPe["data"][i].Id_Periodo+'" class="dropdown-item" href="#">'+datosPe["data"][i].Nombre+'</a></li>');
+                    $('#periodoL').append('<li><a onclick="periodo('+datosPe["data"][i].Id_Periodo+')" id="'+datosPe["data"][i].Id_Periodo+'" class="dropdown-item" href="#">'+datosPe["data"][i].Nombre_Periodo+'</a></li>');
                 }
         }      
     });

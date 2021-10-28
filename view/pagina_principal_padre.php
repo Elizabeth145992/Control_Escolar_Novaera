@@ -12,7 +12,7 @@ include("principal.html");
             <div id="card_hijo" class="row row-cols-1 row-cols-md-2 g-4 centro">
 </div>
 </div>
-
+<br><br><br>
 
 <?php 
 include("footer.html");

@@ -188,7 +188,101 @@
   </div>
 </div>
 
+
+ <!--Modal para mostrar chats-->
+ <div class="modal" id="mchat" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" width="100%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+        <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="mchat2">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Aquí se muestran los mensajes no leídos</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTableChat" width="100%" cellspacing="0">
+                <thead id="tabla">
+                  <tr>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Leer</th>
+                  </tr>
+                </thead>
+                        </table>
+                      </div>
+                      <input onclick="iniciar();" type="submit" class="btn btn-primary boton_guardar" value="Ver o iniciar Chat">
+                    </div>
+                </div>
+      </div>
+    </div>
+  </div>
+</div>
    
+
+<!--Modal para crear nuevo periodo-->
+<div class="modal fade" id="chatp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+        <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="chatp2">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Chat Personal</h6>
+        </div>
+        <br>
+        <div id="mensajesC" style="overflow-y: scroll;height: 300px;width: 100%;"></div>
+      </div>
+      <div class="modal-footer">
+          <textarea name="contenido" id="contenido" cols="57" rows="3" placeholder="Escribe algo..."></textarea>
+        <input type="submit" class="btn btn-primary boton_guardar" value="Enviar" onclick="enviar();">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Modal para iniciar o ver chats-->
+<div class="modal" id="iniciarC" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" width="100%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+        <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="iniciarC2">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Inicia o ve una conversación</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTableiniciar" width="100%" cellspacing="0">
+                <thead id="tabla">
+                  <tr>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Iniciar o ver</th>
+                  </tr>
+                </thead>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     
            
             

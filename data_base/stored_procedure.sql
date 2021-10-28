@@ -254,3 +254,24 @@ INSERT INTO alumno_clase(Id_Alumno, Id_Clase)
 VALUES(c_Alumno, c_clase);
 END$$
 DELIMITER ;
+
+--SP para edición de estatus de un mensaje
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_mensajeE`(`u_user` INT,
+`u_userD` INT)
+BEGIN
+update mensaje set Id_Estatus = 2
+ where Id_Usuario_remitente = u_userD AND Id_Usuario_destinatario = u_user;
+END$$
+DELIMITER ;
+
+--SP para la inserción de un nuevo mensaje
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_mensaje`( `m_contenido` LONGTEXT,
+ `m_Fecha` timestamp, `m_remi` INT, `m_des` INT, `m_est` INT)
+BEGIN
+INSERT INTO mensaje(Contenido, Fecha_hora, Id_Usuario_remitente, Id_Usuario_destinatario,
+Id_Estatus)
+VALUES(m_contenido, m_fecha, m_remi, m_des, m_est);
+END$$
+DELIMITER ;

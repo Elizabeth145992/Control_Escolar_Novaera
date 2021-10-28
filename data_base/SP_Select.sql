@@ -609,3 +609,50 @@ ON grupo.Id_grupo = clase.Id_grupo
 where clase.Codigo_Clase = c_Codigo;
 END$$
 DELIMITER ;
+
+--SP para seleccionar los mensajes 
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_mensaje1`(`m_usuario` INT)
+BEGIN
+SELECT * FROM (mensaje
+INNER JOIN usuario
+ON usuario.Id_Usuario = mensaje.Id_Usuario_remitente)
+INNER JOIN estatus
+ON estatus.Id_Estatus = mensaje.Id_Estatus
+where mensaje.Id_Usuario_destinatario = m_usuario ORDER BY mensaje.Fecha_hora;
+END$$
+DELIIMITER ;
+
+--SP para seleccionar los mensajes de remitentes y destinatarios
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_mensaje2`(`m_usuario` INT,
+`m_desti` INT)
+BEGIN
+SELECT * FROM (mensaje
+INNER JOIN usuario
+ON usuario.Id_Usuario = mensaje.Id_Usuario_remitente)
+INNER JOIN estatus
+ON estatus.Id_Estatus = mensaje.Id_Estatus
+where mensaje.Id_Usuario_remitente = m_usuario 
+AND mensaje.Id_Usuario_destinatario = m_desti
+OR mensaje.Id_Usuario_remitente = m_desti 
+AND mensaje.Id_Usuario_destinatario = m_usuario 
+ORDER BY Fecha_hora mensaje.Fecha_hora AND mensaje.Id_Estatus=1;
+END$$
+DELIIMITER ;
+
+--SP para consultar a todos los usuarios en el sistema
+DELIIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_usuariosAll`()
+BEGIN
+  SELECT * FROM (((usuario 
+  INNER JOIN direccion 
+  ON direccion.Id_Direccion = usuario.Id_Direccion)
+  INNER JOIN rol 
+  ON rol.Id_Rol = usuario.Id_Rol)
+  INNER JOIN genero 
+  ON genero.Id_Genero = usuario.Id_Genero)
+  INNER JOIN estatus 
+  ON estatus.Id_Estatus = usuario.Id_Estatus ORDER BY usuario.Apellido_Paterno;
+END$$
+DELIMITER ;

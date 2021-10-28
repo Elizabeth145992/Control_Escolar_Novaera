@@ -21,13 +21,21 @@ include("principal.html");
                 </div>
                 <div class="modal-body" id="calendario2">
                     <p><h3>Tipo de evento</h3></p><br>
-                    <div class="form-group"><label for="contraseña"><b>Seleccione el tipo de evento</b></label><br><br>
+                    <div class="form-group"><label for="contraseña"><b>Seleccione el tipo de evento</b></label><br>
                     <select class="form-select input_tamano" aria-label="Default select example" required>
                         <option selected>Seleccione</option>
                         <option value="1">Reunión en Teams</option>
                         <option value="2">Reunión en Zoom</option>
                         <option value="3">Otro evento</option>
-                    </select>
+                    </select><br>
+
+                    <div class="form-group"><label for="contraseña"><b>Seleccione la clase</b></label><br>
+                    <select class="form-select input_tamano" aria-label="Default select example" required>
+                        <option selected>Seleccione</option>
+                        <option value="1">clase 1</option>
+                    </select><br>
+    <label for="actividad_nombre" class="form-label"><b>Hora de Inicio</b></label>
+    <input type="time" class="form-control input_tamano" id="hora" name="hora" required>
                     <br><br>
                 </div>
                 <div class="modal-footer">

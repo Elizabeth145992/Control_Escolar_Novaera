@@ -23,7 +23,7 @@ $(document).ready(function() {
             $('#periodo').append('<option selected>Seleccione</option>');
                 for(var i=0;i<datosPe["data"].length;i++){
                     $('#periodo').append('<option value="'+datosPe["data"][i].Id_Periodo+'">'
-                    +datosPe["data"][i].Nombre+'</option>');
+                    +datosPe["data"][i].Nombre_Periodo+'</option>');
                 }
         }      
     });
