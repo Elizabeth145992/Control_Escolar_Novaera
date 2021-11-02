@@ -8,7 +8,7 @@ $tipo = $_GET['tipo'];
 $clase = $_GET['clase'];
 $fecha = date('Y-m-d');
 
-$sql = "CALL select_alumnocalifF('$clase');";
+$sql = "CALL select_alumnocalifp($clase);";
 	$result = mysqli_query($con1, $sql);
 		while($row = mysqli_fetch_assoc($result)) {
             $datos[] = $row;
@@ -59,11 +59,14 @@ $this->Cell(0,10,'Pagina '.$this->PageNo(),0,0,'C');
         $am=$array['Apellido_Materno'];
         $nom=$array['Nombre'];
         $caf=$array['Calificacion'];
+        $parcial = $array['Parcial'];
 
         $this->Cell(40,5,utf8_decode($ap),1,0,'C');
         $this->Cell(40,5,utf8_decode($am),1,0,'C');
         $this->Cell(40,5,utf8_decode($nom),1,0,'C');
+        $this->Cell(40,5,$parcial,1,0,'C');
         $this->Cell(40,5,$caf,1,0,'C');
+
         $this->Ln();
     }
    }
@@ -76,7 +79,7 @@ $pdf=new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Times','',14);
 $pdf->setY(30);
-$pdf->Cell(0,0,utf8_decode('Calificaciones Finales de:'.$nombreM),0,1,'C');
+$pdf->Cell(0,0,utf8_decode('Calificaciones Parciales de:'.$nombreM),0,1,'C');
 $pdf->setY(37);
 $pdf->Cell(0,0,utf8_decode('Docente: '.$nombred.' '.$paterno.' '.$materno),0,1,'C');
 $pdf->setY(45);
@@ -84,11 +87,8 @@ $pdf->Cell(0,0,utf8_decode('Periodo: '.$periodo),0,1,'C');
 $pdf->setY(50);
 $pdf->Cell(0,0,utf8_decode('Fecha de Emisión: '.$fecha),0,1,'C');
 $pdf->setY(55);
-$textypos = 5;
-$off = $textypos+6;    
-$pdf->Ln(5);
 $pdf->SetFont('Times','',12);
-$header=array('Apellido Paterno','Apellido Materno','Nombre',utf8_decode('Calificación Final'));
+$header=array('Apellido Paterno','Apellido Materno','Nombre', 'Parcial', utf8_decode('Calificación Final'));
 $pdf->AliasNbPages();
 //$pdf->AddPage();
 $pdf->TablaBasica($header, $datos);

@@ -202,13 +202,15 @@ DELIMITER ;
 DELIMITER$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_claseTipo`(`c_Clase` INT)
 BEGIN
-SELECT * FROM (((((clase
+SELECT * FROM ((((((clase
 INNER JOIN nivel
 ON nivel.Id_Nivel = clase.Id_Nivel)
 INNER JOIN grado
 ON grado.Id_Grado = clase.Id_Grado)
 INNER JOIN personal_escolar
 ON personal_escolar.Id_Personal_Escolar = clase.Id_Personal_Escolar)
+INNER JOIN usuario
+ON usuario.Id_Usuario = personal_escolar.Id_Usuario)
 INNER JOIN estatus
 ON estatus.Id_Estatus = clase.Id_Estatus)
 INNER JOIN periodo
@@ -259,19 +261,16 @@ DELIMITER ;
 
 --SP para seleccionar las calificaciones parciales de una clase y de un parcial
 DELIIMIT$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_alumnocalifp`(`c_Clase` INT,
-`c_Parcial` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_alumnocalifp`(`c_Clase` INT)
 BEGIN
-SELECT * FROM (((calificacion_parcial
+SELECT * FROM ((calificacion_parcial
 INNER JOIN alumno
 ON alumno.Id_Alumno = calificacion_parcial.Id_Alumno)
 INNER JOIN usuario
 ON usuario.Id_Usuario = alumno.Id_Usuario)
-INNER JOIN parcial
-ON parcial.Id_Parcial = calificacion_parcial.Id_Parcial)
 INNER JOIN alumno_clase
 ON alumno_clase.Id_Alumno_Clase = calificacion_parcial.Id_Alumno_Clase
-where alumno_clase.Id_Clase = c_Clase AND parcial.Id_Parcial = c_Parcial;
+where alumno_clase.Id_Clase = c_Clase;
 END$$
 DELIIMITER ;
 
@@ -656,3 +655,66 @@ BEGIN
   ON estatus.Id_Estatus = usuario.Id_Estatus ORDER BY usuario.Apellido_Paterno;
 END$$
 DELIMITER ;
+
+--SP para consultar a todos los eventos de un suario
+DELIIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_eventos`(`e_user` INT)
+BEGIN
+  SELECT * FROM ((evento_reuniones 
+  INNER JOIN tipo_evento 
+  ON tipo_evento.Id_Tipo_Evento = evento_reuniones.Id_Tipo_Evento)
+  INNER JOIN usuario
+  ON usuario.Id_Usuario =  evento_reuniones.Id_Usuario)
+  INNER JOIN clase
+  ON clase.Id_Clase =  evento_reuniones.Id_Clase
+  WHERE  evento_reuniones.Id_Usuario = e_user;
+END$$
+DELIMITER ;
+
+--SP para consultar a todoslos materiales de la biblioteca
+DELIIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_biblioteca`()
+BEGIN
+  SELECT * FROM (((biblioteca_virtual
+  INNER JOIN estatus 
+  ON estatus.Id_Estatus = biblioteca_virtual.Id_Estatus)
+  INNER JOIN recurso 
+  ON recurso.Id_Recurso = biblioteca_virtual.Id_Recurso)
+  INNER JOIN nivel 
+  ON nivel.Id_Nivel = biblioteca_virtual.Id_Nivel)
+  INNER JOIN grado 
+  ON grado.Id_Grado = biblioteca_virtual.Id_Grado ORDER BY biblioteca_virtual.Nombre_Material;
+END$$
+DELIMITER ;
+
+--SP para consultar a  un solo material de la biblioteca
+DELIIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_bibliotecaID`(`b_biblio` INT)
+BEGIN
+  SELECT * FROM (((biblioteca_virtual
+  INNER JOIN estatus 
+  ON estatus.Id_Estatus = biblioteca_virtual.Id_Estatus)
+  INNER JOIN recurso 
+  ON recurso.Id_Recurso = biblioteca_virtual.Id_Recurso)
+  INNER JOIN nivel 
+  ON nivel.Id_Nivel = biblioteca_virtual.Id_Nivel)
+  INNER JOIN grado 
+  ON grado.Id_Grado = biblioteca_virtual.Id_Grado
+  WHERE biblioteca_virtual.Id_Biblioteca_Virtual = b_biblio;
+END$$
+DELIMITER ;
+
+--SP para seleccionar las evaluaciones
+DELIIMIT$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_evaluacion`(`c_Clase` INT)
+BEGIN
+SELECT * FROM ((evaluacion
+INNER JOIN alumno
+ON alumno.Id_Alumno = evaluacion.Id_Alumno)
+INNER JOIN usuario
+ON usuario.Id_Usuario = alumno.Id_Usuario)
+INNER JOIN alumno_clase
+ON alumno_clase.Id_Alumno_Clase = evaluacion.Id_Alumno_Clase
+where alumno_clase.Id_Clase = c_Clase;
+END$$
+DELIIMITER ;

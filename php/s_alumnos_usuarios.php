@@ -23,8 +23,7 @@ else if($tipo == 3){
 	$sql = "CALL select_alumnoA($clase);";
 }else if($tipo == 7){
 	$clase = $_GET['clase'];
-	$parcial = $_GET['parcial'];
-	$sql = "CALL select_alumnocalifp($clase, $parcial);";
+	$sql = "CALL select_alumnocalifp($clase);";
 }else if($tipo==8){
 	$clase = $_GET['clase'];
 	$sql = "CALL select_alumnocalifF($clase);";
@@ -94,6 +93,9 @@ else if($tipo==14){
 }else if($tipo == 20){
 	$usuario = $_GET['asis'];
 	$sql = "CALL select_asistecia_Alum($usuario);";
+}else if($tipo == 21){
+	$clase = $_GET['clase'];
+	$sql = "CALL select_evaluacion($clase);";
 }
 
 

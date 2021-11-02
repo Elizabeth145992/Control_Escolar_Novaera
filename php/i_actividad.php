@@ -18,7 +18,7 @@ $contenido = $_POST['contenido'];
 $activi = $_POST['activi'];
 $fecha = $_POST['fecha'];
 
-$sql1 = "CALL insert_recurso('$direccion');";
+$sql1 = "CALL insert_recurso('$direccion', 2);";
 $result1 = mysqli_query($con1, $sql1);
 
 $sql2 = mysqli_query($con2, "CALL last_recurso()");

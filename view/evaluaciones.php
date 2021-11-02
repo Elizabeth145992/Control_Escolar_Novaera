@@ -1,14 +1,14 @@
 <?php 
 session_start();
 include("header.php");
-echo '<script src="../js/i_calific_parcial.js"></script>';
+echo '<script src="../js/i_evaluacion.js"></script>';
 include("principal.html");
 ?>
-<h5 class="clases">Captura de Calificaciones Parciales</h5>
+<h5 class="clases">Captura de Evaluaciones</h5>
 <div class="margen_body margen_abajo">
 <hr class="linea">
 <br>
-<h2 class="centro">Captura de calificaciones</h2>
+<h2 class="centro">Captura de calificaciones de evaluaciones</h2>
   <!--Captura de calificaciones-->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -45,7 +45,7 @@ include("principal.html");
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Nombre</th>
-            <th>Parcial</th>
+            <th># de evaluación</th>
             <th>Calificación</th>
             <th>Editar</th>
           </tr>
@@ -70,16 +70,15 @@ include("principal.html");
                   <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="calif2">
-                    <p><h3>Captura de Calificación Parcial</h3></p><br>
+                    <p><h3>Captura de Evaluaciones</h3></p><br>
                     <form action="javascript:capturaC();">
-                    <div class="form-group"><label for="cal"><b>Calificación</b></label><br><br>
-                        <input type="number" step="any" name="cal" class="form-control input_tamano_login" id="cal" required></div><br>
-                    <div class="form-group"><label for="cal"><b>Parcial</b></label><br><br>
+                    <div class="form-group"><label for="cal"><b>Número de Evaluación</b></label><br><br>
                         <input type="number" name="cal" class="form-control input_tamano_login" id="calP" required></div><br>
-                       
+                      <div class="form-group"><label for="cal"><b>Calificación</b></label><br><br>
+                        <input type="number" step="any" name="cal" class="form-control input_tamano_login" id="cal" required></div><br>  
                 </div>
                 <div class="modal-footer">
-                <input type="submit" class="btn btn-primary boton_guardar" value="Guardar Calificación">
+                <input type="submit" class="btn btn-primary boton_guardar" value="Guardar Evaluación">
                   </form>
                 </div>
                 
@@ -96,14 +95,14 @@ include("principal.html");
                   <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="edit2">
-                    <p><h3>Edición de Calificación Parcial</h3></p><br>
+                    <p><h3>Edición de Calificación de Evaluación</h3></p><br>
                     <div id="p"></div>
                     <form action="javascript:edicionC();">
                     <div class="form-group"><label for="edit"><b>Nueva Calificación</b></label><br><br>
                         <input type="number" step="any" name="edit" class="form-control input_tamano_login" id="edit" required></div><br> 
                 </div>
                 <div class="modal-footer">
-                <input type="submit" class="btn btn-primary boton_guardar" value="Guardar Calificación">
+                <input type="submit" class="btn btn-primary boton_guardar" value="Guardar Evaluación">
                   </form>
                 </div>
                 

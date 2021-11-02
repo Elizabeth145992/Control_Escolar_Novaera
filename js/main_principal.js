@@ -1,16 +1,22 @@
 var usrD;
 var usrI;
 var total;
+var i = 0 ;
+window.onload = mensajes();
+
+function mensajes(){
+    $.get('../php/s_mensaje.php?user='+idUser+'&tipo=5', function(datos){
+        if(datos != "Error"){
+                   var datoU = JSON.parse(datos);
+                   total = datoU["data"].length;  
+                   document.getElementById("t").innerHTML = total;      
+        }
+   });
+}
+setInterval(mensajes,1000);
+
 $(document).ready(function() {
 
-$.get('../php/s_mensaje.php?user='+idUser+'&tipo=5', function(datos){
-     if(datos != "Error"){
-                var datoU = JSON.parse(datos);
-                total = datoU["data"].length;
-                
-     }
-
-});
 
     $.post("../php/s_usuario.php",{user:idUser},function(datos){
         datosUsuario = JSON.parse(datos);
@@ -25,7 +31,7 @@ $.get('../php/s_mensaje.php?user='+idUser+'&tipo=5', function(datos){
         +' <a style="position: relative;" href="#" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-bell fa-fw"></i><span class="badge-danger badge-counter">3+</span></a>'
         +'<ul class="dropdown-menu" aria-labelledby="dropdownMenu3" id="menu"><p class="submenu glyphicon glyphicon-bell">Notificaciones</p>'
         +'<hr class="azul"></ul>'
-        +'<a onclick="modal_mensaje();" style="position: relative;" href="#" id="dropdownMenu4" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-envelope"></i><span class="badge-danger badge-counter">'+total+'</span></a>'
+        +'<a onclick="modal_mensaje();" style="position: relative;" href="#" id="dropdownMenu4" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-envelope"></i><span id="t" class="badge-danger badge-counter">'+total+'</span></a>'
         +'<a href="../php/logout.php" id="salir" class="menu_icono separacion"><i class="fas fa-sign-out-alt"></i></a></div></ul></div></div>');
         
     });
@@ -221,7 +227,6 @@ function enviar(){
     }else{
     $.post('../php/i_mensaje.php',{cont:cont, user:idUser, userD:usrI}, function(datos){
         if(datos == "Error"){
-        alert(datos);
         }else{
             document.getElementById('mensajesC').innerHTML = '';
              $.get('../php/s_mensaje.php?user='+idUser+'&tipo=2&usrD='+usrI+'', function(datos){

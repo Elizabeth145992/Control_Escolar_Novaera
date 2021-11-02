@@ -61,6 +61,12 @@ function registrarCF(){
     enviarVariables5();
 }
 
+function registrarE(){
+    pagina ="evaluaciones.php?"; 
+    valores = "idClase";
+    enviarVariables8();
+}
+
 function reporteCF(){
     pagina ="vista_reporte_calif_F.php?"; 
     valores = "idClase";
@@ -72,6 +78,19 @@ function reporteAs(){
     valores = "idClase";
     enviarVariables7();
 }
+
+function reporteE(){
+    pagina ="vista_reporte_evaluacion.php?"; 
+    valores = "idClase";
+    enviarVariables9();
+}
+
+function reporteP(){
+    pagina ="vista_reporte_califP.php?"; 
+    valores = "idClase";
+    enviarVariables10();
+}
+
 //Funciones para alumnos
 function verAs(){
     if(idUsuario == 0){
@@ -205,3 +224,27 @@ function enviarVariables7(){
     pagina = pagina.substring(0, pagina.length-1);
     location.href=pagina;
 } 
+
+function enviarVariables8(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+} 
+
+function enviarVariables9(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+}
+
+function enviarVariables10(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+}

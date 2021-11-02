@@ -73,7 +73,7 @@ DELIMITER$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_periodo`( `p_Nombre` VARCHAR(100),
 `p_Inicio` DATE, `p_Termino` DATE)
 BEGIN
-INSERT INTO periodo (Nombre, Fecha_Inicio, Fecha_Termino)
+INSERT INTO periodo (Nombre_Periodo, Fecha_Inicio, Fecha_Termino)
 VALUES(p_Nombre, p_Inicio, p_Termino);
 END$$
 DELIMITER ;
@@ -91,10 +91,10 @@ DELIMITER ;
 
 --SP para inserción de un nuevo recurso
 DELIMITER$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_recurso`( `r_Recurso` LONGTEXT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_recurso`(IN `r_Recurso` LONGTEXT, `r_tipo` INT)
 BEGIN
-INSERT INTO recurso (Link_Recurso)
-VALUES(r_Recurso);
+INSERT INTO recurso (Link_Recurso, Tipo_Material)
+VALUES(r_Recurso, r_tipo);
 END$$
 DELIMITER ;
 
@@ -150,7 +150,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_calificacionp`( `c_Calif` FL
 `c_Fecha` DATE, `c_Alumno` INT, `c_Ac` INT, `c_Parcial` INT)
 BEGIN
 INSERT INTO calificacion_parcial (Calificacion, Fecha_Cap, Id_Alumno, Id_Alumno_Clase,
-Id_Parcial)
+Parcial)
 VALUES(c_Calif, c_Fecha, c_Alumno, c_Ac, c_Parcial);
 END$$
 DELIMITER ;
@@ -275,3 +275,44 @@ Id_Estatus)
 VALUES(m_contenido, m_fecha, m_remi, m_des, m_est);
 END$$
 DELIMITER ;
+
+--SP para la inserción de un nuevo evento en teams o zoom
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_eventoTZ`( `e_hora` VARCHAR(45),
+ `e_fecha` date, `e_clase` INT, `e_tipo` INT, `e_user` INT)
+BEGIN
+INSERT INTO evento_reuniones(Hora_Inicio, Fecha_Reunion, Id_Clase, Id_Tipo_Evento, Id_Usuario)
+VALUES(e_hora, e_fecha, e_clase, e_tipo, e_user);
+END$$
+DELIMITER ;
+
+--SP para la inserción de un nuevo material para la biblioteca
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_biblioteca`( `b_nombre` VARCHAR(100),
+ `b_des` VARCHAR(100), `b_estatus` INT, `b_recurso` INT, `b_nivel` INT, `b_grado` INT)
+BEGIN
+INSERT INTO biblioteca_virtual(Nombre_Material, Descripcion_Material, Id_Estatus, Id_Recurso,
+Id_Nivel, Id_Grado)
+VALUES(b_nombre, b_des, b_estatus, b_recurso, b_nivel, b_grado);
+END$$
+DELIMITER ;
+
+--SP para la inserción de una nueva evaluación
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_evaluacion`( `e_Calif` FLOAT,
+`e_Fecha` DATE, `e_Nume` INT, `e_Alumno` INT, `e_Ac` INT )
+BEGIN
+INSERT INTO evaluacion (Calificacion, Fecha_Cap, Num_evaluacion, Id_Alumno, Id_Alumno_Clase)
+VALUES(e_Calif, e_Fecha, e_Nume, e_Alumno, e_Ac);
+END$$
+DELIMITER ;
+
+--SP para la edición de evaluaciones
+DELIIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_evaluacion`(`u_Ecal` FLOAT,`u_idcal` INT,
+`u_FechaN` DATE)
+BEGIN
+update evaluacion set Calificacion = u_Ecal, Fecha_Cap = u_FechaN
+ where Id_Evaluación = u_idcal;
+END$$
+DELIIMITER ;

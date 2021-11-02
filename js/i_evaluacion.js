@@ -8,7 +8,7 @@ var alumno;
 var nombrea;
 var calificacion;
 var  idcalf;
-var m = 5;
+
 
 
 $(document).ready(function() {
@@ -47,13 +47,13 @@ $(document).ready(function() {
             'destroy' : true,
             'ajax': {
                 'method':'GET',
-                'url':'../php/s_alumnos_usuarios.php?tipo=7&clase='+idClase+''
+                'url':'../php/s_alumnos_usuarios.php?tipo=21&clase='+idClase+''
             },
             'columns': [
                { data: 'Apellido_Paterno' },
                { data: 'Apellido_Materno' },
                { data: 'Nombre' },
-               {data: 'Parcial'},
+               {data: 'Num_evaluacion'},
                {data: 'Calificacion'},
                { defaultContent: '<div class="centro"><button class="editar btn btn-warning btn_table"><i class="far fa-edit"></i></button></div>' }
             ],
@@ -78,23 +78,23 @@ $(document).ready(function() {
         function capturaC(){
             calificacion = $('#cal').val();
             parcial = $('#calP').val();
-            $.post("../php/i_califP.php",{clasea:claseA, alumno:alumno, parcial:parcial, calif:calificacion},
+            $.post("../php/i_evaluacion.php",{clasea:claseA, alumno:alumno, parcial:parcial, calif:calificacion},
             function(resp){
                if(resp == "Error"){
-                document.getElementById('modal-falla2').innerHTML="No se pudo guardar la Calificación";
+                document.getElementById('modal-falla2').innerHTML="No se pudo guardar la Evaluación";
                 $('#modal_falla').modal('show');
                 }else{
                 $('#calif1').modal('hide');
-                document.getElementById('modal-falla2').innerHTML="se guardó la Calificación";
+                document.getElementById('modal-falla2').innerHTML="Se guardó la Evaluación correctamente";
                 $('#modal_falla').modal('show');
-                pagina_cp();
+                pagina_ev();
                 }
             });
         }
 
         function edicionC(){
            var calificacion2 = $('#edit').val();
-            $.post("../php/u_califP.php",{caliE:calificacion2, idcali:idcalf},
+            $.post("../php/u_evaluacion.php",{caliE:calificacion2, idcali:idcalf},
             function(resp){
                if(resp == "Error"){
                 document.getElementById('modal-falla2').innerHTML="No se pudo guardar la Calificación";
@@ -103,26 +103,22 @@ $(document).ready(function() {
                 $('#edit1').modal('hide');
                 document.getElementById('modal-falla2').innerHTML="Se guardó la Calificación";
                 $('#modal_falla').modal('show');
-                pagina_cp();
+                pagina_ev();
                 }
             });
-        }
-
-        function llamartabla(){
-            
         }
        
         function calificacion_pE(tbody, table){
             $(document).on("click", '.editar', function(){
               var data = table.row($(this).parents("tr")).data();
-                    idcalf = data.Id_Calificacion_Parcial;
+                    idcalf = data.Id_Evaluación;
                      calif = data.Calificacion;
                       $('#edit1').modal('show');
             });
         }
 
-        function pagina_cp(){
-            pagina ="calificacion_parcial.php?"; 
+        function pagina_ev(){
+            pagina ="evaluaciones.php?"; 
             valores = "idClase";
             enviarVariables();
           }

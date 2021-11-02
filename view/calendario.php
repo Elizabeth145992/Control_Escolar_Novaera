@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include("header.php");
+echo '<script src="../js/main.js"></script>';
 include("principal.html");
 ?>
 <h5 class="clases">Calendario de Actividades</h5>
@@ -10,7 +11,9 @@ include("principal.html");
         <div id='calendar'></div>
     </div>
 </div>
-
+<?php 
+include("footer.html");
+?>
 <!--Modal para agregar evento-->
 <div class="modal" id="calendario1" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -22,17 +25,14 @@ include("principal.html");
                 <div class="modal-body" id="calendario2">
                     <p><h3>Tipo de evento</h3></p><br>
                     <div class="form-group"><label for="contraseña"><b>Seleccione el tipo de evento</b></label><br>
-                    <select class="form-select input_tamano" aria-label="Default select example" required>
+                    <select id="tipo" class="form-select input_tamano" aria-label="Default select example" required>
                         <option selected>Seleccione</option>
                         <option value="1">Reunión en Teams</option>
                         <option value="2">Reunión en Zoom</option>
-                        <option value="3">Otro evento</option>
                     </select><br>
 
                     <div class="form-group"><label for="contraseña"><b>Seleccione la clase</b></label><br>
-                    <select class="form-select input_tamano" aria-label="Default select example" required>
-                        <option selected>Seleccione</option>
-                        <option value="1">clase 1</option>
+                    <select id="classe" class="form-select input_tamano" aria-label="Default select example" required>
                     </select><br>
     <label for="actividad_nombre" class="form-label"><b>Hora de Inicio</b></label>
     <input type="time" class="form-control input_tamano" id="hora" name="hora" required>
@@ -40,11 +40,10 @@ include("principal.html");
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger boton_cancelar" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary boton_guardar">Crear evento</button>
+                  <button onclick="crearEveTZ();" type="button" class="btn btn-primary boton_guardar">Crear evento</button>
                 </div>
               </div>
             </div>
           </div>
-<?php 
-include("footer.html");
-?>
+
+          

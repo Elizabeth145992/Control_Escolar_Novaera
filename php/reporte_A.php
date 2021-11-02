@@ -3,8 +3,10 @@
 * @brief Archivo que sirve para realizar el reporte de las calificaciones finales
  */
 require 'conexion.php';
+date_default_timezone_set('America/Mexico_City');
 $tipo = $_GET['tipo'];
 $clase = $_GET['clase'];
+$fecha = date('Y-m-d');
 
 $sql = "CALL select_asistecia('$clase');";
 	$result = mysqli_query($con1, $sql);
@@ -15,6 +17,10 @@ $sql = "CALL select_asistecia('$clase');";
         $sql2 = mysqli_query($con2, "CALL select_claseTipo('$clase')");
         $row2 = mysqli_fetch_assoc($sql2);
         $nombreM = $row2['Nombre_Clase'];
+        $periodo = $row2['Nombre_Periodo'];
+        $nombred = $row2['Nombre'];
+        $paterno = $row2['Apellido_Paterno'];
+        $materno = $row2['Apellido_Materno'];
 
 require 'fpdf/fpdf.php';
 
@@ -73,10 +79,13 @@ $pdf->AddPage();
 $pdf->SetFont('Times','',14);
 $pdf->setY(30);
 $pdf->Cell(0,0,utf8_decode('Reporte de asistencias de la clase: '.$nombreM),0,1,'C');
-$textypos = 5;
-$off = $textypos+6;    
-$pdf->Ln(5);
+$pdf->setY(37);
+$pdf->Cell(0,0,utf8_decode('Docente: '.$nombred.' '.$paterno.' '.$materno),0,1,'C');
+$pdf->setY(45);
+$pdf->Cell(0,0,utf8_decode('Periodo: '.$periodo),0,1,'C');
 $pdf->setY(50);
+$pdf->Cell(0,0,utf8_decode('Fecha de Emisión: '.$fecha),0,1,'C');
+$pdf->setY(55);
 $pdf->SetFont('Times','',12);
 $header=array('Apellido Paterno','Apellido Materno','Nombre','Fecha', 'Tipo de Asistencia');
 $pdf->AliasNbPages();

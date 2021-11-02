@@ -24,7 +24,7 @@ function menu() {
         $('#menulateral').append('<div class="dropdown"><hr>'
         +'<li><a href="pagina_principal.php"><i class="paginas esconder fas fa-chart-line"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
-        +'<li><a href="#">'
+        +'<li><a href="../view/m_biblioteca.php">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<li><a href="#" onclick="cf('+idUser+')">'
@@ -54,6 +54,15 @@ function menu() {
         +'<li><a href="../view/u_clase.php">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Editar Clase</span></a></li><hr>'
+        +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Biblioteca Digital</span></a><hr>'
+        +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton2">'
+        +'<li><a class="dropdown-item" href="../view/form_biblioteca.php">Nueva Recurso</a></li>'
+        +'<li><a class="dropdown-item" href="../view/m_biblioteca.php">Ver Bibloteca Digital</a></li>'
+        +'<li><hr class="dropdown-divider"></li>'
+        +'</ul>'
+        +'</div>'
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
@@ -67,7 +76,7 @@ function menu() {
         $('#menulateral').append('<div class="dropdown"><hr>'
         +'<li><a href="pagina_principal_docente.php"><i class="paginas esconder fas fa-chart-line"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
-        +'<li><a href="#">'
+        +'<li><a href="../view/m_biblioteca.php">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
         +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<div class="dropdown">'
@@ -90,6 +99,9 @@ function menu() {
         $('#menulateral').append('<div class="dropdown"><hr>'
         +'<li><a href="pagina_principal_control.php"><i class="paginas esconder fas fa-chart-line"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
+        +'<li><a href="../view/m_biblioteca.php">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
@@ -103,6 +115,9 @@ function menu() {
         $('#menulateral').append('<div class="dropdown"><hr>'
         +'<li><a href="pagina_principal_supervisor.php"><i class="paginas esconder fas fa-chart-line"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
+        +'<li><a href="../view/m_biblioteca.php">'
+        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
@@ -132,7 +147,7 @@ function menu() {
         if(datos!="Error"){
             var datosPe = JSON.parse(datos);
                 for(var i=0;i<datosPe["data"].length;i++){
-                    $('#periodoL').append('<li><a onclick="periodo('+datosPe["data"][i].Id_Periodo+')" id="'+datosPe["data"][i].Id_Periodo+'" class="dropdown-item" href="#">'+datosPe["data"][i].Nombre_Periodo+'</a></li>');
+                    $('#periodoL').append('<li><a onclick="periodo('+datosPe["data"][i].Id_Periodo+')" class="dropdown-item" href="#">'+datosPe["data"][i].Nombre_Periodo+'</a></li>');
                 }
         }      
     });
@@ -140,8 +155,20 @@ function menu() {
 }
 function periodo(perio){
     peri = perio;
-    m_clase(peri);
+    //m_clase(peri);
+    pagina ="m_clases_periodo.php?"; 
+    valores = "peri";
+    enviarVariables2();
 }
+
+function enviarVariables2(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+}
+
 function cf(usuario){
     user = usuario;
     $('#tabla_califF').modal('show');
