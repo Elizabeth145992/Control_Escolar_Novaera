@@ -10,6 +10,8 @@ require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 require 'conexion.php';
 require 'password.php';
+date_default_timezone_set('America/Mexico_City');
+$hoy = date("Y-m-d H:i:s");
 
 
 $correo = $_POST['correo'];
@@ -20,6 +22,8 @@ $sql1 = mysqli_query($con1, "CALL select_usuarios('$correo')");
 
 $sql2 = "CALL update_contrasena('$contrasena', '$idC')";
 $result1 = mysqli_query($con2, $sql2);
+
+
 
 
 $mail = new PHPMailer();
@@ -42,6 +46,16 @@ $content = '<p>Utiliza tu correo institucional y el password que se proporciona 
 
 $mail->MsgHTML($content); 
 
+
+$sql5 = "CALL insert_notificacion('Cambio de Contraseña del usuario con correo: $correo', '$hoy',5,  1, '$idC')";
+$result1 = mysqli_query($con3, $sql5);
+
+
+
+
+
+
+
 if(!$mail->Send() && !$result1){
     echo $password;
 }else{
@@ -51,6 +65,6 @@ if(!$mail->Send() && !$result1){
 
 mysqli_close($con1);
 mysqli_close($con2);
-
+mysqli_close($con3);
 
 ?>

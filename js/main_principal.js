@@ -1,6 +1,7 @@
 var usrD;
 var usrI;
 var total;
+var total2;
 var i = 0 ;
 window.onload = mensajes();
 
@@ -12,6 +13,32 @@ function mensajes(){
                    document.getElementById("t").innerHTML = total;      
         }
    });
+   if(tipoUser == 5){
+   $.get('../php/s_notificacion.php?tipo=5', function(datos2){
+    if(datos2 != "Error"){
+               var notifi = JSON.parse(datos2);
+               total2 = notifi["data"].length;  
+               document.getElementById("t2").innerHTML = total2;      
+    }
+});
+   }else  if(tipoUser == 1){
+    $.get('../php/s_notificacion.php?tipo=1&user='+idUser+'', function(datos2){
+     if(datos2 != "Error"){
+                var notifi = JSON.parse(datos2);
+                total2 = notifi["data"].length;  
+                document.getElementById("t2").innerHTML = total2;      
+     }
+ });
+}else  if(tipoUser == 6){
+    $.get('../php/s_notificacion.php?tipo=6&user='+idUser+'', function(datos2){
+     if(datos2 != "Error"){
+                var notifi = JSON.parse(datos2);
+                total2 = notifi["data"].length;  
+                document.getElementById("t2").innerHTML = total2;      
+     }
+ });
+}
+
 }
 setInterval(mensajes,1000);
 
@@ -28,9 +55,7 @@ $(document).ready(function() {
         +' <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" id="menu">'
         +'<li><a href="../view/u_perfil.php" class="dropdown-item" type="button">Perfil <i class="icono_submenu fas fa-eye"></i></a></li>'
         +'<li><a id="contrasena" onclick="con();" class="dropdown-item" type="button">Cambio de contraseña <i class="icono_submenu fas fa-edit"></i></a></li></ul>'
-        +' <a style="position: relative;" href="#" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-bell fa-fw"></i><span class="badge-danger badge-counter">3+</span></a>'
-        +'<ul class="dropdown-menu" aria-labelledby="dropdownMenu3" id="menu"><p class="submenu glyphicon glyphicon-bell">Notificaciones</p>'
-        +'<hr class="azul"></ul>'
+        +'<a onclick="modal_noti();" style="position: relative;" href="#" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-bell fa-fw"></i><span id="t2" class="badge-danger badge-counter">'+total2+'</span></a>'
         +'<a onclick="modal_mensaje();" style="position: relative;" href="#" id="dropdownMenu4" data-bs-toggle="dropdown" aria-expanded="false"class="dropdown-toggle"><i class="separacion fas fa-envelope"></i><span id="t" class="badge-danger badge-counter">'+total+'</span></a>'
         +'<a href="../php/logout.php" id="salir" class="menu_icono separacion"><i class="fas fa-sign-out-alt"></i></a></div></ul></div></div>');
         
@@ -257,7 +282,106 @@ function enviar(){
 }
 }
 
+function modal_noti(){
+    $('#mnoti').modal('show');
+
+    if(tipoUser == 5){
+    var table0 = $('#dataTableNoti').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_notificacion.php?tipo=5'
+        },
+        'columns': [
+           { data: 'Fecha_hora' },
+           { data: 'Contenido' },
+           { defaultContent: '<button type="button" class="editar0 btn btn-success"><i class="fas fa-eye"></i></button>' }
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+
+        
+     });
+    }else if(tipoUser == 1){
+        var table0 = $('#dataTableNoti').DataTable({
+            'destroy' : true,
+            'ajax': {
+                'method':'GET',
+                'url':'../php/s_notificacion.php?tipo=1&user='+idUser+''
+            },
+            'columns': [
+               { data: 'Fecha_hora' },
+               { data: 'Contenido' },
+               { defaultContent: '<button type="button" class="editar0 btn btn-success"><i class="fas fa-eye"></i></button>' }
+            ],
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }
+    
+            
+         });
+        }else if(tipoUser == 6){
+            var table0 = $('#dataTableNoti').DataTable({
+                'destroy' : true,
+                'ajax': {
+                    'method':'GET',
+                    'url':'../php/s_notificacion.php?tipo=6&user='+idUser+''
+                },
+                'columns': [
+                   { data: 'Fecha_hora' },
+                   { data: 'Contenido' },
+                   { defaultContent: '<button type="button" class="editar0 btn btn-success"><i class="fas fa-eye"></i></button>' }
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                }
+        
+                
+             });
+            }
+    
+     obtener_data_editar0("", table0);
+}
+
+function obtener_data_editar0(tbody, table){
+    $(document).on("click", ".editar0", function(){
+        var data = table.row($(this).parents("tr")).data();
+        var noti = data.Id_Notificacion;
+
+        $.post('../php/s_notificacion.php?tipo=10&noti='+noti+'', function(r){
+            if(r == "Error"){
+                $('#mnoti').modal('hide');
+                document.getElementById('modal-falla2').innerHTML="No se pudo pudo cambiar la notificacion a leída";
+                $('#modal_falla').modal('show');
+                }else{
+                    $('#mnoti').modal('hide');
+                    document.getElementById('modal-falla2').innerHTML="Se ha leído la notificación";
+                $('#modal_falla').modal('show');
+                }
+        })
+    });
+}
+
 function recargarchat() {
-        var pagina ="../view/pagina_principal_admin.php"; 
-           location.href=pagina;
+    if(tipoUser == 1){
+        var pagina = "pagina_principal_docente.php";
+        location.href=pagina;
+    }else  if(tipoUser == 2){
+        var pagina = "pagina_principal_supervisor.php";
+        location.href=pagina;
+    }else  if(tipoUser == 3){
+        var pagina = "pagina_principal_padre.php";
+        location.href=pagina;
+    }else  if(tipoUser == 4){
+        var pagina = "pagina_principal_control.php";
+        location.href=pagina;
+    }else  if(tipoUser == 5){
+        var pagina = "pagina_principal_admin.php";
+        location.href=pagina;
+    }else  if(tipoUser == 6){
+        var pagina = "pagina_principal.php";
+        location.href=pagina;
+    }
+          
     }

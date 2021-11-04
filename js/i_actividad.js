@@ -15,14 +15,14 @@ $(document).ready(function() {
         eval(arrVariableActual[0]+"="+arrVariableActual[1]+";");
     } 
 
-    idClase = parseInt(idC);
+    idClase = parseInt(idClase);
 });
 
 
 function guardarAc(){
     var fichero = $('#archi')[0].files[0];
     var nombre = fichero.name;
-    var des = $('#contenido').val();
+    var des = $('#contenidoA').val();
     var nombreA = $('#activi').val();
     var fecha = $('#fecha').val();
     
@@ -48,7 +48,8 @@ function guardarAc(){
         $('#modal_falla').modal('show');
     }
     else{
-      document.getElementById('modal-falla2').innerHTML="Se guardo correctamente la actividad";
+      console.log(r);
+      document.getElementById('modal-falla2').innerHTML=r;
       $('#modal_falla').modal('show');
       $("#modal_falla").on('hidden.bs.modal', function () {
       pagina_c()});;
@@ -58,7 +59,7 @@ function guardarAc(){
 }
 
 function pagina_c(){
-  pagina ="vista_clase_profesor.php?"; 
+  pagina ="form_actividad.php?"; 
   valores = "idClase";
   enviarVariables();
 }

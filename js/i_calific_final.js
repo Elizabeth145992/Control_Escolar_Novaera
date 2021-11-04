@@ -75,7 +75,7 @@ $(document).ready(function() {
 
         function capturaCF(){
             calificacion = $('#cal').val();
-            $.post("../php/i_califF.php",{clasea:claseA, alumno:alumno, calif:calificacion},
+            $.post("../php/i_califF.php",{clasea:claseA, alumno:alumno, calif:calificacion, clase:idClase},
             function(resp){
                if(resp == "Error"){
                 document.getElementById('modal-falla2').innerHTML="No se pudo guardar la Calificación";

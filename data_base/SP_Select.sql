@@ -718,3 +718,74 @@ ON alumno_clase.Id_Alumno_Clase = evaluacion.Id_Alumno_Clase
 where alumno_clase.Id_Clase = c_Clase;
 END$$
 DELIIMITER ;
+
+--SP para seleccionar los docentes
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_docente2`(`d_usuario` INT)
+BEGIN
+SELECT * FROM personal_escolar
+INNER JOIN usuario
+ON usuario.Id_Usuario = personal_escolar.Id_Usuario
+where personal_escolar.Id_personal_escolar = d_usuario;
+END$$
+DELIMITER ;
+
+--SP para seleccionar notificaciones
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_notificacion`(`tipo` INT)
+BEGIN
+SELECT * FROM (notificacion
+INNER JOIN estatus
+ON estatus.Id_Estatus = notificacion.Id_Estatus)
+INNER JOIN usuario
+ON usuario.Id_Usuario = notificacion.Id_Usuario
+WHERE notificacion.Tipo_Noti = tipo AND notificacion.Id_Estatus = 1;
+END$$
+DELIMITER ;
+
+--SP para seleccionar notificaciones docente
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_notificacionDocente`(`tipo` INT,
+`user` INT)
+BEGIN
+SELECT * FROM (notificacion
+INNER JOIN estatus
+ON estatus.Id_Estatus = notificacion.Id_Estatus)
+INNER JOIN usuario
+ON usuario.Id_Usuario = notificacion.Id_Usuario
+WHERE notificacion.Tipo_Noti = tipo AND notificacion.Id_Estatus = 1
+AND notificacion.Id_Usuario = user;
+END$$
+DELIMITER ;
+
+--SP para seleccionar a los alumnos de una clase
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_alumnos_clase`(`clase` INT)
+BEGIN
+SELECT usuario.Id_Usuario FROM ((alumno_clase
+INNER JOIN alumno
+ON alumno.Id_Alumno = alumno_clase.Id_Alumno)
+INNER JOIN usuario
+ON usuario.Id_Usuario = alumno.Id_Usuario)
+INNER JOIN clase
+ON clase.Id_Clase = alumno_clase.Id_Clase
+WHERE alumno_clase.Id_Clase = clase;
+END$$
+DELIMITER ;
+
+--SP que sirve para sr un determinado alumno
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_usuario_alumno_noti`(`a_user` INT)
+BEGIN
+  SELECT * FROM (((alumno
+  INNER JOIN usuario
+  ON usuario.Id_Usuario = alumno.Id_Usuario)
+  INNER JOIN nivel
+  ON nivel.Id_Nivel = alumno.Id_Nivel)
+  INNER JOIN grado
+  ON grado.Id_Grado = alumno.Id_Grado)
+  INNER JOIN grupo
+  ON grupo.Id_Grupo = alumno.Id_Grupo
+  WHERE alumno.Id_Alumno = a_user;
+END$$
+DELIMITER ;

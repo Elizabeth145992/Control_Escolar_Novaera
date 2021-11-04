@@ -316,3 +316,23 @@ update evaluacion set Calificacion = u_Ecal, Fecha_Cap = u_FechaN
  where Id_Evaluación = u_idcal;
 END$$
 DELIIMITER ;
+
+--SP para la inserción de una notificación general
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_notificacion`( `n_Contenido` LONGTEXT,
+`n_fecha` TIMESTAMP, `n_tipo` INT, `n_Estatus` INT, `n_usuario` INT)
+BEGIN
+INSERT INTO notificacion (Contenido, Fecha_hora, Tipo_Noti, Id_Estatus, Id_Usuario)
+VALUES(n_Contenido, n_fecha, n_tipo, n_Estatus, n_usuario);
+END$$
+DELIMITER ;
+
+--SP para edición de estatus de un mensaje
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_notificacion`(`u_noti` INT)
+BEGIN
+update notificacion set Id_Estatus = 2
+ where Id_Notificacion = u_noti;
+END$$
+DELIMITER ;
+

@@ -24,7 +24,7 @@ include("principal.html");
   </div>
   <div class="mb-3">
     <label for="contenido_descripcion" class="form-label">Descripción de la actividad</label>
-    <textarea class="form-control input_tamano" name="contenido" id="contenido" cols="30" rows="10" required></textarea>
+    <textarea class="form-control input_tamano" name="contenido" id="contenidoA" cols="30" rows="10" required></textarea>
   </div>
  <div class="mb-3">
     <label for="actividad_nombre" class="form-label">Actividad</label>
