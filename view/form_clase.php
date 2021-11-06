@@ -81,6 +81,12 @@ include("principal.html");
   <br><br>
 
 </form>
+<!--<br><br>
+<h5 style="margin-left:36.5%;">Registre los alumnos pertenecientes a la clase por medio de un archivo .csv</h5>
+<br>
+<input  style="margin-left:20%;" type="file" name="archivo" id="archivo">
+<input onclick="alumnos();" type="button" class="btn btn-dark boton_guardar" value="Registrar alumnos en clase">-->
+
 </div>
 
 <?php 

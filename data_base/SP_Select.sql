@@ -773,19 +773,41 @@ WHERE alumno_clase.Id_Clase = clase;
 END$$
 DELIMITER ;
 
---SP que sirve para sr un determinado alumno
+--SP que sirve para seleccionar a un padre de determinado alumno
 DELIMITER$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_usuario_alumno_noti`(`a_user` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_usuario_padre_noti`(`a_user` INT)
 BEGIN
-  SELECT * FROM (((alumno
+  SELECT * FROM padre_alumno
   INNER JOIN usuario
-  ON usuario.Id_Usuario = alumno.Id_Usuario)
-  INNER JOIN nivel
-  ON nivel.Id_Nivel = alumno.Id_Nivel)
-  INNER JOIN grado
-  ON grado.Id_Grado = alumno.Id_Grado)
-  INNER JOIN grupo
-  ON grupo.Id_Grupo = alumno.Id_Grupo
-  WHERE alumno.Id_Alumno = a_user;
+  ON usuario.Id_Usuario = padre_alumno.Id_Padre
+  WHERE padre_alumno.Id_Alumno = a_user;
+END$$
+DELIMITER ;
+
+--SP para seleccionar los id de los supervisores
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_supervisor`()
+BEGIN
+SELECT Id_Usuario FROM usuario WHERE Id_Rol = 2;
+END$$
+DELIMITER ;
+
+--SP que sirve para seleccionar las calificaciones parciales de un alumno
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_califp_alumno_`(`a_user` INT)
+BEGIN
+  SELECT Calificacion FROM calificacion_parcial
+  WHERE Id_Alumno = a_user;
+END$$
+DELIMITER ;
+
+--SP para seleccionar a los alumnos con su determinado correo
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_alumnos_clase_csv`(`c_correo` VARCHAR(100))
+BEGIN
+SELECT alumno.Id_Alumno FROM alumno
+INNER JOIN usuario
+ON usuario.Id_Usuario = alumno.Id_Usuario
+WHERE usuario.Correo = c_correo;
 END$$
 DELIMITER ;

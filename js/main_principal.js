@@ -37,7 +37,32 @@ function mensajes(){
                 document.getElementById("t2").innerHTML = total2;      
      }
  });
+}else  if(tipoUser == 3){
+    $.get('../php/s_notificacion.php?tipo=3&user='+idUser+'', function(datos2){
+     if(datos2 != "Error"){
+                var notifi = JSON.parse(datos2);
+                total2 = notifi["data"].length;  
+                document.getElementById("t2").innerHTML = total2;      
+     }
+ });
+}else  if(tipoUser == 2){
+    $.get('../php/s_notificacion.php?tipo=2&user='+idUser+'', function(datos2){
+     if(datos2 != "Error"){
+                var notifi = JSON.parse(datos2);
+                total2 = notifi["data"].length;  
+                document.getElementById("t2").innerHTML = total2;      
+     }
+ });
+}else  if(tipoUser == 4){
+    $.get('../php/s_notificacion.php?tipo=4&user='+idUser+'', function(datos2){
+     if(datos2 != "Error"){
+                var notifi = JSON.parse(datos2);
+                total2 = notifi["data"].length;  
+                document.getElementById("t2").innerHTML = total2;      
+     }
+ });
 }
+
 
 }
 setInterval(mensajes,1000);
@@ -339,7 +364,61 @@ function modal_noti(){
         
                 
              });
-            }
+            }else if(tipoUser == 3){
+                var table0 = $('#dataTableNoti').DataTable({
+                    'destroy' : true,
+                    'ajax': {
+                        'method':'GET',
+                        'url':'../php/s_notificacion.php?tipo=3&user='+idUser+''
+                    },
+                    'columns': [
+                       { data: 'Fecha_hora' },
+                       { data: 'Contenido' },
+                       { defaultContent: '<button type="button" class="editar0 btn btn-success"><i class="fas fa-eye"></i></button>' }
+                    ],
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                    }
+            
+                    
+                 });
+                }else if(tipoUser == 2){
+                    var table0 = $('#dataTableNoti').DataTable({
+                        'destroy' : true,
+                        'ajax': {
+                            'method':'GET',
+                            'url':'../php/s_notificacion.php?tipo=2&user='+idUser+''
+                        },
+                        'columns': [
+                           { data: 'Fecha_hora' },
+                           { data: 'Contenido' },
+                           { defaultContent: '<button type="button" class="editar0 btn btn-success"><i class="fas fa-eye"></i></button>' }
+                        ],
+                        "language": {
+                            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                        }
+                
+                        
+                     });
+                    }else if(tipoUser == 4){
+                        var table0 = $('#dataTableNoti').DataTable({
+                            'destroy' : true,
+                            'ajax': {
+                                'method':'GET',
+                                'url':'../php/s_notificacion.php?tipo=4&user='+idUser+''
+                            },
+                            'columns': [
+                               { data: 'Fecha_hora' },
+                               { data: 'Contenido' },
+                               { defaultContent: '<button type="button" class="editar0 btn btn-success"><i class="fas fa-eye"></i></button>' }
+                            ],
+                            "language": {
+                                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                            }
+                    
+                            
+                         });
+                        }
     
      obtener_data_editar0("", table0);
 }

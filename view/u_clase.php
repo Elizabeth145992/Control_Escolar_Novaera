@@ -30,6 +30,7 @@ include("principal.html");
             <th>Apellido paterno del Docente</th>
             <th>Nombre del Docente</th>
             <th>Estatus</th>
+            <th>Registrar alumnos en clase</th>
             <th>Editar</th>
           </tr>
         </thead>
@@ -39,6 +40,25 @@ include("principal.html");
         </div>
 </div>
 
+ <!--Modal para registrar alumnos en clase-->
+ <div class="modal" id="alumnoc" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+                  <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="alumnoc2">
+                <p><h3>Registre a los alumnos de a la clase por medio de un archivo .csv</h3></p><br>
+                <input  style="margin-left:20%;" type="file" name="archivo" id="archivos">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger boton_cancelar" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary boton_guardar" onclick="alumnos();">Registrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 <!--Modal para modificar clases-->
 <div class="modal" id="clase1" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

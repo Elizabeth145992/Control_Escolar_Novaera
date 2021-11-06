@@ -1,5 +1,6 @@
 /* */
 var usrC;
+var idca;
 
 inicializacion();
 sesionUsuario();
@@ -38,6 +39,7 @@ $(document).ready(function() {
            { data: 'Apellido_Paterno'},
            { data: 'Nombre'},
            { data: 'Estatus' },
+           { defaultContent: '<button type="button" class="editar5 btn btn-warning"><i class="fas fa-keyboard"></i></button>' },
            { defaultContent: '<button type="button" class="editar3 btn btn-success"><i class="fas fa-eye"></i></button>' }
         ],
         "language": {
@@ -76,6 +78,12 @@ $(document).ready(function() {
                 }
             });
         });
+
+        $(document).on("click", ".editar5", function(){
+            var data = table.row($(this).parents("tr")).data();
+            idca = data.Id_Clase;
+            $('#alumnoc').modal('show');
+        });
     }
 
     function editarClase(){
@@ -111,6 +119,35 @@ $(document).ready(function() {
         }
 
     }
+    function alumnos(){
+        var paqueteDeDatos = new FormData();
+        paqueteDeDatos.append('archivo', $('#archivos')[0].files[0]);
+        paqueteDeDatos.append('clase', idca);
+       
+    //alert(idca)
+    
+         $.ajax({
+            url: "../php/registrarAlumno_Clasecsv.php",
+            type: 'POST',
+            contentType: false,
+            data: paqueteDeDatos,
+            processData: false,
+            cache: false, 
+            success: function(response){
+              
+                $('#alumnoc').modal('hide');
+                document.getElementById('modal-falla2').innerHTML="Los alumnos fueron registrados en la clase correctamente";
+                $('#modal_falla').modal('show'); 
+            },
+            error: function (){
+
+                $('#alumnoc').modal('hide'); 
+                document.getElementById('modal-falla2').innerHTML="<p>Los alumnos fueron registrados correctamente</p>";
+                $('#modal_falla').modal('show');
+            }
+        });
+    }
+
     
 
 

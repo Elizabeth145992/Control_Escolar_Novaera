@@ -22,21 +22,21 @@ function menu() {
     sesionUsuario();
     if(tipoUser==6){
         $('#menulateral').append('<div class="dropdown"><hr>'
-        +'<li><a href="pagina_principal.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="pagina_principal.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<li><a href="../view/m_biblioteca.php">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<li><a href="#" onclick="cf('+idUser+')">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-star"></i>'
         +'<span class="pagina">Calif. Finales</span></a></li><hr>');
     }
     else if(tipoUser==5){
         $('#menulateral').append('<div class="dropdown"><hr>'
-        +'<li><a href="pagina_principal_admin.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="pagina_principal_admin.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-user-edit"></i>'
         +'<span class="pagina">Registro de <br> Usuarios</span></a><hr>'
         +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton1">'
         +'<li><a class="dropdown-item" href="../view/form_usuario_padre.php">Padre/Tutor</a></li>'
@@ -46,16 +46,16 @@ function menu() {
         +'</ul>'
         +'</div>'
         +'<li><a id="Gperiodo1" href="#">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-calendar-day"></i>'
         +'<span class="pagina">Nuevo periodo</span></a></li><hr>'
         +'<li><a href="../view/form_clase.php">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-school"></i>'
         +'<span class="pagina">Nueva Clase</span></a></li><hr>'
         +'<li><a href="../view/u_clase.php">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-edit"></i>'
         +'<span class="pagina">Editar Clase</span></a></li><hr>'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Biblioteca Digital</span></a><hr>'
         +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton2">'
         +'<li><a class="dropdown-item" href="../view/form_biblioteca.php">Nueva Recurso</a></li>'
@@ -74,10 +74,10 @@ function menu() {
         +'</div>');
     }else if(tipoUser==1){
         $('#menulateral').append('<div class="dropdown"><hr>'
-        +'<li><a href="pagina_principal_docente.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="pagina_principal_docente.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<li><a href="../view/m_biblioteca.php">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
@@ -90,17 +90,17 @@ function menu() {
         +'</div>');
     }else if(tipoUser==3){
         $('#menulateral').append('<div class="dropdown"><hr>'
-        +'<li><a href="pagina_principal_padre.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="pagina_principal_padre.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<li><a href="#">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-paypal"></i>'
         +'<span class="pagina">Pagos</span></a></li><hr>');
     }else if(tipoUser==4){
         $('#menulateral').append('<div class="dropdown"><hr>'
-        +'<li><a href="pagina_principal_control.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="pagina_principal_control.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<li><a href="../view/m_biblioteca.php">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
@@ -113,10 +113,10 @@ function menu() {
         +'</div>');
     }else if(tipoUser==2){
         $('#menulateral').append('<div class="dropdown"><hr>'
-        +'<li><a href="pagina_principal_supervisor.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="pagina_principal_supervisor.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<li><a href="../view/m_biblioteca.php">'
-        +'<i class="paginas esconder fas fa-chart-line"></i>'
+        +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
@@ -127,13 +127,13 @@ function menu() {
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'
         +'</div>'
-        +'<li><a href="../view/m_alumnos_preescolarS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="../view/m_alumnos_preescolarS.php"><i class="paginas esconder fas fa-user-graduate"></i>'
         +'<span  class="pagina">Alumnos Preescolar</span><hr></a></li><br>'
-        +'<li><a href="../view/m_alumnos_primariaS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="../view/m_alumnos_primariaS.php"><i class="paginas esconder fas fa-user-graduate"></i>'
         +'<span  class="pagina">Alumnos Primaria</span><hr></a></li><br>'
-        +'<li><a href="../view/m_alumnos_secundariaS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="../view/m_alumnos_secundariaS.php"><i class="paginas esconder fas fa-user-graduate"></i>'
         +'<span  class="pagina">Alumnos Secundaria</span><hr></a></li><br>'
-        +'<li><a href="../view/m_alumnos_preparatoriaS.php"><i class="paginas esconder fas fa-chart-line"></i>'
+        +'<li><a href="../view/m_alumnos_preparatoriaS.php"><i class="paginas esconder fas fa-user-graduate"></i>'
         +'<span  class="pagina">Alumnos Preparatoria</span><hr></a></li><br>');
     }
     $.post("../php/s_usuario.php",{user:idUser},function(datos){

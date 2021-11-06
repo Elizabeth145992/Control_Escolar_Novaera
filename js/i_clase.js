@@ -58,6 +58,32 @@ function guardarClase(){
     });
 }
 
+/*function alumnos(){
+    var paqueteDeDatos = new FormData();
+    paqueteDeDatos.append('archivo', $('#archivo')[0].files[0]);
+    paqueteDeDatos.append('tipo2', tipo2);
+
+
+
+     $.ajax({
+        url: "../php/registrarAlumno_Clasecsv.php",
+        type: 'POST',
+        contentType: false,
+        data: paqueteDeDatos,
+        processData: false,
+        cache: false, 
+        success: function(response){ 
+            document.getElementById('modal-falla2').innerHTML="<p>Los alumnos fueron registrados correctamente</p>";
+            $('#modal_falla').modal('show');
+        },
+        error: function (){
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar la información";
+            $('#modal_falla').modal('show');
+        }
+    });
+}*/
+
+
 function recargarpaginaC() {
      var pagina ="../view/form_clase.php"; 
         location.href=pagina;

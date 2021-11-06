@@ -23,7 +23,7 @@ include("principal.html");
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Nombre</th>
-            <th>Capturar</th>
+            <th>Generar Calificación final</th>
           </tr>
         </thead>
                 </table>

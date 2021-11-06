@@ -69,20 +69,14 @@ $(document).ready(function() {
               var data = table.row($(this).parents("tr")).data();
                       claseA = data.Id_Alumno_Clase;
                       alumno = data.Id_Alumno;
-                      $('#c1').modal('show');
-            });
-        }
-
-        function capturaCF(){
-            calificacion = $('#cal').val();
-            $.post("../php/i_califF.php",{clasea:claseA, alumno:alumno, calif:calificacion, clase:idClase},
+      
+            $.post("../php/i_califF.php",{clasea:claseA, alumno:alumno, clase:idClase},
             function(resp){
                if(resp == "Error"){
-                document.getElementById('modal-falla2').innerHTML="No se pudo guardar la Calificación";
+                document.getElementById('modal-falla2').innerHTML="No se pudo generar la Calificación";
                 $('#modal_falla').modal('show');
-                }else
-                $('#c1').modal('hide');
-                document.getElementById('modal-falla2').innerHTML="se guardó la Calificación";
+                }else{
+                document.getElementById('modal-falla2').innerHTML="Se ha generado la calificación final, observe la tabla de abajo";
                 $('#modal_falla').modal('show');
 
                 var table6 = $('#dataTableAlumnosEC').DataTable({
@@ -103,8 +97,10 @@ $(document).ready(function() {
                     }});
                     
                     calificacion_FE("", table6);
+                }
             });
-        }
+        });
+    }
 
         function calificacion_FE2(tbody, table){
 

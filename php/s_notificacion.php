@@ -64,5 +64,53 @@ if($tipo==5){
 	} 
 	mysqli_free_result($result);
 
-}
+}else if($tipo==3){
+	$user = $_GET['user'];
+	 $sql = "CALL select_notificacionDocente('$tipo', '$user');";
+	 $result = mysqli_query($con1, $sql);
+	 $arreglo["data"] = []; 
+	 if (!$result) {
+		 echo "Error";
+	 }
+	 else{
+		 while($data = mysqli_fetch_assoc($result)) {
+			 $arreglo["data"][] = $data;
+		 }
+		 echo json_encode($arreglo);
+	 } 
+	 mysqli_free_result($result);
+ 
+ }else if($tipo==2){
+	$user = $_GET['user'];
+	 $sql = "CALL select_notificacionDocente('$tipo', '$user');";
+	 $result = mysqli_query($con1, $sql);
+	 $arreglo["data"] = []; 
+	 if (!$result) {
+		 echo "Error";
+	 }
+	 else{
+		 while($data = mysqli_fetch_assoc($result)) {
+			 $arreglo["data"][] = $data;
+		 }
+		 echo json_encode($arreglo);
+	 } 
+	 mysqli_free_result($result);
+ 
+ }else if($tipo==4){
+	$user = $_GET['user'];
+	 $sql = "CALL select_notificacionDocente('$tipo', '$user');";
+	 $result = mysqli_query($con1, $sql);
+	 $arreglo["data"] = []; 
+	 if (!$result) {
+		 echo "Error";
+	 }
+	 else{
+		 while($data = mysqli_fetch_assoc($result)) {
+			 $arreglo["data"][] = $data;
+		 }
+		 echo json_encode($arreglo);
+	 } 
+	 mysqli_free_result($result);
+ 
+ }
 ?>
