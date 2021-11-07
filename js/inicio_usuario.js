@@ -204,7 +204,7 @@ function guardarPeriodo(){
         function(respuesta1){
             $('#periodo1').modal('hide');
             if(respuesta1=="Error"){
-                document.getElementById('modal-falla2').innerHTML="No se pudo crear un nuevo periodo";
+                document.getElementById('modal-falla2').innerHTML="No se pudo crear el periodo, ya se tiene registrado uno con esas fechas de inicio y termino";
                 $('#modal_falla').modal('show');
             }
             else{

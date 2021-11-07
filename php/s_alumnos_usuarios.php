@@ -96,6 +96,19 @@ else if($tipo==14){
 }else if($tipo == 21){
 	$clase = $_GET['clase'];
 	$sql = "CALL select_evaluacion($clase);";
+}else if($tipo==22){
+	$clase = $_GET['clase'];
+	$usuario = $_GET['usuario'];
+
+	$sql1 = mysqli_query($con3, "CALL Select_usuario_alumno('$usuario')");
+    $row1 = mysqli_fetch_assoc($sql1);
+    $idA = $row1['Id_Alumno'];
+
+	$sql2 = mysqli_query($con2, "CALL Select_clase_alumno('$idA')");
+    $row2 = mysqli_fetch_assoc($sql2);
+    $idAC = $row2['Id_Alumno_Clase'];
+
+	$sql = "CALL select_evaluacion_a('$idA', '$idAC');";
 }
 
 

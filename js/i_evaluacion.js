@@ -80,8 +80,9 @@ $(document).ready(function() {
             parcial = $('#calP').val();
             $.post("../php/i_evaluacion.php",{clasea:claseA, alumno:alumno, parcial:parcial, calif:calificacion, clase:idClase},
             function(resp){
+                $('#calif1').modal('hide');
                if(resp == "Error"){
-                document.getElementById('modal-falla2').innerHTML="No se pudo guardar la Evaluación";
+                document.getElementById('modal-falla2').innerHTML="A este alumno ya se le había asignado una calificación a la evaluación número "+parcial;
                 $('#modal_falla').modal('show');
                 }else{
                 $('#calif1').modal('hide');

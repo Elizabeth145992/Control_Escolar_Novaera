@@ -24,6 +24,15 @@ $postal = $_POST['postal'];
 $tele = $_POST['tele'];
 $colonia = $_POST['colonia'];
 
+$sql3 = mysqli_query($con4, "CALL select_usuarios('$correo');");
+
+if(mysqli_num_rows($sql3)>0){
+    echo 'Error';
+    mysqli_close($con4);
+}else{
+
+
+
 $sql1 = "CALL insert_direccion('$estado', '$municipio', '$calle', '$numero', '$postal', '$colonia')";
     $result1 = mysqli_query($con1, $sql1);
 if($result1){
@@ -63,7 +72,7 @@ if(!$mail->Send()){
     echo "Error";
 }
 
-
+}
 mysqli_close($con1);
 mysqli_close($con2);
 mysqli_close($con3);

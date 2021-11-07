@@ -794,10 +794,10 @@ DELIMITER ;
 
 --SP que sirve para seleccionar las calificaciones parciales de un alumno
 DELIMITER$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_califp_alumno_`(`a_user` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_califp_alumno_`(`a_user` INT, `a_ca` INT)
 BEGIN
   SELECT Calificacion FROM calificacion_parcial
-  WHERE Id_Alumno = a_user;
+  WHERE Id_Alumno = a_user AND Id_Alumno_Clase = a_ca;
 END$$
 DELIMITER ;
 
@@ -809,5 +809,76 @@ SELECT alumno.Id_Alumno FROM alumno
 INNER JOIN usuario
 ON usuario.Id_Usuario = alumno.Id_Usuario
 WHERE usuario.Correo = c_correo;
+END$$
+DELIMITER ;
+
+--SP para seleccionar las evaluaciones para un determinado alumno
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_evaluacion_a`(`c_alumno` INT, `c_ac` INT)
+BEGIN
+SELECT * FROM ((evaluacion
+INNER JOIN alumno
+ON alumno.Id_Alumno = evaluacion.Id_Alumno)
+INNER JOIN alumno_clase
+ON alumno_clase.Id_Alumno_Clase = evaluacion.Id_Alumno_Clase)
+where evaluacion.Id_Alumno_Clase = c_ac and evaluacion.Id_Alumno = c_alumno;
+END$$
+DELIMITER ;
+
+--SP para verificar si algun alumno ya se le asigno una calificación de algún parcial
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_califpcomp_a`(`c_alumno` INT, `c_ac` INT,
+`c_parcial` INT)
+BEGIN
+SELECT * FROM calificacion_parcial
+where Id_Alumno = c_alumno AND Id_Alumno_Clase = c_ac AND Parcial = c_parcial;
+END$$
+DELIMITER ;
+
+--SP para verificar si algún alumno ya se le asigno una calificación final de una materia
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_califFcomp_a`(`c_alumno` INT, `c_ac` INT)
+BEGIN
+SELECT * FROM calificacion_final
+where Id_Alumno = c_alumno AND Id_Alumno_Clase = c_ac;
+END$$
+DELIMITER ;
+
+--SP para verificar si algun alumno ya se le asigno una calificación a alguna evaluación
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_evacomp_a`(`c_alumno` INT, `c_c` INT,
+`c_parcial` INT)
+BEGIN
+SELECT * FROM evaluacion
+where Id_Alumno = c_alumno AND Id_Alumno_Clase = c_c AND Num_evaluacion = c_parcial;
+END$$
+DELIMITER ;
+
+--SP para verificar si algun alumno ya se le tomo asistencia en cierta fecha
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_asistenciacomp_a`(`c_alumno` INT, `c_c` INT,
+`c_fecha` DATE)
+BEGIN
+SELECT * FROM asistencia
+where Id_Alumno = c_alumno AND Id_Alumno_Clase = c_c AND Fecha = c_fecha;
+END$$
+DELIMITER ;
+
+--SP para verificar si algun alumno ya tiene registrado un padre
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_padreacompr`(`c_alumno` INT)
+BEGIN
+SELECT * FROM padre_alumno
+where Id_Alumno = c_alumno;
+END$$
+DELIMITER ;
+
+--SP para verificar si algún periodo con la fceha dada ya esta creado
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_peridodcomp`(`c_fechai` DATE,
+`c_fechat` DATE)
+BEGIN
+SELECT * FROM periodo
+where Fecha_Inicio = c_fechai AND Fecha_Termino = C_fechat;
 END$$
 DELIMITER ;

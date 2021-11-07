@@ -21,6 +21,7 @@ $con6 = mysqli_connect($host, $usuario, $password, $bd, $port);
 $con7 = mysqli_connect($host, $usuario, $password, $bd, $port);
 $con8 = mysqli_connect($host, $usuario, $password, $bd, $port);
 $con9 = mysqli_connect($host, $usuario, $password, $bd, $port);
+$con10 = mysqli_connect($host, $usuario, $password, $bd, $port);
 
 mysqli_query($con1, "set names 'utf8'");
 mysqli_query($con2, "set names 'utf8'");
@@ -31,5 +32,6 @@ mysqli_query($con6, "set names 'utf8'");
 mysqli_query($con7, "set names 'utf8'");
 mysqli_query($con8, "set names 'utf8'");
 mysqli_query($con9, "set names 'utf8'");
+mysqli_query($con10, "set names 'utf8'");
 
 ?>

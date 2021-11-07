@@ -41,7 +41,7 @@ function guardarUsuario(){
         calle:c8, numero:c9, postal:c10, colonia:c12}, 
         function(respuesta1){
         if(respuesta1=="Error"){
-            document.getElementById('modal-falla2').innerHTML="No se pudo guardar el nuevo usuario";
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar el usuario, el correo ya ha sido registrado con otro usuario";
             $('#modal_falla').modal('show');
         }
         else{

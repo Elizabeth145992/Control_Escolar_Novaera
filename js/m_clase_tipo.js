@@ -169,6 +169,44 @@ function verCP(){
      }
 }
 
+function verEv(){
+    if(idUsuario==0){
+    $('#tabla_eva').modal('show');
+    $('#dataTableEva').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_alumnos_usuarios.php?tipo=22&clase='+idClase+'&usuario='+idUser+''
+        },
+
+        'columns': [
+           { data: 'Num_evaluacion' },
+           { data: 'Calificacion' },
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+     });
+     }else{
+        $('#tabla_eva').modal('show');
+    $('#dataTableEva').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_alumnos_usuarios.php?tipo=22&clase='+idClase+'&usuario='+idUsuario+''
+        },
+
+        'columns': [
+           { data: 'Num_evaluacion' },
+           { data: 'Calificacion' },
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+     }); 
+     }
+}
+
 function enviarVariables(){
     var nomVec= valores.split(",");
     for (var i=0; i<nomVec.length; i++)

@@ -30,7 +30,7 @@ include("principal.html");
   <h5 class="card-header">Evaluaciones</h5>
   <div class="card-body">
     <br>
-    <a href="#" class="btn btn-primary boton_guardar">Ver evaluaciones</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="verEv();">Ver evaluaciones</a>
   </div>
 </div>
       </div>
@@ -97,6 +97,38 @@ include("principal.html");
                     <thead id="tabla">
                       <tr>
                         <th>Bloque/Parcial</th>
+                        <th>Calificación</th>
+                      </tr>
+                    </thead>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <!--Modal para evaluaciones-->
+  <div class="modal" id="tabla_eva" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" width="100%">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+            <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="tabla_eva2">
+            <h6 class="centro">Mis Evaluaciones</h6><br>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Listado de Evaluaciones</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTableEva" width="100%" cellspacing="0">
+                    <thead id="tabla">
+                      <tr>
+                        <th># de evaluación</th>
                         <th>Calificación</th>
                       </tr>
                     </thead>

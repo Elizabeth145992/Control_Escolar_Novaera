@@ -25,7 +25,7 @@ $(document).ready(function() {
             for(var i=0;i<total;i++){
                 $('#card_al').append('<div class="col">'
                 +'<div id="card_alumno" class="card borde sombra tamano">'
-                +'<img class="img-fluid" src="../img/artes.jpg" class="card-img-top" alt="clases">'
+                +'<img class="img-fluid" src="../img/'+i+'.jpg" class="card-img-top" alt="clases">'
                 +'<div class="card-body">'
                 +'<h5 class="card-title">'+datosUsuario["data"][i].Nombre_Clase+' '+datosUsuario["data"][i].Grado+' Grado de '+datosUsuario["data"][i].Nivel+'</h5>'
                 +'<h6>Docente: '+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+' '+datosUsuario["data"][i].Apellido_Materno+'</h6>'

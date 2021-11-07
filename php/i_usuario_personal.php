@@ -27,6 +27,12 @@ $puesto = $_POST['puesto'];
 $rol = $_POST['rol'];
 $colonia = $_POST['colonia'];
 
+$sql6 = mysqli_query($con6, "CALL select_usuarios('$correo');");
+
+if(mysqli_num_rows($sql6)>0){
+    echo 'Error';
+    mysqli_close($con6);
+}else{
 
 $sql1 = "CALL insert_direccion('$estado', '$municipio', '$calle', '$numero', '$postal', '$colonia')";
     $result1 = mysqli_query($con1, $sql1);
@@ -82,4 +88,5 @@ mysqli_close($con2);
 mysqli_close($con3);
 mysqli_close($con4);
 mysqli_close($con5);
+}
 ?>

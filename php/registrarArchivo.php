@@ -38,12 +38,14 @@ $con2 = mysqli_connect($host, $usuario, $pass, $bd, $port);
 $con3 = mysqli_connect($host, $usuario, $pass, $bd, $port);
 $con4 = mysqli_connect($host, $usuario, $pass, $bd, $port);
 $con5 = mysqli_connect($host, $usuario, $pass, $bd, $port);
+$con6 = mysqli_connect($host, $usuario, $pass, $bd, $port);
 
 mysqli_query($con1, "set names 'utf8'");
 mysqli_query($con2, "set names 'utf8'");
 mysqli_query($con3, "set names 'utf8'");
 mysqli_query($con4, "set names 'utf8'");
 mysqli_query($con5, "set names 'utf8'");
+mysqli_query($con6, "set names 'utf8'");
 
    if($i != 0) 
    { 
@@ -63,6 +65,13 @@ $colonia = utf8_encode($datos[7]);
 $calle = utf8_encode($datos[8]);
 $numero = utf8_encode($datos[9]);
 $cp = utf8_encode($datos[10]);
+
+$sql6 = mysqli_query($con6, "CALL select_usuarios('$datos[3]');");
+
+if(mysqli_num_rows($sql6)>0){
+    echo 'Error';
+    mysqli_close($con6);
+}else{
 
 $sql1 = "CALL insert_direccion('$estado', '$municipio', '$calle', '$numero', '$cp', '$colonia')";
     $result1 = mysqli_query($con1, $sql1);
@@ -122,6 +131,7 @@ mysqli_close($con2);
 mysqli_close($con3);
 mysqli_close($con4);
 mysqli_close($con5);
+   }
 $i++;
 
 

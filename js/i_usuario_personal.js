@@ -44,7 +44,7 @@ function guardarUsuario(){
         calle:c8, numero:c9, postal:c10, rfc:c12, puesto:c13, rol:c14, colonia:c15}, 
         function(respuesta1){
         if(respuesta1=="Error"){
-            document.getElementById('modal-falla2').innerHTML="No se pudo guardar el nuevo personal escolar";
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar el usuario, el correo proporcionado ya esta registrado con otro usuario";
             $('#modal_falla').modal('show');
         }
         else{
@@ -76,7 +76,7 @@ function registrararchivo(){
             $('#modal_falla').modal('show');
         },
         error: function (){
-            document.getElementById('modal-falla2').innerHTML="No se pudo guardar la información";
+            document.getElementById('modal-falla2').innerHTML="No se pudo guardar el usuario, el correo proporcionado ya esta registrado con otro usuario";
             $('#modal_falla').modal('show');
         }
     });

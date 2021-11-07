@@ -73,7 +73,7 @@ $(document).ready(function() {
             $.post("../php/i_califF.php",{clasea:claseA, alumno:alumno, clase:idClase},
             function(resp){
                if(resp == "Error"){
-                document.getElementById('modal-falla2').innerHTML="No se pudo generar la Calificación";
+                document.getElementById('modal-falla2').innerHTML="No se puede generar nuevamente la calificacoón de esta alumno";
                 $('#modal_falla').modal('show');
                 }else{
                 document.getElementById('modal-falla2').innerHTML="Se ha generado la calificación final, observe la tabla de abajo";

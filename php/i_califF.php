@@ -11,10 +11,18 @@ $clasea = $_POST['clasea'];
 $alumno = $_POST['alumno'];
 $clase = $_POST['clase'];
 $hoy = date("Y-m-d H:i:s");
-
 $calift = 0;
 
-$calif = "CALL Select_califp_alumno_('$alumno');";
+
+$sql6 = mysqli_query($con10, "CALL select_califFcomp_a('$alumno', '$clasea');");
+
+if(mysqli_num_rows($sql6)>0){
+    echo "Error";
+    mysqli_close($con10);
+}else{
+
+
+$calif = "CALL Select_califp_alumno_('$alumno', '$clasea');";
 $consult = mysqli_query($con9, $calif);
 $totalc = mysqli_num_rows($consult);
 while($data1 = mysqli_fetch_assoc($consult)) {
@@ -78,4 +86,5 @@ $sql1 = "CALL insert_calificacionf('$calificaciontotal','$alumno', '$clasea')";
     mysqli_close($con7);
     mysqli_close($con8);
     mysqli_close($con9);
+}
 ?>

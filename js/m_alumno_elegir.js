@@ -44,6 +44,9 @@ var obtener_data_editar1 = function(tbody,table){
                 var elemento = document.getElementById("correcto");
                 elemento.append('Alumno seleccionado:'+data.Nombre+ ' ' +data.Apellido_Paterno+ ' ' +data.Apellido_Materno + ', ');
                 
+            }else if(respuesta1 == "Error"){
+                var elemento = document.getElementById("correcto");
+                elemento.append('Este alumno no puede ser seleccionado, ya tiene asignado un padre/tutor, ');
             }
         });
     });

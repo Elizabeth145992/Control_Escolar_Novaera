@@ -81,11 +81,12 @@ $(document).ready(function() {
             $.post("../php/i_califP.php",{clasea:claseA, alumno:alumno, parcial:parcial, calif:calificacion, clase:idClase},
             function(resp){
                if(resp == "Error"){
-                document.getElementById('modal-falla2').innerHTML="No se pudo guardar la Calificación";
+                $('#calif1').modal('hide');
+                document.getElementById('modal-falla2').innerHTML="Ya fue asignada una calificación a este alumno y a este parcial";
                 $('#modal_falla').modal('show');
                 }else{
                 $('#calif1').modal('hide');
-                document.getElementById('modal-falla2').innerHTML="se guardó la Calificación";
+                document.getElementById('modal-falla2').innerHTML="Se guardó la Calificación";
                 $('#modal_falla').modal('show');
                 pagina_cp();
                 }

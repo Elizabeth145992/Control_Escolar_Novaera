@@ -15,6 +15,12 @@ $fecha = date('Y-m-d');
 $hoy = date("Y-m-d H:i:s");
 $clase = $_POST['clase'];
 
+$sql6 = mysqli_query($con9, "CALL select_evacomp_a('$alumno', '$clasea', '$parcial');");
+
+if(mysqli_num_rows($sql6)>0){
+    echo "Error";
+    mysqli_close($con9);
+}else{
 
 $sql1 = "CALL insert_evaluacion('$calif', '$fecha', '$parcial', '$alumno', '$clasea')";
     $result1 = mysqli_query($con1, $sql1);
@@ -47,4 +53,11 @@ $sql1 = "CALL insert_evaluacion('$calif', '$fecha', '$parcial', '$alumno', '$cla
     }
 
     mysqli_close($con1);
+    mysqli_close($con2);
+    mysqli_close($con3);
+    mysqli_close($con4);
+    mysqli_close($con5);
+    mysqli_close($con6);
+    mysqli_close($con7);
+}
 ?>

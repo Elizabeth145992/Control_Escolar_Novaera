@@ -42,13 +42,13 @@ today =yyyy + '/' + mm + '/' + dd;
            { data: 'Apellido_Paterno' },
            { data: 'Apellido_Materno' },
            { data: 'Nombre' },
-           { defaultContent: '<input class="editar3 form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">'
+           { defaultContent: '<input class="editar3 form-check-input" type="radio" value="" name="flexRadioDefault" id="flexCheckDefault">'
                              +'<label for="">Normal</label><br>'
-                             +'<input class="editar4 form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">'
+                             +'<input class="editar4 form-check-input" type="radio" value="" name="flexRadioDefault" id="flexCheckDefault">'
                              +'<label for="">No asistió</label><br>'
-                             +'<input class="editar5 form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">'
+                             +'<input class="editar5 form-check-input" type="radio" value="" name="flexRadioDefault" id="flexCheckDefault">'
                              +'<label for="">Retardo</label><br>'
-                             +'<input class="editar6 form-check-input check_color" type="checkbox" value="" id="flexCheckDefault">'
+                             +'<input class="editar6 form-check-input" type="radio" value="" name="flexRadioDefault" id="flexCheckDefault">'
                              +'<label for="">Justificada</label><br>'
                             }
         ],
@@ -73,10 +73,10 @@ function asistencia_data_editar3 (tbody, table){
     $.post("../php/i_asistencia.php",{
       fecha:today, usuario:idUser, alumno:alumno, tipo:1, ac:claseA}, function(result){
         if(result=="Error"){
-          document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+          document.getElementById('modal-falla2').innerHTML="Este alumno ya tiene asistencia en la fecha: "+today;
           $('#modal_falla').modal('show');
         }else{
-          document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
+          document.getElementById('modal-falla2').innerHTML="Se guardo la asistencia de "+nombrea;
           $('#modal_falla').modal('show');
         }
       });
@@ -91,7 +91,7 @@ function asistencia_data_editar3 (tbody, table){
 $.post("../php/i_asistencia.php",{
 fecha:today, usuario:idUser, alumno:alumno, tipo:2, ac:claseA}, function(result){
   if(result=="Error"){
-    document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+    document.getElementById('modal-falla2').innerHTML="Este alumno ya tiene asistencia en la fecha: "+today;
     $('#modal_falla').modal('show');
   }else{
     document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
@@ -109,7 +109,7 @@ fecha:today, usuario:idUser, alumno:alumno, tipo:2, ac:claseA}, function(result)
     $.post("../php/i_asistencia.php",{
       fecha:today, usuario:idUser, alumno:alumno, tipo:3, ac:claseA}, function(result){
         if(result=="Error"){
-          document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+          document.getElementById('modal-falla2').innerHTML="Este alumno ya tiene asistencia en la fecha: "+today;
           $('#modal_falla').modal('show');
         }else{
           document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
@@ -127,7 +127,7 @@ fecha:today, usuario:idUser, alumno:alumno, tipo:2, ac:claseA}, function(result)
     $.post("../php/i_asistencia.php",{
       fecha:today, usuario:idUser, alumno:alumno, tipo:4, ac:claseA}, function(result){
         if(result=="Error"){
-          document.getElementById('modal-falla2').innerHTML="No se pudo guardar la asistencia";
+          document.getElementById('modal-falla2').innerHTML="Este alumno ya tiene asistencia en la fecha: "+today;
           $('#modal_falla').modal('show');
         }else{
           document.getElementById('modal-falla2').innerHTML="Se guarado la asistencia de "+nombrea;
