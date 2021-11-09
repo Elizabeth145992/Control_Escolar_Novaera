@@ -26,7 +26,7 @@ include("principal.html");
     <br>
     <a href="#" class="btn btn-primary boton_guardar"  onclick="verAc();">Ver actividades</a>
     <div id="ocultar4">
-    <br><br>
+    <br>
     <a href="#" class="btn btn-primary boton_guardar" onclick="registrarAc();">Nueva actividad</a></div>
   </div>
 </div>
@@ -36,10 +36,11 @@ include("principal.html");
   <h5 class="card-header">Evaluaciones</h5>
   <div class="card-body">
     <br>
-    <a href="#" class="btn btn-primary boton_guardar" onclick="reporteE();">Generar reporte</a>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="registrarE();">Nueva evaluación</a>
     <div id="ocultar3">
-    <br><br>
-    <a href="#" class="btn btn-primary boton_guardar" onclick="registrarE();">Nueva evaluación</a></div>
+    <br>
+    <a href="#" class="btn btn-primary boton_guardar" onclick="reporteE();">Generar reporte</a>
+  </div>
   </div>
 </div>
       </div>

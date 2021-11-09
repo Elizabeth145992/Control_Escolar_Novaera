@@ -37,7 +37,7 @@ function menu() {
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-user-edit"></i>'
-        +'<span class="pagina">Registro de <br> Usuarios</span></a><hr>'
+        +'<span class="pagina">Registro de Usuario</span></a><hr>'
         +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton1">'
         +'<li><a class="dropdown-item" href="../view/form_usuario_padre.php">Padre/Tutor</a></li>'
         +'<li><a class="dropdown-item" href="../view/form_usuario_alumno.php">Alumnos</a></li>'
@@ -53,7 +53,7 @@ function menu() {
         +'<span class="pagina">Nueva Clase</span></a></li><hr>'
         +'<li><a href="../view/u_clase.php">'
         +'<i class="paginas esconder fas fa-edit"></i>'
-        +'<span class="pagina">Editar Clase</span></a></li><hr>'
+        +'<span class="pagina">Editar Clase <br> Registrar alumnos en clase</span></a></li><hr>'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Biblioteca Digital</span></a><hr>'
@@ -93,7 +93,7 @@ function menu() {
         +'<li><a href="pagina_principal_padre.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
         +'<li><a href="#">'
-        +'<i class="paginas esconder fas fa-paypal"></i>'
+        +'<i class="paginas esconder fab fa-paypal"></i>'
         +'<span class="pagina">Pagos</span></a></li><hr>');
     }else if(tipoUser==4){
         $('#menulateral').append('<div class="dropdown"><hr>'

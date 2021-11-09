@@ -49,14 +49,14 @@ function unirseGrupo(){
     var c1 = $('#codigo').val();
 
     $.post("../php/i_alumno_clase.php",{codigo:c1, usuario:idUser}, function(r){
-        if(r=="Error"){
+        if(r == "Error"){
             $('#unir1').modal('hide');
-            document.getElementById('modal-falla2').innerHTML="No se agregó a la clase";
+            document.getElementById('modal-falla2').innerHTML="Ya te encuentras agregado a esta clase";
             $('#modal_falla').modal('show');
         }
         else{
             $('#unir1').modal('hide');
-          document.getElementById('modal-falla2').innerHTML="SE agregó correctamente a la clase";
+          document.getElementById('modal-falla2').innerHTML="Se agregó correctamente a la clase";
           $('#modal_falla').modal('show');
           $("#modal_falla").on('hidden.bs.modal', function () {
           paginacodigo()});;

@@ -14,6 +14,8 @@ $(document).ready(function() {
                 +'<h4 class="card-title">'+datosUsuario["data"][i].Grado+' Grado. Grupo '+datosUsuario["data"][i].Grupo+' de '+datosUsuario["data"][i].Nivel+'</h4><br>'
                 +'<a class="btn btn-primary boton_guardar" onclick="claseT('+datosUsuario["data"][i].Id_Usuario
                 +')">Vizualizar Clases</a><br><br>'
+                +'<a class="btn btn-primary boton_guardar" onclick="califFp('+datosUsuario["data"][i].Id_Usuario
+                +')">Vizualizar Calificaciones Finales</a><br><br>'
                 +'</div></div></div>');
         }
         }
@@ -22,6 +24,26 @@ $(document).ready(function() {
         }
     });
 });
+
+function califFp(user){
+    $('#tabla_califFP').modal('show');
+    $('#dataTablecalifFP').DataTable({
+        'destroy' : true,
+        'ajax': {
+            'method':'GET',
+            'url':'../php/s_alumnos_usuarios.php?tipo=12&usuario='+user+''
+        },
+
+        'columns': [
+           { data: 'Nombre_Clase' },
+           { data: 'Calificacion' },
+        ],
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+     });
+
+}
 
 function claseT(usuario){
     idC = usuario;

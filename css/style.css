@@ -130,13 +130,13 @@ li{
 }
 footer{
     background-color: var(--green);
-    margin: 0rem;
-    padding: 1rem 0;
+    /*margin: 0rem;
+    padding: 1rem 0;*/
     text-align: center;
     font-size: 1rem;
     color: var(--black);
     position: fixed;
-    left: 0;
+    /*left: 0;*/
     bottom: 0;
     width: 100%;
     
@@ -149,7 +149,7 @@ footer{
     padding: 0;
     float:left;
     margin-right: 2rem;
-    height: 150%;
+    height: 110%;
 }
 .menu_derecho{
     background-color:  var(--navegation);
@@ -172,14 +172,14 @@ footer{
     list-style: none;
 }
 .user{
-    
     margin-right: 1rem;
     color: var(--blue2);
 }
 .paginas{
-    margin-left: 1rem;
+    margin: 0;
     font-size: 2rem;
     color: var(--blue2);
+    padding-left: 1rem;
 }
 .nombre{
     text-align: center;
@@ -187,11 +187,11 @@ footer{
     font-size: 2rem;
 }
 .pagina{
-    text-align: center;
+    /*text-align: center;*/
     text-decoration: none;
     color: var(--white);
     font-size: 1.5rem;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
 }
 .linea{
     background-color: #000000;
@@ -412,6 +412,14 @@ ul{
 }
 .img_login{
     height: 10rem;
+}
+#placecolor::placeholder { 
+    color:var(--navegation); 
+    font-weight: bold; 
+}
+#placecolor2::placeholder { 
+    color: var(--purple); 
+    font-weight: bold; 
 }
 /*-----------Media-----------------------------*/
 @media (max-width: 768px) {

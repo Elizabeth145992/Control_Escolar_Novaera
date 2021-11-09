@@ -343,9 +343,10 @@ DELIMITER ;
 
 --SP para seleccionar todas las clases de un determinado alumno
 DELIMITER$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_clase_alumno`(`a_alumno` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Select_clase_alumno`(`a_alumno` INT,
+`a_peri` INT)
 BEGIN
-  SELECT * FROM ((((((alumno_clase
+  SELECT * FROM ((((((((alumno_clase
   INNER JOIN clase
   ON clase.Id_Clase = alumno_clase.Id_Clase)
   INNER JOIN nivel
@@ -359,8 +360,12 @@ BEGIN
   INNER JOIN usuario
   ON usuario.Id_Usuario = personal_escolar.Id_Usuario)
   INNER JOIN alumno
-  ON alumno.Id_Alumno = alumno_clase.Id_Alumno
-  WHERE alumno.Id_Alumno = a_alumno;
+  ON alumno.Id_Alumno = alumno_clase.Id_Alumno)
+  INNER JOIN periodo
+  ON periodo.Id_Periodo = clase.Id_Periodo)
+  INNER JOIN estatus
+  ON estatus.Id_Estatus = clase.Id_Estatus
+  WHERE alumno.Id_Alumno = a_alumno AND clase.Id_Periodo = a_peri AND clase.Id_Estatus = 1;
 END$$
 DELIMITER ;
 
@@ -880,5 +885,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `select_peridodcomp`(`c_fechai` DATE
 BEGIN
 SELECT * FROM periodo
 where Fecha_Inicio = c_fechai AND Fecha_Termino = C_fechat;
+END$$
+DELIMITER ;
+
+--SP para verificar si algún alumno se encuentra inscrito en algún grupo
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_alumnoclasecomp`(`alumno` INT,
+`clase` INT)
+BEGIN
+SELECT * FROM alumno_clase
+where Id_Alumno = alumno AND Id_Clase = clase;
 END$$
 DELIMITER ;

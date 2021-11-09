@@ -18,18 +18,20 @@
             <i class="fas fa-bars tamano"></i>
           </button>
           <!--Aside para el menú lateral izquierdo-->
-          <aside class="menu_izquierdo centro esconder4" >
+          <aside class="menu_izquierdo  esconder4" >
             <ul class="menu2 menu2_separacion">
-              <div id="usuario"></div>
+              <div class="centro" id="usuario"></div>
             <div id="menulateral" ></div></ul>
             
-            <p><br><br>
-              <a href="calendario.php" class="btn btn-primary boton_guardar">Ver Calendario</a>
+            <p><br>
+              <div class="centro">
+              <a href="calendario.php" class="btn btn-primary boton_guardar centro">Ver Calendario</a>
+            </div>
           </p>
         </aside>
 
         <!--Aside para menú escondido lateral izquierdo-->
-    <aside id="esconder3" class="collapse menu_izquierdo centro" >
+    <aside id="esconder3" class="collapse menu_izquierdo" >
         <ul class="menu2 menu2_separacion">
             <span class="nombre centro"><i class="esconder user fas fa-user"></i>Daniela García</span>
             <span class="nombre centro">Alumno</span><br>
@@ -225,7 +227,7 @@
 </div>
    
 
-<!--Modal para crear nuevo periodo-->
+<!--Modal para chat personal-->
 <div class="modal fade" id="chatp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -314,7 +316,38 @@
     </div>
   </div>
 </div>
-    
+
+   <!--Modal para calificaciones finales mostrar padres-->
+   <div class="modal" id="tabla_califFP" tabindex="-1" ole="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" width="100%">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Instituto Novaera</h5>
+          <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="tabla_califFP2">
+          <h6 class="centro">Calificaciones Finales</h6><br>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Listado de calificaciones Finales</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTablecalifFP" width="100%" cellspacing="0">
+                  <thead id="tabla">
+                    <tr>
+                      <th>Materia</th>
+                      <th>Calificación</th>
+                    </tr>
+                  </thead>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+  </div>     
            
             
 

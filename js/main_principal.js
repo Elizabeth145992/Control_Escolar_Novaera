@@ -158,15 +158,18 @@ function obtener_data_editar3 (tbody, table){
             if(datos != "Error"){
                 var datosUsuario = JSON.parse(datos);
                 var total = datosUsuario["data"].length;
+
+                $("#mensajesC").animate({ scrollTop: $('#mensajesC').prop("scrollHeight")}, 1000);
                 for(var i=0;i<total;i++){
                     
                    if(datosUsuario["data"][i].Id_Usuario_destinatario == idUser){
-                       $('#mensajesC').append('<div class="input-group"><label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
-                       +'<textarea style="float:left; class="form-control" margin-bottom: 10%;"' 
-                       +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                       $('#mensajesC').append('<div class="input-group">'
+                       //+'<label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
+                       +'<textarea style="float:left;font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                       +'name="" id="placecolor" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+': '+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }else{
-                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right; class="form-control" margin-bottom: 10%;"' 
-                    +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right; font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                    +'name=""  id="placecolor2" cols="30" rows="4" readonly placeholder="Yo:'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }
                 }
                 }
@@ -214,20 +217,21 @@ function obtener_data_editar5(tbody, table){
         var data = table.row($(this).parents("tr")).data();
         usrI = data.Id_Usuario;
 
-        console.log(usrI);
          $.get('../php/s_mensaje.php?user='+idUser+'&tipo=2&usrD='+usrI+'', function(datos){
             if(datos != "Error"){
                 var datosUsuario = JSON.parse(datos);
                 var total = datosUsuario["data"].length;
+                $("#mensajesC").animate({ scrollTop: $('#mensajesC').prop("scrollHeight")}, 1000);
                 for(var i=0;i<total;i++){
                     
                    if(datosUsuario["data"][i].Id_Usuario_destinatario == idUser){
-                       $('#mensajesC').append('<div class="input-group"><label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
-                       +'<textarea style="float:left; class="form-control" margin-bottom: 10%;"' 
-                       +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                       $('#mensajesC').append('<div class="input-group">'
+                       //+'<label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
+                       +'<textarea style="float:left;font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                       +'name="" id="placecolor" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+': '+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }else{
-                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right; class="form-control" margin-bottom: 10%;"' 
-                    +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right;font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                    +'name="" id="placecolor2" cols="30" rows="4" readonly placeholder="Yo: '+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }
                 }
                 }
@@ -249,19 +253,22 @@ function enviar(){
         if(datos == "Error"){
         }else{
             document.getElementById('mensajesC').innerHTML = '';
+            $('#contenido').val("");
              $.get('../php/s_mensaje.php?user='+idUser+'&tipo=2&usrD='+usrD+'', function(datos){
             if(datos != "Error"){
+                $("#mensajesC").animate({ scrollTop: $('#mensajesC').prop("scrollHeight")}, 1000);
                 var datosUsuario = JSON.parse(datos);
                 var total = datosUsuario["data"].length;
                 for(var i=0;i<total;i++){
                     
                    if(datosUsuario["data"][i].Id_Usuario_destinatario == idUser){
-                       $('#mensajesC').append('<div class="input-group"><label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
-                       +'<textarea style="float:left; class="form-control" margin-bottom: 10%;"' 
-                       +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                       $('#mensajesC').append('<div class="input-group">'
+                      // +'<label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
+                       +'<textarea style="float:left;font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                       +'name="" id="placecolor" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+': '+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }else{
-                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right; class="form-control" margin-bottom: 10%;"' 
-                    +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right;font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                    +'name="" id="placecolor2" cols="30" rows="4" readonly placeholder="Yo: '+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }
                 }
                 }
@@ -279,19 +286,22 @@ function enviar(){
         if(datos == "Error"){
         }else{
             document.getElementById('mensajesC').innerHTML = '';
+            $('#contenido').val("");
              $.get('../php/s_mensaje.php?user='+idUser+'&tipo=2&usrD='+usrI+'', function(datos){
             if(datos != "Error"){
                 var datosUsuario = JSON.parse(datos);
                 var total = datosUsuario["data"].length;
+                $("#mensajesC").animate({ scrollTop: $('#mensajesC').prop("scrollHeight")}, 1000);
                 for(var i=0;i<total;i++){
                     
                    if(datosUsuario["data"][i].Id_Usuario_destinatario == idUser){
-                       $('#mensajesC').append('<div class="input-group"><label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
-                       +'<textarea style="float:left; class="form-control" margin-bottom: 10%;"' 
-                       +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                       $('#mensajesC').append('<div class="input-group">'
+                       //+'<label style="float:left; class="input-group-text">'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+'</label>'
+                       +'<textarea style="float:left;font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                       +'name="" id="placecolor" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Nombre+' '+datosUsuario["data"][i].Apellido_Paterno+': '+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }else{
-                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right; class="form-control" margin-bottom: 10%;"' 
-                    +'name="" id="" cols="30" rows="4" readonly placeholder="'+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
+                    $('#mensajesC').append('<div class="input-group"><textarea style="float:right;font-size:150%" class="form-control" margin-bottom: 10%;"' 
+                    +'name="" id="placecolor2" cols="30" rows="4" readonly placeholder="Yo: '+datosUsuario["data"][i].Contenido+'"></textarea></div><br><br>');
                    }
                 }
                 }
