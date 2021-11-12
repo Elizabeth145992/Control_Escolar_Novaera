@@ -665,13 +665,19 @@ DELIMITER ;
 DELIIMITER$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_eventos`(`e_user` INT)
 BEGIN
-  SELECT * FROM ((evento_reuniones 
+  SELECT * FROM (((((evento_reuniones 
   INNER JOIN tipo_evento 
   ON tipo_evento.Id_Tipo_Evento = evento_reuniones.Id_Tipo_Evento)
   INNER JOIN usuario
   ON usuario.Id_Usuario =  evento_reuniones.Id_Usuario)
   INNER JOIN clase
-  ON clase.Id_Clase =  evento_reuniones.Id_Clase
+  ON clase.Id_Clase =  evento_reuniones.Id_Clase)
+  INNER JOIN nivel
+  ON nivel.Id_Nivel = clase.Id_Nivel)
+  INNER JOIN grado
+  ON grado.Id_Grado = clase.Id_Grado)
+  INNER JOIN grupo 
+  ON grupo.Id_Grupo = clase.Id_Grupo
   WHERE  evento_reuniones.Id_Usuario = e_user;
 END$$
 DELIMITER ;
@@ -895,5 +901,26 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `select_alumnoclasecomp`(`alumno` IN
 BEGIN
 SELECT * FROM alumno_clase
 where Id_Alumno = alumno AND Id_Clase = clase;
+END$$
+DELIMITER ;
+
+--SP para eventos de allumnos
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_eventosa`(IN `e_clase` INT)
+BEGIN
+ SELECT * FROM (((((evento_reuniones 
+  INNER JOIN tipo_evento 
+  ON tipo_evento.Id_Tipo_Evento = evento_reuniones.Id_Tipo_Evento)
+  INNER JOIN usuario
+  ON usuario.Id_Usuario =  evento_reuniones.Id_Usuario)
+  INNER JOIN clase
+  ON clase.Id_Clase =  evento_reuniones.Id_Clase)
+  INNER JOIN nivel
+  ON nivel.Id_Nivel = clase.Id_Nivel)
+  INNER JOIN grado
+  ON grado.Id_Grado = clase.Id_Grado)
+  INNER JOIN grupo 
+  ON grupo.Id_Grupo = clase.Id_Grupo
+  WHERE  evento_reuniones.Id_Clase = e_clase;
 END$$
 DELIMITER ;

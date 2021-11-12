@@ -45,7 +45,7 @@ function menu() {
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'
         +'</div>'
-        +'<li><a id="Gperiodo1" href="#">'
+        +'<li><a onclick="nperiodo();" href="#">'
         +'<i class="paginas esconder fas fa-calendar-day"></i>'
         +'<span class="pagina">Nuevo periodo</span></a></li><hr>'
         +'<li><a href="../view/form_clase.php">'
@@ -189,12 +189,9 @@ function cf(usuario){
      });
 }
 
-$(document).ready(function(){
-    $("#Gperiodo1").click(
-      function(){
-        $('#periodo1').modal('show');
-      });
-});
+function nperiodo(){
+    $('#periodo1').modal('show');
+}
 
 function guardarPeriodo(){
     var p1 = $('#nombreP').val();

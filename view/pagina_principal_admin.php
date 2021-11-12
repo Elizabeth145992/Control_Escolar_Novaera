@@ -5,7 +5,6 @@ echo '<script src="../js/i_clase.js"></script>';
 include("principal.html");
 ?>
         <h5 class="clases">Bienvenido!!!</h5>
-        <div id="prueba"></div>
         <div class="margen_body">
             <hr class="linea">
             <br><br>
@@ -56,6 +55,17 @@ include("principal.html");
   </div>
 </div>
 </div>
+
+<div class="col-sm-6">
+<div id="card_padres" class="card borde sombra centro"  style="width: 36rem;">
+  <h5 class="card-header">Padres/Tutores</h5>
+  <div class="card-body">
+    <h6 class="card-title">Visualización y edición de los padre/tutor</h6><br>
+    <a href="m_padre_admin.php" class="btn btn-primary boton_guardar">Vizualizar</a><br><br>
+  </div>
+</div>
+</div>
+
 </div>
 </div>
 

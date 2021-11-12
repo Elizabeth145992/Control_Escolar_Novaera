@@ -29,8 +29,13 @@ include("footer.html");
                         <option selected>Seleccione</option>
                         <option value="1">Reunión en Teams</option>
                         <option value="2">Reunión en Zoom</option>
+                        <option value="3">Otro evento</option>
                     </select><br>
-
+                    <div id="ti" style="display:none;">
+                    <label for="titulo" class="form-label"><b>Título del Evento</b></label>
+                    <input type="text" class="form-control input_tamano" id="titulo" name="titulo">
+                    </div>
+                    <br>
                     <div class="form-group"><label for="contraseña"><b>Seleccione la clase</b></label><br>
                     <select id="classe" class="form-select input_tamano" aria-label="Default select example" required>
                     </select><br>
@@ -45,5 +50,17 @@ include("footer.html");
               </div>
             </div>
           </div>
+
+          <script>
+$('#tipo').change(function() {
+   if($(this).val()==3){
+        var var2=document.getElementById('ti');
+        var2.style.display="block";
+    }else{
+      var var3=document.getElementById('ti');
+        var3.style.display="none";
+    }
+});
+</script>
 
           
