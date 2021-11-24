@@ -92,7 +92,7 @@ function menu() {
         $('#menulateral').append('<div class="dropdown"><hr>'
         +'<li><a href="pagina_principal_padre.php"><i class="paginas esconder fas fa-home"></i>'
         +'<span  class="pagina">Página Principal</span><hr></a></li><br>'
-        +'<li><a href="#">'
+        +'<li><a href="../view/vista_pago_padre.php">'
         +'<i class="paginas esconder fab fa-paypal"></i>'
         +'<span class="pagina">Pagos</span></a></li><hr>');
     }else if(tipoUser==4){
@@ -102,6 +102,18 @@ function menu() {
         +'<li><a href="../view/m_biblioteca.php">'
         +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Blioteca Digital</span></a></li><hr>'
+        +'<div class="dropdown">'
+        +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">'
+        +'<i class="paginas esconder fab fa-paypal"></i>'
+        +'<span class="pagina">Pagos</span></a><hr>'
+        +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton3">'
+        +'<li><a onclick="pagonivel(tipo=1)" class="dropdown-item" href="#">Preescolar</a></li>'
+        +'<li><a onclick="pagonivel(tipo=2)" class="dropdown-item" href="#">Primaria</a></li>'
+        +'<li><a onclick="pagonivel(tipo=3)" class="dropdown-item" href="#">Secundaria</a></li>'
+        +'<li><a onclick="pagonivel(tipo=4)" class="dropdown-item" href="#">Preparatoria</a></li>'
+        +'<li><hr class="dropdown-divider"></li>'
+        +'</ul>'
+        +'</div>'
         +'<div class="dropdown">'
         +'<a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">'
         +'<i class="paginas esconder fas fa-chart-line"></i>'
@@ -215,3 +227,17 @@ function guardarPeriodo(){
         });
     }
 
+function pagonivel(t){
+    tipo = t;
+    pagina ="vista_pago_c.php?"; 
+    valores = "tipo";
+    enviarVariables20();
+}
+
+function enviarVariables20(){
+    var nomVec= valores.split(",");
+    for (var i=0; i<nomVec.length; i++)
+        pagina+=nomVec[i]+"="+escape(eval(nomVec[i]))+"&";
+    pagina = pagina.substring(0, pagina.length-1);
+    location.href=pagina;
+}

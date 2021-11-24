@@ -924,3 +924,78 @@ BEGIN
   WHERE  evento_reuniones.Id_Clase = e_clase;
 END$$
 DELIMITER ;
+
+--SP para seleccionar los montos de los pagos de los alumnos
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_pago_reporte`(`p_alumno` INT, 
+`p_periodo` INT)
+BEGIN
+SELECT * FROM (((((pago_reporte
+INNER JOIN Alumno
+ON alumno.Id_Alumno = pago_reporte.Id_Alumno)
+INNER JOIN usuario
+ON usuario.Id_Usuario = alumno.Id_Usuario)
+INNER JOIN nivel
+ON nivel.Id_Nivel = alumno.Id_Nivel)
+INNER JOIN grado
+ON grado.Id_Grado = alumno.Id_Grado)
+INNER JOIN grupo
+ON grupo.Id_Grupo = alumno.Id_Grupo)
+INNER JOIN periodo
+ON periodo.Id_Periodo = pago_reporte.Id_Periodo
+where pago_reporte.Id_Alumno = p_alumno AND pago_reporte.Id_Periodo = p_periodo;
+END$$
+DELIMITER ;
+
+--SP para seleccionar los montos de los pagos de los alumnos de un determinado padre
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_pago_padre`(`p_padre` INT)
+BEGIN
+SELECT * FROM ((((((pago_reporte
+INNER JOIN Alumno
+ON alumno.Id_Alumno = pago_reporte.Id_Alumno)
+INNER JOIN usuario
+ON usuario.Id_Usuario = alumno.Id_Usuario)
+INNER JOIN nivel
+ON nivel.Id_Nivel = alumno.Id_Nivel)
+INNER JOIN grado
+ON grado.Id_Grado = alumno.Id_Grado)
+INNER JOIN grupo
+ON grupo.Id_Grupo = alumno.Id_Grupo)
+INNER JOIN periodo
+ON periodo.Id_Periodo = pago_reporte.Id_Periodo)
+INNER JOIN padre_alumno
+ON padre_alumno.Id_Alumno = alumno.Id_Alumno
+where padre_alumno.Id_Padre = p_padre;
+END$$
+DELIMITER ;
+
+--SP para seleccionar un determinado pago
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_pago_alumno`(`p_pago` INT)
+BEGIN
+SELECT * FROM (((((pago_reporte
+INNER JOIN Alumno
+ON alumno.Id_Alumno = pago_reporte.Id_Alumno)
+INNER JOIN usuario
+ON usuario.Id_Usuario = alumno.Id_Usuario)
+INNER JOIN nivel
+ON nivel.Id_Nivel = alumno.Id_Nivel)
+INNER JOIN grado
+ON grado.Id_Grado = alumno.Id_Grado)
+INNER JOIN grupo
+ON grupo.Id_Grupo = alumno.Id_Grupo)
+INNER JOIN periodo
+ON periodo.Id_Periodo = pago_reporte.Id_Periodo
+where pago_reporte.Id_Pago_Reporte = p_pago;
+END$$
+DELIMITER ;
+
+--SP para seleccionar al padre de un alumno
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_padre_alumno`(`p_usuario` INT)
+BEGIN
+SELECT Id_Padre FROM padre_alumno
+WHERE Id_Alumno = p_usuario;
+END$$
+DELIMITER ;

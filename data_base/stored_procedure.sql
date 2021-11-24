@@ -336,3 +336,22 @@ update notificacion set Id_Estatus = 2
 END$$
 DELIMITER ;
 
+--SP para insertar el monto a pagar
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_monto_pago`( `p_alumno` INT,
+ `p_monto` FLOAT, `p_periodo` INT)
+BEGIN
+INSERT INTO pago_reporte(Monto, Id_Alumno, Id_Periodo)
+VALUES(p_monto, p_alumno, p_periodo);
+END$$
+DELIMITER ;
+
+--SP para edición de cantidad de pago
+DELIMITER$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_cantidad_pago`(`p_monto` INT, `p_idp`)
+BEGIN
+update pago_reporte set Monto = p_monto
+ where Id_Pago_Reporte = p_idp;
+END$$
+DELIMITER ;
+
