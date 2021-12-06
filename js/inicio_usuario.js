@@ -58,7 +58,7 @@ function menu() {
         +'<i class="paginas esconder fas fa-book-reader"></i>'
         +'<span class="pagina">Biblioteca Digital</span></a><hr>'
         +'<ul class="dropdown-menu dropdown-menu-dark fuente_lateral" aria-labelledby="dropdownMenuButton2">'
-        +'<li><a class="dropdown-item" href="../view/form_biblioteca.php">Nueva Recurso</a></li>'
+        +'<li><a class="dropdown-item" href="../view/form_biblioteca.php">Nuevo Recurso</a></li>'
         +'<li><a class="dropdown-item" href="../view/m_biblioteca.php">Ver Bibloteca Digital</a></li>'
         +'<li><hr class="dropdown-divider"></li>'
         +'</ul>'

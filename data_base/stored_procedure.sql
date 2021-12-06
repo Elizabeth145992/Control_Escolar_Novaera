@@ -1,4 +1,4 @@
---Este archivo contendrá todos los SP para la realización de CRUD
+--Este archivo contendrá todos los SP para la realización de CRUD del sistema
 
 --SP para la inserción de un nuevo usuario
 DELIMITER $$

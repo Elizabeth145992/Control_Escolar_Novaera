@@ -1,4 +1,5 @@
-/* */
+/*Este archivo sirve para comunicar los datos de la calif. parcial que da el usuario
+para ser registrados en la BD */
 inicializacion();
 sesionUsuario();
 var idClase;
@@ -10,7 +11,7 @@ var calificacion;
 var  idcalf;
 var m = 5;
 
-
+//Esta parte del código sirve recoger los datos de las variables que se mandana por la barra de navegación
 $(document).ready(function() {
     var cadVariables = location.search.substring(1,location.search.length);
     var arrVariables = cadVariables.split("&");
@@ -24,7 +25,7 @@ $(document).ready(function() {
 
     idClase = parseInt(idClase);
     
-
+//En esta tabla se enlistan todos los alumnos de una clase para el registro de la calificación parcial
     var table4 = $('#dataTableAlumnosCC').DataTable({
         'destroy' : true,
         'ajax': {
@@ -35,6 +36,7 @@ $(document).ready(function() {
            { data: 'Apellido_Paterno' },
            { data: 'Apellido_Materno' },
            { data: 'Nombre' },
+           //Botón para registrar calificación parcial
            { defaultContent: '<div class="centro"><button class="editar3 btn btn-primary btn_table boton_guardar"><i class="far fa-keyboard"></i></button></div>' }
         ],
         "language": {
@@ -42,7 +44,7 @@ $(document).ready(function() {
         }});
         calificacion_p("", table4);
 
-
+//Tabla que sirve para enlistar los alumnos que ya resivieron calificación de algún parcial
         var table5 = $('#dataTableAlumnosEC').DataTable({
             'destroy' : true,
             'ajax': {
@@ -55,6 +57,7 @@ $(document).ready(function() {
                { data: 'Nombre' },
                {data: 'Parcial'},
                {data: 'Calificacion'},
+               //Botón para editar calificación parcial
                { defaultContent: '<div class="centro"><button class="editar btn btn-warning btn_table"><i class="far fa-edit"></i></button></div>' }
             ],
             "language": {
@@ -63,6 +66,7 @@ $(document).ready(function() {
             calificacion_pE("",table5);
         });
 
+        //Función que sirve para tomar datos del alumno para registrar la calificación parcial y para mostrar el modal de captura de calificación
         function calificacion_p (tbody, table){
 
             $(document).on("click", ".editar3", function(){
@@ -74,7 +78,7 @@ $(document).ready(function() {
                       $('#calif1').modal('show');
             });
         }
-
+//Función que manda los datos de la califición parcial y el parcial al archivo de php para guardara en la BD
         function capturaC(){
             calificacion = $('#cal').val();
             parcial = $('#calP').val();
@@ -92,7 +96,7 @@ $(document).ready(function() {
                 }
             });
         }
-
+//Funicón que sirve para darle los datos al archivo de php para realizar el update de la calificación
         function edicionC(){
            var calificacion2 = $('#edit').val();
             $.post("../php/u_califP.php",{caliE:calificacion2, idcali:idcalf},
@@ -113,6 +117,7 @@ $(document).ready(function() {
             
         }
        
+        //REcoge datos del alumno para realizar update de la calificación al igual que muestra el modal para la modificación de la calif. 
         function calificacion_pE(tbody, table){
             $(document).on("click", '.editar', function(){
               var data = table.row($(this).parents("tr")).data();
@@ -122,11 +127,13 @@ $(document).ready(function() {
             });
         }
 
+        //Sirve para recargar la página cada vez de que se guarde o se edite una calificación de manera exitosa
         function pagina_cp(){
             pagina ="calificacion_parcial.php?"; 
             valores = "idClase";
             enviarVariables();
           }
+          //Manda el id de la clase en la barra de navegación
           function enviarVariables(){
             var nomVec= valores.split(",");
             for (var i=0; i<nomVec.length; i++)

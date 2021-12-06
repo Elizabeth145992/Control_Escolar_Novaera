@@ -1,4 +1,5 @@
-/* */
+/*Este archivo sirve para generar la calificación final de cada alumno, de acuerdo a la calificación de
+los parciales*/
 inicializacion();
 sesionUsuario();
 var idClase;
@@ -10,7 +11,8 @@ var calificacion;
 var  idcalf;
 var i=0;
 
-
+//Parte del código que sirve para recoger los datos de la variables que se reciben por la barra de navegación,
+//este se carga cada vez de que se recrga la página 
 $(document).ready(function() {
     var cadVariables = location.search.substring(1,location.search.length);
     var arrVariables = cadVariables.split("&");
@@ -24,7 +26,7 @@ $(document).ready(function() {
 
     idClase = parseInt(idClase);
     
-
+    //Tabla que enlista loss alumnos de una determinada clase para la generación de su calificación final
     var table4 = $('#dataTableAlumnosCC').DataTable({
         'destroy' : true,
         'ajax': {
@@ -35,13 +37,14 @@ $(document).ready(function() {
            { data: 'Apellido_Paterno' },
            { data: 'Apellido_Materno' },
            { data: 'Nombre' },
+           //ESte botón genera y guarad la calif. final de manera automática cuando es oprimido
            { defaultContent: '<div class="centro"><button class="editar3 btn btn-primary btn_table boton_guardar"><i class="far fa-keyboard"></i></button></div>' }
         ],
         "language": {
             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
         }});
         calificacion_F("", table4);
-
+//Esta tabla enlista todos los alumnos a los que se les generó una calif. final de la materia
         var table5 = $('#dataTableAlumnosEC').DataTable({
             'destroy' : true,
             'ajax': {
@@ -53,6 +56,7 @@ $(document).ready(function() {
                { data: 'Apellido_Materno' },
                { data: 'Nombre' },
                {data: 'Calificacion'},
+               //Este botón sirve para modificar la calificación final que se guardó en la BD
                { defaultContent: '<div class="centro"><button class="editar2 btn btn-warning btn_table"><i class="far fa-edit"></i></button></div>' }
             ],
             "language": {
@@ -62,6 +66,7 @@ $(document).ready(function() {
             calificacion_FE2("", table5);
         });
 
+        //Esta función genera la calificación final de alumno
         function calificacion_F(tbody, table){
 
             $(document).on("click", ".editar3", function(){
@@ -122,7 +127,7 @@ $(document).ready(function() {
             });
         }
 
-
+//Esta fución sirve para editar la calificación
         function edicionCF(){
            var calificacion2 = $('#edit').val();
             $.post("../php/u_califF.php",{caliE:calificacion2, idcali:idcalf},function(resp){
@@ -142,13 +147,13 @@ $(document).ready(function() {
         }
         
 
-
+//Sirve para recargar la página cuando se realiza una generación o modificación de calificación
         function  recargarpaginaF(){
             pagina ="calificacion_final.php?"; 
             valores = "idClase";
             enviarVariables();
         }
-        
+//Esta función manda las variables por la barra de navegación
         function enviarVariables(){
             var nomVec= valores.split(",");
             for (var i=0; i<nomVec.length; i++)

@@ -6,7 +6,7 @@ include("principal.html");
 
 ?>
 
-<h5  class="clases">Registro de Padre/Tutor</h5>
+<h5  class="clases">Registro de Alumnos</h5>
 <div class="margen_body">
 <hr class="linea">
 
@@ -44,7 +44,7 @@ include("principal.html");
 <div class="col">
     <br><br>
     <h5>Datos Escolares</h5>
-    <label for="RFC" class="form-label">RFC</label>
+    <label for="RFC" class="form-label">Número de control</label>
     <input type="text" class="form-control input_tamano" id="rfc" name="rfc" pattern="[0-9]+" minlength="6">
 
     <label for="nivel" class="form-label">Nivel</label>

@@ -1,9 +1,9 @@
-/* */
+/*Este archivo sirve para la comunicar los datos de una nueva actividad para registrarla en la BD */
 
 inicializacion();
 sesionUsuario();
 var idClase;
-
+//Esta parte de código sirve para poder tomar las variables que se mandan desde la barra de búsqueda de otra vista
 $(document).ready(function() {
     var cadVariables = location.search.substring(1,location.search.length);
     var arrVariables = cadVariables.split("&");
@@ -18,7 +18,7 @@ $(document).ready(function() {
     idClase = parseInt(idClase);
 });
 
-
+//Funcón para tomar los datos del formulario y pasarlos al lenguaje del servidor
 function guardarAc(){
     var fichero = $('#archi')[0].files[0];
     var nombre = fichero.name;
@@ -58,11 +58,13 @@ function guardarAc(){
   });
 }
 
+//Función para recargar la página cada vez de que una actividad sea creada
 function pagina_c(){
   pagina ="form_actividad.php?"; 
   valores = "idClase";
   enviarVariables();
 }
+//Esta función recoge las variables para mandarlas por la barra de busqueda
 function enviarVariables(){
   var nomVec= valores.split(",");
   for (var i=0; i<nomVec.length; i++)

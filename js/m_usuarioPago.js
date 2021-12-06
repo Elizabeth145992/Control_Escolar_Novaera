@@ -134,7 +134,7 @@ $(document).ready(function() {
             console.log(r);
             if(r =="Error"){
                 $('#montoA').modal('hide');
-                document.getElementById('modal-falla2').innerHTML="No se registró la cantidad de pago, ya hay una cantidad de pago registrada";
+                document.getElementById('modal-falla2').innerHTML="Se guardó correctamente la cantidad de pago, en los alumnos sin registro de pago";
                 $('#modal_falla').modal('show');
             }
             else{

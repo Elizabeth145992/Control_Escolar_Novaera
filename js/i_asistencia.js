@@ -1,9 +1,10 @@
-/**/
+/*Este archivo sirve para poder mandar los datos de asistencia de un alumno para que sea registrada */
 inicializacion();
 sesionUsuario();
 var idClase;
 var today;
 
+//Esta parte del código sirve madar las variables mandadas desde la barra de navegación
 $(document).ready(function() {
     var cadVariables = location.search.substring(1,location.search.length);
     var arrVariables = cadVariables.split("&");
@@ -16,10 +17,10 @@ $(document).ready(function() {
     } 
 
     idClase = parseInt(idClase);
-    today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1;
-var yyyy = today.getFullYear();
+    today = new Date();//Obtener fecha de hoy
+var dd = today.getDate();//Día
+var mm = today.getMonth() + 1;//Mes
+var yyyy = today.getFullYear();//Año
 
 if (dd < 10) {
   dd = '0' + dd;
@@ -32,6 +33,7 @@ if (mm < 10) {
 today =yyyy + '/' + mm + '/' + dd;
     $('#p').append('<label for="">Fecha: </label><input type="text" placeholder='+today+' readonly>');
 
+    //Tabla ajax donde se enlistan los alumnos de una determinada clase para tomar asistencia
     var tableA = $('#dataTableAlumnosA').DataTable({
         'destroy' : true,
         'ajax': {
@@ -62,6 +64,7 @@ today =yyyy + '/' + mm + '/' + dd;
      asistencia_data_editar3("", tableA);
 });
 
+//Fubción que sirve para registar el tipo de sistencia de un determinado alumno de la clase
 function asistencia_data_editar3 (tbody, table){
 
   $(document).on("click", ".editar3", function(){

@@ -49,7 +49,7 @@ function guardarUsuario(){
         }
         else{
             var password = respuesta1;
-            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el alumno. El password fue enviado al correo del usuario";
+            document.getElementById('modal-falla2').innerHTML="Se guardo correctamente el usuario. El password fue enviado al correo del usuario";
             $('#modal_falla').modal('show');
             $("#modal_falla").on('hidden.bs.modal', function () {
             recargarpagina()});
